@@ -27,8 +27,8 @@ struct DetailView: View {
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.name)
                 .font(.title)
             HStack{
-                ///display text "nutrition:"
-                TextField(ViewModel.scientificPlaceHolder)
+                ///display text "SubtItle:"
+                Text(ViewModel.scientificPlaceHolder)
                 .font(.subheadline)
                 .lineLimit(nil)
                 .multilineTextAlignment(.center)
@@ -53,22 +53,16 @@ struct DetailView: View {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "family:"
-                    Text(ViewModel.familyPlaceHolder)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .frame(maxHeight: .infinity)
+                    TextField(ViewModel.familyPlaceHolder, text:$model.textFieldTitle1)
+
                     
                     ///display text "weight:"
-                    Text(ViewModel.weightPlaceHolder)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .frame(maxHeight: .infinity)
+                    TextField(ViewModel.weightPlaceHolder, text: $model.textFieldTitle2)
+
                     
                     ///display text "nutrition:"
-                    Text(ViewModel.nutritionPlaceHolder)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .frame(maxHeight: .infinity)
+                    TextField(ViewModel.nutritionPlaceHolder, text: $model.textFieldTitle3)
+
                     ///display text "Image URL"
                     Text(ViewModel.imageURLPlaceHolder)
                     .fontWeight(.bold)

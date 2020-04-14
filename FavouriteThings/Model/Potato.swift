@@ -21,9 +21,16 @@ class Potato : ObservableObject, Identifiable{
     ///type of family for potato
     var family:String
     ///weight of the potato
-   var weight: String
+    var weight: String
     ///nutrition values of potato
     var nutrition:String
+    
+    var textFieldTitle1: String
+    
+    var textFieldTitle2: String
+    
+    var textFieldTitle3: String
+    
     ///image name for potato in the assets folder
     @Published var image:String
     /**
@@ -47,13 +54,16 @@ class Potato : ObservableObject, Identifiable{
      
     - Returns: New Potato object
     */
-    init(name:String, family:String, weight:String, scienceName:String, nutrition:String, image: String) {
+    init(name:String, family:String, weight:String, scienceName:String, nutrition:String, image: String, textFieldTitle1:String, textFieldTitle2:String, textFieldTitle3:String) {
         self.name = name
         self.family  = family
         self.weight = weight
         self.scienceName = scienceName
         self.nutrition = nutrition
         self.image = image
+        self.textFieldTitle1 = textFieldTitle1
+        self.textFieldTitle2 = textFieldTitle2
+        self.textFieldTitle3 = textFieldTitle3
     }
     /**
     function is used to update the  uiImage variable and assign a image to the prarameter.

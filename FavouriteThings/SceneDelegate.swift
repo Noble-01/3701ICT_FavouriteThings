@@ -12,9 +12,9 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let viewModel = ViewModel(potatos: [Potato(name: "Kipfler", family:"Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"),
-        Potato( name: "Vitelotte", family:"Starch Potato", weight: "300grams", scienceName: "Solanum Vitelotte", nutrition: "protien, potassium and vitamin C", image: "potato1"),
-        Potato(name: "Laura", family:"Cultivar Potato", weight: "150 grams", scienceName: "Laura tuberosum", nutrition: " potassium and vitamin C", image: "potato2")])
+    let viewModel = ViewModel(potatos: [Potato(name: "Kipfler", family:"Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato", textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: "),
+        Potato( name: "Vitelotte", family:"Starch Potato", weight: "300grams", scienceName: "Solanum Vitelotte", nutrition: "protien, potassium and vitamin C", image: "potato1",textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: "),
+        Potato(name: "Laura", family:"Cultivar Potato", weight: "150 grams", scienceName: "Laura tuberosum", nutrition: " potassium and vitamin C", image: "potato2",textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: ")])
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

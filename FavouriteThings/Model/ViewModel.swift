@@ -13,9 +13,9 @@ class ViewModel: ObservableObject, Identifiable{
     ///placeholder variable for textfield when new object is created
     static var newElementTextPlaceHolder: String = "<new>"
     ///placeholder variable for the name text/textfield property when a new object is created
-    static var newNamePlaceHolder: String = "<Name>"
+    static var newNamePlaceHolder: String = "<Title>"
     ///placeholder variable for scientific name text /textfield property when a new object is created
-    static var newScientificNamePlaceHolder: String = "<Scientific Name>"
+    static var newScientificNamePlaceHolder: String = "<Subtitle>"
     ///placeholder varaible for Image URL textfield default value
     static var imageURLTextFieldPlaceHolder: String = "URL of Image"
     ///placeholder variable for family  label text
@@ -31,7 +31,7 @@ class ViewModel: ObservableObject, Identifiable{
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
     ///placeholder variable for scientific name label text
-    static var scientificPlaceHolder: String = "Scientific Name:"
+    static var scientificPlaceHolder: String = "Subtitle:"
     ///placeholder variable for list title  text
     static var listTitle: String = "Potatos"
     ///placeholder variable for default image if no image is loaded by remote URL
@@ -53,7 +53,7 @@ class ViewModel: ObservableObject, Identifiable{
     */
     func addElement(){
         ///create new instance of object with placeholder text variables and blank properties to be filled in later
-        let potato = Potato(name: "\(ViewModel.newNamePlaceHolder)", family: "", weight: "", scienceName: "\(ViewModel.newScientificNamePlaceHolder)", nutrition: "", image: "\(ViewModel.defaultImagePlaceHolder)")
+        let potato = Potato(name: "\(ViewModel.newNamePlaceHolder)", family: "", weight: "", scienceName: "\(ViewModel.newScientificNamePlaceHolder)", nutrition: "", image: "\(ViewModel.defaultImagePlaceHolder)", textFieldTitle1: "", textFieldTitle2: "", textFieldTitle3: "")
         potatos.append(potato)
     }
     /**
