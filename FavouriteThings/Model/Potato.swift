@@ -24,11 +24,11 @@ class Potato : ObservableObject, Identifiable{
     var weight: String
     ///nutrition values of potato
     var nutrition:String
-    
+    ///textfield for the first heading
     var textFieldTitle1: String
-    
+    ///textfield for the second heading
     var textFieldTitle2: String
-    
+    ///textfield for the last heading
     var textFieldTitle3: String
     
     ///image name for potato in the assets folder
@@ -51,6 +51,9 @@ class Potato : ObservableObject, Identifiable{
     - parameter scienceName: Scientific name of the potato
     - parameter nutrition: Nutritional value of potato
     - parameter image: string of image, can be a local or URL
+    - parameter textFieldTitle1: string for title of one of the headings in the detail view
+    - parameter textFieldTitle2: string for title of one of the headings in the detail view
+    - parameter textFieldTitle3: string for title of one of the headings in the detail view
      
     - Returns: New Potato object
     */
