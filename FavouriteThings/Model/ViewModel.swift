@@ -63,5 +63,7 @@ class ViewModel: ObservableObject, Identifiable{
     func deleteItems(index: Int){
         potatos.remove(at: index)
     }
-    
+    func moveItems(from source: IndexSet, to destination: Int) {
+    potatos.move(fromOffsets: source, toOffset: destination)
+    }
 }

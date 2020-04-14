@@ -24,8 +24,10 @@ struct MasterView: View {
                 NavigationLink(destination: DetailView(model: potato)){
                         RowView(potato: potato)
                     }
-                ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
-                }.onDelete{indices in
+                ///move items in list when the edit button is selected
+            }.onMove(perform: self.viewModel.moveItems(from:to:))
+            ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
+            .onDelete{indices in
                     indices.forEach {self.viewModel.deleteItems(index:$0)
             }
         }

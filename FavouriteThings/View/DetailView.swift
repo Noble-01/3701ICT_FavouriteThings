@@ -28,7 +28,7 @@ struct DetailView: View {
                 .font(.title)
             HStack{
                 ///display text "nutrition:"
-                Text(ViewModel.scientificPlaceHolder)
+                TextField(ViewModel.scientificPlaceHolder)
                 .font(.subheadline)
                 .lineLimit(nil)
                 .multilineTextAlignment(.center)
