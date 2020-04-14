@@ -33,9 +33,10 @@ class ViewModel: ObservableObject, Identifiable{
     ///placeholder variable for scientific name label text
     static var scientificPlaceHolder: String = "Subtitle:"
     ///placeholder variable for list title  text
-    static var listTitle: String = "Potatos"
+    @Published var listTitle: String = "Favourite Things"
     ///placeholder variable for default image if no image is loaded by remote URL
     static var defaultImagePlaceHolder: String = "potato"
+    
     
     /**
     class is used to hold the array
