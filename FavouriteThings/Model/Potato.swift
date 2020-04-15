@@ -45,20 +45,18 @@ class Potato : ObservableObject, Identifiable, Codable{
     @Published var note: String = ""
     
 
-    /**
-     initialize the attributes of the class
-    - parameter name: The common name of the potato
-    - parameter family: The family of the potato
-    - parameter weight: Average weight of potato
-    - parameter scienceName: Scientific name of the potato
-    - parameter nutrition: Nutritional value of potato
-    - parameter image: string of image, can be a local or URL
-    - parameter textFieldTitle1: string for title of one of the headings in the detail view
-    - parameter textFieldTitle2: string for title of one of the headings in the detail view
-    - parameter textFieldTitle3: string for title of one of the headings in the detail view
-     
-    - Returns: New Potato object
-    */
+    enum CodingKeys: String, CodingKey{
+        case name
+        case scienceName
+        case family
+        case nutrition
+        case textFieldTitle1
+        case textFieldTitle2
+        case textFieldTitle3
+        case note
+        case image
+    }
+    
     init() {
     }
     required init(from decoder: Decoder)throws{

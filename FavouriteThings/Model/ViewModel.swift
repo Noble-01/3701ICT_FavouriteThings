@@ -44,6 +44,10 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     */
     @Published var potatos = [Potato]()
     /// Initializes `self` with default strategies.
+    
+    enum CodingKeys: String, CodingKey{
+        case potatos
+    }
     init() {
     }
     required init(from decoder: Decoder)throws{
