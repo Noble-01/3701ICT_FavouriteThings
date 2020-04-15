@@ -17,8 +17,11 @@ struct MasterView: View {
     var body: some View {
         ///creates the list that utalises the array of potato information
         VStack {
-            TextField(viewModel.listTitle, text: $viewModel.listTitle)
-            List{
+            HStack{
+            Text("📝").font(Font.system(.largeTitle).bold())
+            TextField(viewModel.listTitle, text: $viewModel.listTitle).font(Font.system(.largeTitle).bold())
+            }
+                List{
                 ///creates a for loop to run through the array with the var potato
                 ForEach(viewModel.potatos) { potato in
                     ///links the items in the list to the detailView for the potato object selected
