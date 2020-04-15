@@ -62,6 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let json = JSONEncoder()
             let data = try json.encode(viewModel)
             try data.write(to: fileURL)
+            print("successfully wrote file \(fileURL.path)")
             }catch{
                 print("Could not write file \(fileURL.path): \(error)")
         }

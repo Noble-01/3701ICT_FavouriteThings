@@ -16,24 +16,24 @@ class Potato : ObservableObject, Identifiable, Codable{
     */
     var id = UUID()
     ///generic name for potato
-    @Published var name:String
+    @Published var name:String = "Kipfler"
     ///scientific name for potato
-    @Published var scienceName:String
+    @Published var scienceName:String = "Solanum tuberosum"
     ///type of family for potato
-    var family:String
+    var family:String = "Sweet Potato"
     ///weight of the potato
-    var weight: String
+    var weight: String = "200 grams"
     ///nutrition values of potato
-    var nutrition:String
+    var nutrition:String = "manganese, potassium and vitamin C"
     ///textfield for the first heading
-    var textFieldTitle1: String
+    var textFieldTitle1: String = "Family:"
     ///textfield for the second heading
-    var textFieldTitle2: String
+    var textFieldTitle2: String = "Weight:"
     ///textfield for the last heading
-    var textFieldTitle3: String
+    var textFieldTitle3: String = "Nutrition:"
     
     ///image name for potato in the assets folder
-    @Published var image:String
+    @Published var image:String = "Potato"
     /**
     remote URL variable name
     
@@ -59,16 +59,7 @@ class Potato : ObservableObject, Identifiable, Codable{
      
     - Returns: New Potato object
     */
-    init(name:String, family:String, weight:String, scienceName:String, nutrition:String, image: String, textFieldTitle1:String, textFieldTitle2:String, textFieldTitle3:String) {
-        self.name = name
-        self.family  = family
-        self.weight = weight
-        self.scienceName = scienceName
-        self.nutrition = nutrition
-        self.image = image
-        self.textFieldTitle1 = textFieldTitle1
-        self.textFieldTitle2 = textFieldTitle2
-        self.textFieldTitle3 = textFieldTitle3
+    init() {
     }
     required init(from decoder: Decoder)throws{
     }

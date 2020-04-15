@@ -57,7 +57,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     */
     func addElement(){
         ///create new instance of object with placeholder text variables and blank properties to be filled in later
-        let potato = Potato(name: "\(ViewModel.newNamePlaceHolder)", family: "", weight: "", scienceName: "\(ViewModel.newScientificNamePlaceHolder)", nutrition: "", image: "\(ViewModel.defaultImagePlaceHolder)", textFieldTitle1: "", textFieldTitle2: "", textFieldTitle3: "")
+        let potato = Potato()
         potatos.append(potato)
     }
     /**
