@@ -9,13 +9,15 @@
 import UIKit
 import SwiftUI
 
+private let fileManager = FileManager.default
+private let urls = FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)
+private let documentFolderUrl = urls[0]
+private let fileURL =  documentFolderUrl.appendingPathComponent("data.json")
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let viewModel = ViewModel(potatos: [Potato(name: "Kipfler", family:"Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato", textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: "),
-        Potato( name: "Vitelotte", family:"Starch Potato", weight: "300grams", scienceName: "Solanum Vitelotte", nutrition: "protien, potassium and vitamin C", image: "potato1",textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: "),
-        Potato(name: "Laura", family:"Cultivar Potato", weight: "150 grams", scienceName: "Laura tuberosum", nutrition: " potassium and vitamin C", image: "potato2",textFieldTitle1: "Family: ", textFieldTitle2: "Weight: ", textFieldTitle3: "Nutrition: ")])
-
+    var viewModel = ViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -56,9 +58,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
+        do{
+            let json = JSONEncoder()
+            let data = try json.encode(viewModel)
+            try data.write(to: fileURL)
+            }catch{
+                print("Could not write file \(fileURL.path): \(error)")
+        }
     }
 
 

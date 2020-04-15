@@ -8,7 +8,8 @@
 
 //the struct contains all the parameters that make for the objects in "Potato"
 import SwiftUI
-class Potato : ObservableObject, Identifiable{
+import Foundation
+class Potato : ObservableObject, Identifiable, Codable{
     /**
      A class of types whose instances hold the value of an entity with stable identity
      1. id is given to identify the objects of potatos in the array
@@ -43,6 +44,7 @@ class Potato : ObservableObject, Identifiable{
     ///string for textfield car note
     @Published var note: String = ""
     
+
     /**
      initialize the attributes of the class
     - parameter name: The common name of the potato
@@ -67,6 +69,11 @@ class Potato : ObservableObject, Identifiable{
         self.textFieldTitle1 = textFieldTitle1
         self.textFieldTitle2 = textFieldTitle2
         self.textFieldTitle3 = textFieldTitle3
+    }
+    required init(from decoder: Decoder)throws{
+    }
+    
+    func encode(to encoder: Encoder) throws {
     }
     /**
     function is used to update the  uiImage variable and assign a image to the prarameter.
@@ -108,3 +115,4 @@ class Potato : ObservableObject, Identifiable{
     }
 
 }
+

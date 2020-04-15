@@ -8,7 +8,7 @@
 
 import Foundation
 ///@Identifiable: A class of types whose instances hold the value of an entity with stable identity.
-class ViewModel: ObservableObject, Identifiable{
+class ViewModel: ObservableObject, Identifiable, Codable{
     
     ///placeholder variable for textfield when new object is created
     static var newElementTextPlaceHolder: String = "<new>"
@@ -36,18 +36,21 @@ class ViewModel: ObservableObject, Identifiable{
     @Published var listTitle: String = "Favourite Things"
     ///placeholder variable for default image if no image is loaded by remote URL
     static var defaultImagePlaceHolder: String = "potato"
-    
-    
+  
     /**
     class is used to hold the array
      ##Important Notes##
     1. Using @published we can look at the new array when a change is made to it
     */
-    @Published var potatos: [Potato]
+    @Published var potatos = [Potato]()
     /// Initializes `self` with default strategies.
-    init(potatos: [Potato]) {
-        self.potatos = potatos
+    init() {
     }
+    required init(from decoder: Decoder)throws{
+     }
+     
+     func encode(to encoder: Encoder) throws {
+     }
     /**
     func creates new object using the potato model
     append new object to potato array "potatos"
