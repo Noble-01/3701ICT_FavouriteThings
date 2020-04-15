@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct MasterView: View {
+    
+    @Environment(\.editMode) var mode
+    
     /**
             the following code is used to create a naviagtion view that displays all the potato objects saved into an array
      */
@@ -17,9 +20,11 @@ struct MasterView: View {
     var body: some View {
         ///creates the list that utalises the array of potato information
         VStack {
-            HStack{
-            Text("📝").font(Font.system(.largeTitle).bold())
-            TextField(viewModel.listTitle, text: $viewModel.listTitle).font(Font.system(.largeTitle).bold())
+            if mode?.wrappedValue == .active{
+                HStack{
+                Text("📝").font(Font.system(.largeTitle).bold())
+                TextField(viewModel.listTitle, text: $viewModel.listTitle).font(Font.system(.largeTitle).bold())
+                }
             }
                 List{
                 ///creates a for loop to run through the array with the var potato
@@ -37,6 +42,7 @@ struct MasterView: View {
             }
             }
         }
+        .navigationBarTitle(mode?.wrappedValue == .active ? "" : viewModel.listTitle)
 }
 
 }
