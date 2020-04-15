@@ -14,24 +14,26 @@ struct MasterView: View {
      */
     ///the list changes according to the array in the model
     @ObservedObject var viewModel: ViewModel
-    
     var body: some View {
         ///creates the list that utalises the array of potato information
-        List{
-            ///creates a for loop to run through the array with the var potato
-            ForEach(viewModel.potatos) { potato in
-                ///links the items in the list to the detailView for the potato object selected
-                NavigationLink(destination: DetailView(model: potato)){
-                        RowView(potato: potato)
-                    }
-                ///move items in list when the edit button is selected
-            }.onMove(perform: self.viewModel.moveItems(from:to:))
-            ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
-            .onDelete{indices in
-                    indices.forEach {self.viewModel.deleteItems(index:$0)
+        VStack {
+            TextField(viewModel.listTitle, text: $viewModel.listTitle)
+            List{
+                ///creates a for loop to run through the array with the var potato
+                ForEach(viewModel.potatos) { potato in
+                    ///links the items in the list to the detailView for the potato object selected
+                    NavigationLink(destination: DetailView(model: potato)){
+                            RowView(potato: potato)
+                        }
+                    ///move items in list when the edit button is selected
+                }.onMove(perform: self.viewModel.moveItems(from:to:))
+                ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
+                .onDelete{indices in
+                        indices.forEach {self.viewModel.deleteItems(index:$0)
+                }
+            }
             }
         }
-    }
 }
 
 }
