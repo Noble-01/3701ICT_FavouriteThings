@@ -16,24 +16,24 @@ class Potato : ObservableObject, Identifiable, Codable{
     */
     var id = UUID()
     ///generic name for potato
-    @Published var name:String = "Kipfler"
+    @Published var name:String
     ///scientific name for potato
-    @Published var scienceName:String = "Solanum tuberosum"
+    @Published var scienceName:String
     ///type of family for potato
-    var family:String = "Sweet Potato"
+    var family:String
     ///weight of the potato
-    var weight: String = "200 grams"
+    var weight: String
     ///nutrition values of potato
-    var nutrition:String = "manganese, potassium and vitamin C"
+    var nutrition:String
     ///textfield for the first heading
-    var textFieldTitle1: String = "Family:"
+    var textFieldTitle1: String
     ///textfield for the second heading
-    var textFieldTitle2: String = "Weight:"
+    var textFieldTitle2: String
     ///textfield for the last heading
-    var textFieldTitle3: String = "Nutrition:"
+    var textFieldTitle3: String
     
     ///image name for potato in the assets folder
-    @Published var image:String = "Potato"
+    @Published var image:String
     /**
     remote URL variable name
     
@@ -49,6 +49,7 @@ class Potato : ObservableObject, Identifiable, Codable{
         case name
         case scienceName
         case family
+        case weight
         case nutrition
         case textFieldTitle1
         case textFieldTitle2
@@ -58,11 +59,42 @@ class Potato : ObservableObject, Identifiable, Codable{
     }
     
     init() {
+        name = "Kipfler"
+        scienceName = "Solanum tuberosum"
+        family = "Sweet Potato"
+        weight = "200 grams"
+        nutrition = "manganese, potassium and vitamin C"
+        textFieldTitle1 = "Family:"
+        textFieldTitle2 = "Weight:"
+        textFieldTitle3 = "Nutrition:"
+        image = "potato"
     }
     required init(from decoder: Decoder)throws{
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        scienceName = try container.decode(String.self, forKey: .scienceName)
+        family = try container.decode(String.self, forKey: .family)
+        weight = try container.decode(String.self, forKey: .weight)
+        nutrition = try container.decode(String.self, forKey: .nutrition)
+        textFieldTitle1 = try container.decode(String.self, forKey: .textFieldTitle1)
+        textFieldTitle2 = try container.decode(String.self, forKey: .textFieldTitle2)
+        textFieldTitle3 = try container.decode(String.self, forKey: .textFieldTitle3)
+        note = try container.decode(String.self, forKey: .note)
+        image = try container.decode(String.self, forKey: .image)
     }
     
     func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(scienceName, forKey: .scienceName)
+        try container.encode(family, forKey: .family)
+        try container.encode(weight, forKey: .weight)
+        try container.encode(nutrition, forKey: .nutrition)
+        try container.encode(textFieldTitle1, forKey: .textFieldTitle1)
+        try container.encode(textFieldTitle2, forKey: .textFieldTitle2)
+        try container.encode(textFieldTitle3, forKey: .textFieldTitle3)
+        try container.encode(note, forKey: .note)
+        try container.encode(image, forKey: .image)
     }
     /**
     function is used to update the  uiImage variable and assign a image to the prarameter.

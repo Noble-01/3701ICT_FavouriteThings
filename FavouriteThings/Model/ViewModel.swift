@@ -42,18 +42,26 @@ class ViewModel: ObservableObject, Identifiable, Codable{
      ##Important Notes##
     1. Using @published we can look at the new array when a change is made to it
     */
-    @Published var potatos = [Potato]()
+    @Published var potatos : [Potato]
     /// Initializes `self` with default strategies.
     
     enum CodingKeys: String, CodingKey{
         case potatos
+        case listTitle
     }
     init() {
+        potatos = [Potato]()
     }
     required init(from decoder: Decoder)throws{
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        potatos = try container.decode([Potato].self, forKey:.potatos)
+        listTitle = try container.decode(String.self, forKey: .listTitle)
      }
      
      func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(potatos, forKey: CodingKeys.potatos)
+         try container.encode(listTitle, forKey: CodingKeys.listTitle)
      }
     /**
     func creates new object using the potato model
