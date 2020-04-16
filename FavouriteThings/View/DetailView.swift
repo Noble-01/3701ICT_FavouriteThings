@@ -24,7 +24,7 @@ struct DetailView: View {
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the name for the object on the screen
-            TextField(ViewModel.newElementTextPlaceHolder, text: $model.name)
+            TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingTitle)
                 .font(.title)
             HStack{
                 ///display text "SubtItle:"
@@ -35,7 +35,7 @@ struct DetailView: View {
                 .frame(maxHeight: .infinity)
                 
                 ///display the scientific name of potato
-                TextField(ViewModel.newElementTextPlaceHolder, text: $model.scienceName)
+                TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingSubTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
             }
@@ -53,15 +53,15 @@ struct DetailView: View {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "family:"
-                    TextField(ViewModel.familyPlaceHolder, text:$model.textFieldTitle1)
+                    TextField(ViewModel.familyPlaceHolder, text:$model.thingHeading1)
 
                     
                     ///display text "weight:"
-                    TextField(ViewModel.weightPlaceHolder, text: $model.textFieldTitle2)
+                    TextField(ViewModel.weightPlaceHolder, text: $model.thingHeading2)
 
                     
                     ///display text "nutrition:"
-                    TextField(ViewModel.nutritionPlaceHolder, text: $model.textFieldTitle3)
+                    TextField(ViewModel.nutritionPlaceHolder, text: $model.thingHeading3)
 
                     ///display text "Image URL"
                     Text(ViewModel.imageURLPlaceHolder)
@@ -79,17 +79,17 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading){
                     ///display default text "<new>" or display the family of potato if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder,text: $model.family)
+                    TextField(ViewModel.newElementTextPlaceHolder,text: $model.thingHeading1Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the weight of potato if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.weight)
+                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading2Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the nutrition of potato if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.nutrition)
+                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading3Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     

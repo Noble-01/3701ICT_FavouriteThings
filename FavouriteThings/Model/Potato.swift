@@ -16,21 +16,21 @@ class Potato : ObservableObject, Identifiable, Codable{
     */
     var id = UUID()
     ///generic name for potato
-    @Published var name:String
+    @Published var thingTitle:String
     ///scientific name for potato
-    @Published var scienceName:String
+    @Published var thingSubTitle:String
     ///type of family for potato
-    var family:String
+    var thingHeading1Value:String
     ///weight of the potato
-    var weight: String
+    var thingHeading2Value: String
     ///nutrition values of potato
-    var nutrition:String
+    var thingHeading3Value:String
     ///textfield for the first heading
-    var textFieldTitle1: String
+    var thingHeading1: String
     ///textfield for the second heading
-    var textFieldTitle2: String
+    var thingHeading2: String
     ///textfield for the last heading
-    var textFieldTitle3: String
+    var thingHeading3: String
     
     ///image name for potato in the assets folder
     @Published var image:String
@@ -46,53 +46,53 @@ class Potato : ObservableObject, Identifiable, Codable{
     
 
     enum CodingKeys: String, CodingKey{
-        case name
-        case scienceName
-        case family
-        case weight
-        case nutrition
-        case textFieldTitle1
-        case textFieldTitle2
-        case textFieldTitle3
+        case thingTitle
+        case thingSubTitle
+        case thingHeading1Value
+        case thingHeading2Value
+        case thingHeading3Value
+        case thingHeading1
+        case thingHeading2
+        case thingHeading3
         case note
         case image
     }
     
     init() {
-        name = "Kipfler"
-        scienceName = "Solanum tuberosum"
-        family = "Sweet Potato"
-        weight = "200 grams"
-        nutrition = "manganese, potassium and vitamin C"
-        textFieldTitle1 = "Family:"
-        textFieldTitle2 = "Weight:"
-        textFieldTitle3 = "Nutrition:"
+        thingTitle = "Kipfler"
+        thingSubTitle = "Solanum tuberosum"
+        thingHeading1Value = "Sweet Potato"
+        thingHeading2Value = "200 grams"
+        thingHeading3Value = "manganese, potassium and vitamin C"
+        thingHeading1 = "Family:"
+        thingHeading2 = "Weight:"
+        thingHeading3 = "Nutrition:"
         image = "potato"
     }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        scienceName = try container.decode(String.self, forKey: .scienceName)
-        family = try container.decode(String.self, forKey: .family)
-        weight = try container.decode(String.self, forKey: .weight)
-        nutrition = try container.decode(String.self, forKey: .nutrition)
-        textFieldTitle1 = try container.decode(String.self, forKey: .textFieldTitle1)
-        textFieldTitle2 = try container.decode(String.self, forKey: .textFieldTitle2)
-        textFieldTitle3 = try container.decode(String.self, forKey: .textFieldTitle3)
+        thingTitle = try container.decode(String.self, forKey: .thingTitle)
+        thingSubTitle = try container.decode(String.self, forKey: .thingSubTitle)
+        thingHeading1Value = try container.decode(String.self, forKey: .thingHeading1Value)
+        thingHeading2Value = try container.decode(String.self, forKey: .thingHeading2Value)
+        thingHeading3Value = try container.decode(String.self, forKey: .thingHeading3Value)
+        thingHeading1 = try container.decode(String.self, forKey: .thingHeading1)
+        thingHeading2 = try container.decode(String.self, forKey: .thingHeading2)
+        thingHeading3 = try container.decode(String.self, forKey: .thingHeading3)
         note = try container.decode(String.self, forKey: .note)
         image = try container.decode(String.self, forKey: .image)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(scienceName, forKey: .scienceName)
-        try container.encode(family, forKey: .family)
-        try container.encode(weight, forKey: .weight)
-        try container.encode(nutrition, forKey: .nutrition)
-        try container.encode(textFieldTitle1, forKey: .textFieldTitle1)
-        try container.encode(textFieldTitle2, forKey: .textFieldTitle2)
-        try container.encode(textFieldTitle3, forKey: .textFieldTitle3)
+        try container.encode(thingTitle, forKey: .thingTitle)
+        try container.encode(thingSubTitle, forKey: .thingSubTitle)
+        try container.encode(thingHeading1Value, forKey: .thingHeading1Value)
+        try container.encode(thingHeading2Value, forKey: .thingHeading2Value)
+        try container.encode(thingHeading3Value, forKey: .thingHeading3Value)
+        try container.encode(thingHeading1, forKey: .thingHeading1)
+        try container.encode(thingHeading2, forKey: .thingHeading2)
+        try container.encode(thingHeading3, forKey: .thingHeading3)
         try container.encode(note, forKey: .note)
         try container.encode(image, forKey: .image)
     }

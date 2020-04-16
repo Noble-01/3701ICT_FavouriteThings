@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let t = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
             let decodedModel = try decoder.decode(ViewModel.self, from: t)
-            print(decodedModel.potatos.first?.name ?? "No products")
+            print(decodedModel.potatos.first?.thingTitle ?? "No products")
             viewModel = decodedModel
         }catch{
             print("Could not load \(fileURL): \(error)")

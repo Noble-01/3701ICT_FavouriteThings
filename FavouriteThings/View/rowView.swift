@@ -22,10 +22,10 @@ struct RowView: View {
             .scaledToFit()
             
             ///display name of potato
-            Text(potato.name).fontWeight(.bold)
+            Text(potato.thingTitle).fontWeight(.bold)
             
             ///display scientific name of potato
-            Text(potato.scienceName)
+            Text(potato.thingSubTitle)
             .font(.subheadline)
             .fontWeight(.light)
             .italic()
