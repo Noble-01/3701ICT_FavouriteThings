@@ -11,21 +11,21 @@ import SwiftUI
 ///allows fot the objects to be observed and therefore show changes to the items
 struct RowView: View {
     ///@ObservedObject:  property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
-    @ObservedObject var potato: Potato
+    @ObservedObject var favouriteThing: FavouriteThing
     var body: some View {
         HStack(){
             ///calls image from the func "getterImage" for the potato object
-            potato.getterImage().resizable()
+            favouriteThing.getterImage().resizable()
             .padding(.vertical, 5.0)
             .frame(width: 80.0, height: 80.0)
             .shadow(radius: 10)
             .scaledToFit()
             
             ///display name of potato
-            Text(potato.thingTitle).fontWeight(.bold)
+            Text(favouriteThing.thingTitle).fontWeight(.bold)
             
             ///display scientific name of potato
-            Text(potato.thingSubTitle)
+            Text(favouriteThing.thingSubTitle)
             .font(.subheadline)
             .fontWeight(.light)
             .italic()

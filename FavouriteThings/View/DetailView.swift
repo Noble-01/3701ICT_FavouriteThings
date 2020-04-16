@@ -14,7 +14,7 @@ struct DetailView: View {
         the follwoing code is used to display the information about the potato objects when they are selcted from the MasterView
      */
     ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class potato so that objects can use its parameters
-    @ObservedObject var model: Potato
+    @ObservedObject var model: FavouriteThing
     ///A property wrapper type that can read and write a value managed by SwiftUI.
     ///used to set the inital state of the url string
     @State var url: String = ""

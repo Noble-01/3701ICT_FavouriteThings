@@ -28,10 +28,10 @@ struct MasterView: View {
             }
                 List{
                 ///creates a for loop to run through the array with the var potato
-                ForEach(viewModel.potatos) { potato in
+                ForEach(viewModel.favouriteThings) { favouriteThing in
                     ///links the items in the list to the detailView for the potato object selected
-                    NavigationLink(destination: DetailView(model: potato)){
-                            RowView(potato: potato)
+                    NavigationLink(destination: DetailView(model: favouriteThing)){
+                            RowView(favouriteThing: favouriteThing)
                         }
                     ///move items in list when the edit button is selected
                 }.onMove(perform: self.viewModel.moveItems(from:to:))

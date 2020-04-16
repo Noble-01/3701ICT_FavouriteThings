@@ -42,7 +42,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
      ##Important Notes##
     1. Using @published we can look at the new array when a change is made to it
     */
-    @Published var potatos : [Potato]
+    @Published var favouriteThings : [FavouriteThing]
     /// Initializes `self` with default strategies.
     
     enum CodingKeys: String, CodingKey{
@@ -50,17 +50,17 @@ class ViewModel: ObservableObject, Identifiable, Codable{
         case listTitle
     }
     init() {
-        potatos = [Potato]()
+        favouriteThings = [FavouriteThing]()
     }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        potatos = try container.decode([Potato].self, forKey:.potatos)
+        favouriteThings = try container.decode([FavouriteThing].self, forKey:.potatos)
         listTitle = try container.decode(String.self, forKey: .listTitle)
      }
      
      func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(potatos, forKey: CodingKeys.potatos)
+        try container.encode(favouriteThings, forKey: CodingKeys.potatos)
          try container.encode(listTitle, forKey: CodingKeys.listTitle)
      }
     /**
@@ -69,17 +69,17 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     */
     func addElement(){
         ///create new instance of object with placeholder text variables and blank properties to be filled in later
-        let potato = Potato()
-        potatos.append(potato)
+        let favouriteThing = FavouriteThing()
+        favouriteThings.append(favouriteThing)
     }
     /**
     func deletes item from potato array at index int
      - parameter index:   int to specify location of item in array to delete
     */
     func deleteItems(index: Int){
-        potatos.remove(at: index)
+        favouriteThings.remove(at: index)
     }
     func moveItems(from source: IndexSet, to destination: Int) {
-    potatos.move(fromOffsets: source, toOffset: destination)
+    favouriteThings.move(fromOffsets: source, toOffset: destination)
     }
 }

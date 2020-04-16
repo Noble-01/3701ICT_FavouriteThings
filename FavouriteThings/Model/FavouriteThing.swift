@@ -1,4 +1,13 @@
 //
+//  FavouriteThing.swift
+//  FavouriteThings
+//
+//  Created by Zac Cripps on 16/4/20.
+//  Copyright © 2020 Zac Cripps. All rights reserved.
+//
+
+import Foundation
+//
 //  Potato.swift
 //  FavouriteThings
 //
@@ -9,7 +18,7 @@
 //the struct contains all the parameters that make for the objects in "Potato"
 import SwiftUI
 import Foundation
-class Potato : ObservableObject, Identifiable, Codable{
+class FavouriteThing : ObservableObject, Identifiable, Codable{
     /**
      A class of types whose instances hold the value of an entity with stable identity
      1. id is given to identify the objects of potatos in the array
