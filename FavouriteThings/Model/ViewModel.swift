@@ -10,6 +10,8 @@ import Foundation
 ///@Identifiable: A class of types whose instances hold the value of an entity with stable identity.
 class ViewModel: ObservableObject, Identifiable, Codable{
     
+    ///placeholder variable for list title  text
+    @Published var listTitle: String = "Favourite Things"
     ///placeholder variable for textfield when new object is created
     static var newElementTextPlaceHolder: String = "<new>"
     ///placeholder variable for the name text/textfield property when a new object is created
@@ -19,11 +21,11 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     ///placeholder varaible for Image URL textfield default value
     static var imageURLTextFieldPlaceHolder: String = "URL of Image"
     ///placeholder variable for family  label text
-    static var familyPlaceHolder: String = "Family:"
+    static var familyPlaceHolder: String = "Heading1:"
     ///placeholder variable for weight  label text
-    static var weightPlaceHolder: String = "Weight:"
+    static var weightPlaceHolder: String = "Heading2:"
     ///placeholder variable for nutrition  label text
-    static var nutritionPlaceHolder: String = "Nutrition:"
+    static var nutritionPlaceHolder: String = "Heading3:"
     ///placeholder variable for notes  label text
     static var notesPlaceHolder: String = "Notes:"
     ///placeholder variable for notes textfield default value
@@ -32,8 +34,6 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     static var imageURLPlaceHolder: String = "Image URL:"
     ///placeholder variable for scientific name label text
     static var scientificPlaceHolder: String = "Subtitle:"
-    ///placeholder variable for list title  text
-    @Published var listTitle: String = "Favourite Things"
     ///placeholder variable for default image if no image is loaded by remote URL
     static var defaultImagePlaceHolder: String = "potato"
   
