@@ -6,14 +6,6 @@
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
 
-import Foundation
-//
-//  Potato.swift
-//  FavouriteThings
-//
-//  Created by Zac Cripps on 13/4/20.
-//  Copyright © 2020 Zac Cripps. All rights reserved.
-//
 
 //the struct contains all the parameters that make for the objects in "Potato"
 import SwiftUI

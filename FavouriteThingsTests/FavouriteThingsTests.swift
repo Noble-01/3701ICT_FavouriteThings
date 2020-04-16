@@ -9,7 +9,7 @@ import SwiftUI
 import XCTest
 @testable import FavouriteThings
 
-class FavouriteThing: XCTestCase {
+class FavouriteThingTests: XCTestCase {
     ///assign var potato to class Potato
     ///make class Potato optional
     var favouriteThing: FavouriteThing?
@@ -28,26 +28,29 @@ class FavouriteThing: XCTestCase {
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create potato array with set properties
         favouriteThing = FavouriteThing()
-        let thingTitle:"Kipfler"
-        let thingHeading1: "Family: "
-        thingHeading2: "Weight"
-        thingHeading3: "Nurtition: "
-        thingHeading1Value:"Sweet Potato"
-        thingHeading2Value:"20grams"
-        thingSubTitle: "Solanum tuberosum"
-        thingHeading3Value: "manganese, potassium and vitamin C"
-        image: "potato"
         
         ///unwrap object potato to be safely used by the viewModel
         guard let favouriteThing = favouriteThing else {
             return
         }
         
+        favouriteThing.thingTitle = "Kipfler"
+        favouriteThing.thingSubTitle = "Solanum tuberosum"
+        favouriteThing.thingHeading1 = "Family: "
+        favouriteThing.thingHeading2 = "Weight: "
+        favouriteThing.thingHeading3 = "Nurtition: "
+        favouriteThing.thingHeading1Value = "Sweet Potato"
+        favouriteThing.thingHeading2Value = "20grams"
+        favouriteThing.thingHeading3Value = "manganese, potassium and vitamin C"
+        favouriteThing.image = "potato"
+        
+
+        
         ///assign var potato to an array which contains the potato objects
         favouriteThings = [favouriteThing]
         
         ///assign viewModel to the unwrapped potato object
-        viewModel = ViewModel(favouriteThings: favouriteThings)
+        viewModel = ViewModel()
     }
 
     override func tearDown() {
@@ -80,7 +83,7 @@ class FavouriteThing: XCTestCase {
         ///test image of the potato are the same
         XCTAssertEqual(favouriteThing?.image, potatoImage)
         ///testing if array has anything inisde it
-        XCTAssert((favouriteThing as Any)is Potato)
+        XCTAssert((favouriteThing as Any)is FavouriteThing)
         ///testing if array is not eqault to nil
         XCTAssertNotNil([favouriteThing])
         ///testing if array has 1 object inside
