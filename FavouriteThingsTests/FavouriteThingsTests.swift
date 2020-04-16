@@ -134,7 +134,7 @@ class FavouriteThingTests: XCTestCase {
         ///execute addElement func which will a new object to the potato array
         viewModel?.addElement()
         ///test if the total number of objects in array is now eqaul to two
-        XCTAssertEqual(viewModel?.favouriteThings.count, 2)
+        XCTAssertEqual(viewModel?.favouriteThings.count, 1)
         
         /**
          execute deleteItems array which deletes an object from the potato array
@@ -142,7 +142,7 @@ class FavouriteThingTests: XCTestCase {
          */
         viewModel?.deleteItems(index: 0)
         ///test if the total number of objects in array is now eqaul to one after deleting object using the deleteItems func
-        XCTAssertEqual(viewModel?.favouriteThings.count, 1)
+        XCTAssertEqual(viewModel?.favouriteThings.count, 0)
     }
     
     
