@@ -25,24 +25,9 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     */
     var id = UUID()
     ///generic name for potato
-    @Published var thingTitle:String
+    @Published var thingTitle:String = "Title"
     ///scientific name for potato
-    @Published var thingSubTitle:String
-    ///type of family for potato
-    var thingHeading1Value:String
-    ///weight of the potato
-    var thingHeading2Value: String
-    ///nutrition values of potato
-    var thingHeading3Value:String
-    ///textfield for the first heading
-    var thingHeading1: String
-    ///textfield for the second heading
-    var thingHeading2: String
-    ///textfield for the last heading
-    var thingHeading3: String
-    
-    ///image name for potato in the assets folder
-    @Published var image:String
+    @Published var thingSubTitle:String = "subTitle"
     /**
     remote URL variable name
     
@@ -51,9 +36,22 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     */
     @Published var uiImage:UIImage?
     ///string for textfield car note
-    @Published var note: String = ""
+    var note: String = ""
+    ///image name for potato in the assets folder
+    var image:String = "potato"
+    ///type of family for potato
+    var thingHeading1Value:String = ""
+    ///weight of the potato
+    var thingHeading2Value: String = ""
+    ///nutrition values of potato
+    var thingHeading3Value:String = ""
+    ///textfield for the first heading
+    var thingHeading1: String = ""
+    ///textfield for the second heading
+    var thingHeading2: String = ""
+    ///textfield for the last heading
+    var thingHeading3: String = ""
     
-
     enum CodingKeys: String, CodingKey{
         case thingTitle
         case thingSubTitle
@@ -68,15 +66,6 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     }
     
     init() {
-        thingTitle = "Kipfler"
-        thingSubTitle = "Solanum tuberosum"
-        thingHeading1Value = "Sweet Potato"
-        thingHeading2Value = "200 grams"
-        thingHeading3Value = "manganese, potassium and vitamin C"
-        thingHeading1 = "Family:"
-        thingHeading2 = "Weight:"
-        thingHeading3 = "Nutrition:"
-        image = "potato"
     }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)

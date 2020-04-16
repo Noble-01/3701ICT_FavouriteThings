@@ -9,25 +9,116 @@ import SwiftUI
 import XCTest
 @testable import FavouriteThings
 
-class FavouriteThingsTests: XCTestCase {
+class FavouriteThing: XCTestCase {
+    ///assign var potato to class Potato
+    ///make class Potato optional
+    var favouriteThing: FavouriteThing?
+    
+    ///create array for class Potato
+    var favouriteThings: [FavouriteThing] = []
+    
+    ///assign var viewModel to class ViewModel
+    var viewModel: ViewModel?
+    
+    ///sets up the objects before they can be used by the tests
+    override func setUp() {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        
+        /// Put setup code here. This method is called before the invocation of each test method in the class.
+        ///create potato array with set properties
+        favouriteThing = FavouriteThing()
+        let thingTitle:"Kipfler"
+        let thingHeading1: "Family: "
+        thingHeading2: "Weight"
+        thingHeading3: "Nurtition: "
+        thingHeading1Value:"Sweet Potato"
+        thingHeading2Value:"20grams"
+        thingSubTitle: "Solanum tuberosum"
+        thingHeading3Value: "manganese, potassium and vitamin C"
+        image: "potato"
+        
+        ///unwrap object potato to be safely used by the viewModel
+        guard let favouriteThing = favouriteThing else {
+            return
+        }
+        
+        ///assign var potato to an array which contains the potato objects
+        favouriteThings = [favouriteThing]
+        
+        ///assign viewModel to the unwrapped potato object
+        viewModel = ViewModel(favouriteThings: favouriteThings)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        /// Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    ///function tests all properties and functions of the potato model
+    func testPotatModel(){
+        ///Assign test varaibles to assert
+        ///variable to test potato name
+        let potatoName = "Kipfler"
+        ///variable to test potato weight
+        let potatoWeight = "20grams"
+        ///variable to test potato scientific name
+        let potatoScienceName = "Solanum tuberosum"
+        ///variable to test potato family name
+        let potatoFamily = "Sweet Potato"
+        ///variable to test potato image
+        let potatoImage = "potato"
+        
+        ///XCTAssertEqual compares two non-optional values of the same type.
+        ///test name of potatoare the same
+        XCTAssertEqual(favouriteThing?.thingTitle,potatoName)
+        ///test weight of potato are the same
+        XCTAssertEqual(favouriteThing?.thingHeading2Value,potatoWeight)
+        ///test scientific name of potato are the same
+        XCTAssertEqual(favouriteThing?.thingSubTitle,potatoScienceName)
+        ///test family name of the potato are the same
+        XCTAssertEqual(favouriteThing?.thingHeading1Value,potatoFamily)
+        ///test image of the potato are the same
+        XCTAssertEqual(favouriteThing?.image, potatoImage)
+        ///testing if array has anything inisde it
+        XCTAssert((favouriteThing as Any)is Potato)
+        ///testing if array is not eqault to nil
+        XCTAssertNotNil([favouriteThing])
+        ///testing if array has 1 object inside
+        XCTAssertEqual([favouriteThing].count, 1)
+        
+        ///download image through function updateImage with url string
+        favouriteThing?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
+        ///test returned image is of type Image using the getter function called getterImage()
+         XCTAssert((favouriteThing?.getterImage() as Any)is Image)
+        
+        ///test if getter function works with uiImage as Nil
+        XCTAssertNotNil(favouriteThing?.getterImage())
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+    ///function test all functions that are in the ViewModel
+    func testViewModel(){
+        
+        ///testing if ViewModel exists or contents
+        XCTAssertNotNil(viewModel)
+        
+        ///execute addElement func which will a new object to the potato array
+        viewModel?.addElement()
+        ///test if the total number of objects in array is now eqaul to two
+        XCTAssertEqual(viewModel?.favouriteThings.count, 2)
+        
+        /**
+         execute deleteItems array which deletes an object from the potato array
+        pass parameter index position of object to delete from array as type int
+         */
+        viewModel?.deleteItems(index: 0)
+        ///test if the total number of objects in array is now eqaul to one after deleting object using the deleteItems func
+        XCTAssertEqual(viewModel?.favouriteThings.count, 1)
+    }
+    
+    
+    func testPerformanceExample() {
+        /// This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            /// Put the code you want to measure the time of here.
         }
     }
 
