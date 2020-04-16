@@ -28,12 +28,12 @@ class FavouriteThingTests: XCTestCase {
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create potato array with set properties
         favouriteThing = FavouriteThing()
-        
+        viewModel = ViewModel()
         ///unwrap object potato to be safely used by the viewModel
         guard let favouriteThing = favouriteThing else {
             return
         }
-        
+
         favouriteThing.thingTitle = "Kipfler"
         favouriteThing.thingSubTitle = "Solanum tuberosum"
         favouriteThing.thingHeading1 = "Family: "
@@ -44,13 +44,19 @@ class FavouriteThingTests: XCTestCase {
         favouriteThing.thingHeading3Value = "manganese, potassium and vitamin C"
         favouriteThing.image = "potato"
         
-
+        
         
         ///assign var potato to an array which contains the potato objects
         favouriteThings = [favouriteThing]
         
         ///assign viewModel to the unwrapped potato object
         viewModel = ViewModel()
+        
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        viewModel.listTitle = "Favourite Things"
     }
 
     override func tearDown() {
@@ -61,27 +67,46 @@ class FavouriteThingTests: XCTestCase {
     func testPotatModel(){
         ///Assign test varaibles to assert
         ///variable to test potato name
-        let potatoName = "Kipfler"
+        let thingTitle = "Kipfler"
         ///variable to test potato weight
-        let potatoWeight = "20grams"
+        let thingHeading2Value = "20grams"
         ///variable to test potato scientific name
-        let potatoScienceName = "Solanum tuberosum"
+        let thingSubTitle = "Solanum tuberosum"
         ///variable to test potato family name
-        let potatoFamily = "Sweet Potato"
+        let thingHeading1Value = "Sweet Potato"
         ///variable to test potato image
-        let potatoImage = "potato"
+        let thingImage = "potato"
+        
+        let thingHeading3Value = "manganese, potassium and vitamin C"
+        
+        let thingHeading1 = "Family: "
+        
+        let thingHeading2 = "Weight: "
+        
+        let thingHeading3 = "Nurtition: "
         
         ///XCTAssertEqual compares two non-optional values of the same type.
         ///test name of potatoare the same
-        XCTAssertEqual(favouriteThing?.thingTitle,potatoName)
-        ///test weight of potato are the same
-        XCTAssertEqual(favouriteThing?.thingHeading2Value,potatoWeight)
+        XCTAssertEqual(favouriteThing?.thingTitle,thingTitle)
         ///test scientific name of potato are the same
-        XCTAssertEqual(favouriteThing?.thingSubTitle,potatoScienceName)
+        XCTAssertEqual(favouriteThing?.thingSubTitle,thingSubTitle)
+        
+        XCTAssertEqual(favouriteThing?.thingHeading1, thingHeading1)
+        
+        XCTAssertEqual(favouriteThing?.thingHeading2, thingHeading2)
+        
+        XCTAssertEqual(favouriteThing?.thingHeading3, thingHeading3)
+        
         ///test family name of the potato are the same
-        XCTAssertEqual(favouriteThing?.thingHeading1Value,potatoFamily)
+        XCTAssertEqual(favouriteThing?.thingHeading1Value,thingHeading1Value)
+        ///test weight of potato are the same
+        XCTAssertEqual(favouriteThing?.thingHeading2Value,thingHeading2Value)
+        
+        XCTAssertEqual(favouriteThing?.thingHeading3Value,thingHeading3Value)
         ///test image of the potato are the same
-        XCTAssertEqual(favouriteThing?.image, potatoImage)
+        XCTAssertEqual(favouriteThing?.image, thingImage)
+        
+        
         ///testing if array has anything inisde it
         XCTAssert((favouriteThing as Any)is FavouriteThing)
         ///testing if array is not eqault to nil
@@ -99,6 +124,9 @@ class FavouriteThingTests: XCTestCase {
     }
     ///function test all functions that are in the ViewModel
     func testViewModel(){
+        let title = "Favourite Things"
+        
+        XCTAssertEqual(viewModel?.listTitle, title)
         
         ///testing if ViewModel exists or contents
         XCTAssertNotNil(viewModel)
