@@ -15,17 +15,17 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     ///placeholder variable for textfield when new object is created
     static var newElementTextPlaceHolder: String = "<new>"
     ///placeholder variable for the name text/textfield property when a new object is created
-    static var newNamePlaceHolder: String = "<Title>"
+    static var titleValuePlaceHolder: String = "<Title>"
     ///placeholder variable for scientific name text /textfield property when a new object is created
-    static var newScientificNamePlaceHolder: String = "<Subtitle>"
+    static var subtTitleValuePlaceHolder: String = "<Subtitle>"
     ///placeholder varaible for Image URL textfield default value
     static var imageURLTextFieldPlaceHolder: String = "URL of Image"
     ///placeholder variable for family  label text
-    static var familyPlaceHolder: String = "Heading1:"
+    static var heading1PlaceHolder: String = "Heading1:"
     ///placeholder variable for weight  label text
-    static var weightPlaceHolder: String = "Heading2:"
+    static var heading2PlaceHolder: String = "Heading2:"
     ///placeholder variable for nutrition  label text
-    static var nutritionPlaceHolder: String = "Heading3:"
+    static var heading3PlaceHolder: String = "Heading3:"
     ///placeholder variable for notes  label text
     static var notesPlaceHolder: String = "Notes:"
     ///placeholder variable for notes textfield default value
@@ -33,7 +33,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
     ///placeholder variable for scientific name label text
-    static var scientificPlaceHolder: String = "Subtitle:"
+    static var subTitleHeadingPlaceHolder: String = "Subtitle:"
     ///placeholder variable for default image if no image is loaded by remote URL
     static var defaultImagePlaceHolder: String = "potato"
   
@@ -46,7 +46,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     /// Initializes `self` with default strategies.
     
     enum CodingKeys: String, CodingKey{
-        case potatos
+        case favouriteThings
         case listTitle
     }
     init() {
@@ -54,13 +54,13 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        favouriteThings = try container.decode([FavouriteThing].self, forKey:.potatos)
+        favouriteThings = try container.decode([FavouriteThing].self, forKey:.favouriteThings)
         listTitle = try container.decode(String.self, forKey: .listTitle)
      }
      
      func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(favouriteThings, forKey: CodingKeys.potatos)
+        try container.encode(favouriteThings, forKey: CodingKeys.favouriteThings)
          try container.encode(listTitle, forKey: CodingKeys.listTitle)
      }
     /**

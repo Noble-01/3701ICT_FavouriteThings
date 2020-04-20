@@ -70,7 +70,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
      
     - Returns: New Potato object
     */
-    init(thingTitle:String, thingSubTitle:String, thingHeading1Value:String, thingHeading2Value:String, thingHeading3Value:String,thingHeading1:String, thingHeading2:String,thingHeading3:String,image: String) {
+    init(thingTitle:String, thingSubTitle:String, thingHeading1Value:String, thingHeading2Value:String, thingHeading3Value:String,thingHeading1:String, thingHeading2:String,thingHeading3:String,image: String, note: String) {
         self.thingTitle = thingTitle
         self.thingSubTitle = thingSubTitle
         self.thingHeading1 = thingHeading1
@@ -80,6 +80,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         self.thingHeading2Value = thingHeading2Value
         self.thingHeading3Value = thingHeading3Value
         self.image = image
+        self.note = note
     }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -15,9 +15,6 @@ struct DetailView: View {
      */
     ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class potato so that objects can use its parameters
     @ObservedObject var model: FavouriteThing
-    ///A property wrapper type that can read and write a value managed by SwiftUI.
-    ///used to set the inital state of the url string
-    @State var url: String = ""
     
     var body: some View {
         
@@ -28,7 +25,7 @@ struct DetailView: View {
                 .font(.title)
             HStack{
                 ///display text "SubtItle:"
-                Text(ViewModel.scientificPlaceHolder)
+                Text(ViewModel.subTitleHeadingPlaceHolder)
                 .font(.subheadline)
                 .lineLimit(nil)
                 .multilineTextAlignment(.center)
@@ -53,17 +50,17 @@ struct DetailView: View {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "family:"
-                    TextField(ViewModel.familyPlaceHolder, text:$model.thingHeading1)
+                    TextField(ViewModel.heading1PlaceHolder, text:$model.thingHeading1)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "weight:"
-                    TextField(ViewModel.weightPlaceHolder, text: $model.thingHeading2)
+                    TextField(ViewModel.heading2PlaceHolder, text: $model.thingHeading2)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "nutrition:"
-                    TextField(ViewModel.nutritionPlaceHolder, text: $model.thingHeading3)
+                    TextField(ViewModel.heading3PlaceHolder, text: $model.thingHeading3)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
 
@@ -98,10 +95,10 @@ struct DetailView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     ///display default text "URL of image" or display the url of potato if there is a string in the object property
-                    TextField(ViewModel.imageURLTextFieldPlaceHolder, text: self.$url)
+                    TextField(ViewModel.imageURLTextFieldPlaceHolder, text: $model.image)
                     {
                         ///send url string as a parameter for func updateImage()
-                        self.model.updateImage(imageURL: self.url)
+                        self.model.updateImage(imageURL: self.model.image)
                         
                     }.textFieldStyle(RoundedBorderTextFieldStyle())
                     
