@@ -54,14 +54,18 @@ struct DetailView: View {
                 VStack(alignment: .trailing){
                     ///display text "family:"
                     TextField(ViewModel.familyPlaceHolder, text:$model.thingHeading1)
-
+                    .multilineTextAlignment(.trailing)
+                    .frame(maxHeight: .infinity)
                     
                     ///display text "weight:"
                     TextField(ViewModel.weightPlaceHolder, text: $model.thingHeading2)
-
+                    .multilineTextAlignment(.trailing)
+                    .frame(maxHeight: .infinity)
                     
                     ///display text "nutrition:"
                     TextField(ViewModel.nutritionPlaceHolder, text: $model.thingHeading3)
+                    .multilineTextAlignment(.trailing)
+                    .frame(maxHeight: .infinity)
 
                     ///display text "Image URL"
                     Text(ViewModel.imageURLPlaceHolder)

@@ -9,19 +9,20 @@
 import UIKit
 import SwiftUI
 
-private let fileManager = FileManager.default
-private let urls = FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)
-private let documentFolderUrl = urls[0]
-private let fileURL =  documentFolderUrl.appendingPathComponent("data.json")
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    private let fileManager = FileManager.default
+    lazy private var documentFolderUrl = FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]
+    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
+    
     var window: UIWindow?
     var viewModel = ViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
+        
+        
         do{
             let t = try Data(contentsOf: fileURL)
             let decoder = JSONDecoder()
