@@ -70,7 +70,16 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     func addElement(){
         ///create new instance of object with placeholder text variables and blank properties to be filled in later
         let favouriteThing = FavouriteThing()
-        favouriteThings.append(favouriteThing)
+        favouriteThings.insert(favouriteThing, at: 0)
+    }
+    /**
+    func creates new object using the potato model
+    append new object to potato array "potatos"
+    */
+    func addElement(favouriteThing: FavouriteThing){
+        ///create new instance of object with placeholder text variables and blank properties to be filled in later
+        let favouriteThing = FavouriteThing()
+        favouriteThings.insert(favouriteThing, at: 0)
     }
     /**
     func deletes item from potato array at index int

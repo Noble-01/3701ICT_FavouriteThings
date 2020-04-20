@@ -9,30 +9,40 @@
 import UIKit
 import SwiftUI
 
+let favouriteThing1 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "potato", thingHeading2: "Family: ", thingHeading3: "Weight: ", image: "Nutrition: ")
+let favouriteThing2 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "potato", thingHeading2: "Family: ", thingHeading3: "Weight: ", image: "Nutrition: ")
+let favouriteThing3 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "potato", thingHeading2: "Family: ", thingHeading3: "Weight: ", image: "Nutrition: ")
 
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private let fileManager = FileManager.default
-    lazy private var documentFolderUrl = FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]
+    lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
     lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
     
     var window: UIWindow?
     var viewModel = ViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        
-        
+    
         do{
+            ///attempt to read the file data into memory
             let t = try Data(contentsOf: fileURL)
+            ///assign a new JSON decoder Object
             let decoder = JSONDecoder()
+            ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
             let decodedModel = try decoder.decode(ViewModel.self, from: t)
+            ////test is there are any data in the file
             print(decodedModel.favouriteThings.first?.thingTitle ?? "No products")
+            ///assign the decoded object to viewModel
             viewModel = decodedModel
         }catch{
             print("Could not load \(fileURL): \(error)")
         }
-        
+
+            viewModel.addElement(favouriteThing: favouriteThing1)
+            viewModel.addElement(favouriteThing: favouriteThing2)
+            viewModel.addElement(favouriteThing: favouriteThing3)
+
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView(viewModel: viewModel)
 

@@ -59,6 +59,28 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     
     init() {
     }
+    /**
+     initialize the attributes of the class
+    - parameter name: The common name of the potato
+    - parameter family: The family of the potato
+    - parameter weight: Average weight of potato
+    - parameter scienceName: Scientific name of the potato
+    - parameter nutrition: Nutritional value of potato
+    - parameter image: string of image, can be a local or URL
+     
+    - Returns: New Potato object
+    */
+    init(thingTitle:String, thingSubTitle:String, thingHeading1Value:String, thingHeading2Value:String, thingHeading3Value:String,thingHeading1:String, thingHeading2:String,thingHeading3:String,image: String) {
+        self.thingTitle = thingTitle
+        self.thingSubTitle = thingSubTitle
+        self.thingHeading1 = thingHeading1
+        self.thingHeading2 = thingHeading2
+        self.thingHeading3 = thingHeading3
+        self.thingHeading1Value = thingHeading1Value
+        self.thingHeading2Value = thingHeading2Value
+        self.thingHeading3Value = thingHeading3Value
+        self.image = image
+    }
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
         thingTitle = try container.decode(String.self, forKey: .thingTitle)
