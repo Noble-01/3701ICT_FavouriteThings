@@ -9,9 +9,10 @@
 import UIKit
 import SwiftUI
 
-let favouriteThing1 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato ", note: "")
-let favouriteThing2 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato ", note: "")
-let favouriteThing3 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato ", note: "")
+///creation of object with certain parameters using the FavouriteThings class
+let favouriteThing1 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+let favouriteThing2 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+let favouriteThing3 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
 
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -35,13 +36,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(decodedModel.favouriteThings.first?.thingTitle ?? "No products")
             ///assign the decoded object to viewModel
             viewModel = decodedModel
-        }catch{
+        }
+         ///if there file cannot be loaded catch the process and state it can not be opened. using catch helps the program from crashing.
+        catch{
             print("Could not load \(fileURL): \(error)")
         }
-
+        if (viewModel.favouriteThings.count < 1){
+            ///insert hard coded objects into list array
             viewModel.addElement(favouriteThing: favouriteThing1)
             viewModel.addElement(favouriteThing: favouriteThing2)
             viewModel.addElement(favouriteThing: favouriteThing3)
+        }
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView(viewModel: viewModel)
@@ -78,9 +83,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        ///when app is minimised execute the following code
         do{
+            ///assign a new JSON decoder Object
             let json = JSONEncoder()
+            ///attempt to encode the data from the viewModel
             let data = try json.encode(viewModel)
+            ///write encoded data to JSON file location
             try data.write(to: fileURL)
             print("successfully wrote file \(fileURL.path)")
             }catch{
