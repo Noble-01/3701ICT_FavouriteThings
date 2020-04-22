@@ -150,25 +150,40 @@ class FavouriteThingTests: XCTestCase {
         ///test if the total number of objects in array is now eqaul to one after deleting object using the deleteItems func
         XCTAssertEqual(viewModel?.favouriteThings.count, 0)
         
-        var model : ViewModel
-        ///decodes the data.json file which then can be used for testing
-          do{
-          let t = try Data(contentsOf: fileURL)
-        ///assign a new JSON decoder Object
-          let decoder = JSONDecoder()
-        ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
-          let decodedModel = try decoder.decode(ViewModel.self, from: t)
-        ////test is there are any data in the file
-        print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
-        model = decodedModel
-
-          }catch{
-            ///if the try throws an error it is cuaght prints the below text to the console
-              fatalError("did not load \(fileURL)")
-          }
-        print("\(model.favouriteThings[0].thingHeading1)")
     }
-    
+    func testJSON(){
+        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+        	
+        viewModel?.addElement(favouriteThing: favouriteThing4)
+        
+        do{
+          ///assign a new JSON decoder Object
+          let json = JSONEncoder()
+          ///attempt to encode the data from the viewModel
+          let data = try json.encode(viewModel)
+          ///write encoded data to JSON file location
+          try data.write(to: fileURL)
+          print("successfully wrote file \(fileURL.path)")
+          }catch{
+              print("Could not write file \(fileURL.path): \(error)")
+        }
+        var model : ViewModel
+       ///decodes the data.json file which then can be used for testing
+        do{
+            let t = try Data(contentsOf: fileURL)
+           ///assign a new JSON decoder Object
+            let decoder = JSONDecoder()
+           ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
+            let decodedModel = try decoder.decode(ViewModel.self, from: t)
+           ////test is there are any data in the file
+           print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
+           model = decodedModel
+        }catch{
+           ///if the try throws an error it is cuaght prints the below text to the console
+             fatalError("did not load \(fileURL)")
+         }
+        XCTAssertEqual(favouriteThing4, model.favouriteThing0)
+    }
     
     func testPerformanceExample() {
         /// This is an example of a performance test case.
