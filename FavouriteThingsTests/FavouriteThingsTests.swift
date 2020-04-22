@@ -126,21 +126,6 @@ class FavouriteThingTests: XCTestCase {
         
         ///test if getter function works with uiImage as Nil
         XCTAssertNotNil(favouriteThing?.getterImage())
-        
-        ///decodes the data.json file which then can be used for testing
-          do{
-          let t = try Data(contentsOf: fileURL)
-        ///assign a new JSON decoder Object
-          let decoder = JSONDecoder()
-        ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
-          let decodedModel = try decoder.decode(ViewModel.self, from: t)
-        ////test is there are any data in the file
-            print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
-
-          }catch{
-            ///if the try throws an error it is cuaght prints the below text to the console
-              fatalError("did not load \(fileURL)")
-          }
 
     }
     ///function test all functions that are in the ViewModel
@@ -164,6 +149,24 @@ class FavouriteThingTests: XCTestCase {
         viewModel?.deleteItems(index: 0)
         ///test if the total number of objects in array is now eqaul to one after deleting object using the deleteItems func
         XCTAssertEqual(viewModel?.favouriteThings.count, 0)
+        
+        var model : ViewModel
+        ///decodes the data.json file which then can be used for testing
+          do{
+          let t = try Data(contentsOf: fileURL)
+        ///assign a new JSON decoder Object
+          let decoder = JSONDecoder()
+        ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
+          let decodedModel = try decoder.decode(ViewModel.self, from: t)
+        ////test is there are any data in the file
+        print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
+        model = decodedModel
+
+          }catch{
+            ///if the try throws an error it is cuaght prints the below text to the console
+              fatalError("did not load \(fileURL)")
+          }
+        print("\(model.favouriteThings[0].thingHeading1)")
     }
     
     
