@@ -182,7 +182,17 @@ class FavouriteThingTests: XCTestCase {
            ///if the try throws an error it is cuaght prints the below text to the console
              fatalError("did not load \(fileURL)")
          }
-        XCTAssertEqual(favouriteThing4, model.favouriteThing0)
+        XCTAssertEqual(favouriteThing4.thingTitle, model.favouriteThings[0].thingTitle)
+        XCTAssertEqual(favouriteThing4.thingSubTitle, model.favouriteThings[0].thingSubTitle)
+        XCTAssertEqual(favouriteThing4.thingHeading1, model.favouriteThings[0].thingHeading1)
+        XCTAssertEqual(favouriteThing4.thingHeading2, model.favouriteThings[0].thingHeading2)
+        XCTAssertEqual(favouriteThing4.thingHeading3, model.favouriteThings[0].thingHeading3)
+        XCTAssertEqual(favouriteThing4.thingHeading1Value, model.favouriteThings[0].thingHeading1Value)
+        XCTAssertEqual(favouriteThing4.thingHeading2Value, model.favouriteThings[0].thingHeading2Value)
+        XCTAssertEqual(favouriteThing4.thingHeading3Value, model.favouriteThings[0].thingHeading3Value)
+        XCTAssertEqual(favouriteThing4.image, model.favouriteThings[0].image)
+        XCTAssertEqual(favouriteThing4.note, model.favouriteThings[0].note)
+        
     }
     
     func testPerformanceExample() {
