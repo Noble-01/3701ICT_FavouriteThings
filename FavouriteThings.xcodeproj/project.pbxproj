@@ -40,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B840FF46245009A000FC3D9C /* things.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = things.json; path = FavouriteThings/things.json; sourceTree = SOURCE_ROOT; };
 		B8CAD6FE244863780023F64F /* FavouriteThing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteThing.swift; sourceTree = "<group>"; };
 		B8FD2EC824457D0A00A50693 /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		B8FD2ECA24457D0A00A50693 /* FavouriteThings */ = {
 			isa = PBXGroup;
 			children = (
-				B840FF46245009A000FC3D9C /* things.json */,
 				B8FD2F10244582C600A50693 /* View */,
 				B8FD2F0B2445829600A50693 /* Model */,
 				B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */,

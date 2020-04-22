@@ -14,7 +14,7 @@ class FavouriteThingTests: XCTestCase {
     
     private let fileManager = FileManager.default
     lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
-    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("things.json")
+    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
     private let decoder = JSONDecoder()
     
     ///assign var potato to class Potato
@@ -127,19 +127,21 @@ class FavouriteThingTests: XCTestCase {
         ///test if getter function works with uiImage as Nil
         XCTAssertNotNil(favouriteThing?.getterImage())
         
-        
-        do{
-        let t = try Data(contentsOf: fileURL)
-      ///assign a new JSON decoder Object
-        let decoder = JSONDecoder()
-      ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
-        let decodedModel = try decoder.decode(ViewModel.self, from: t)
-      ////test is there are any data in the file
-        print(decodedModel.favouriteThings.first?.thingTitle ?? "No products")
-        //print("There are this many objects in the JSON file: \(model.$thingTitle.count)")
-        }catch{
-            fatalError("did not load \(fileURL)")
-        }
+        ///decodes the data.json file which then can be used for testing
+          do{
+          let t = try Data(contentsOf: fileURL)
+        ///assign a new JSON decoder Object
+          let decoder = JSONDecoder()
+        ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
+          let decodedModel = try decoder.decode(ViewModel.self, from: t)
+        ////test is there are any data in the file
+            print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
+
+          }catch{
+            ///if the try throws an error it is cuaght prints the below text to the console
+              fatalError("did not load \(fileURL)")
+          }
+
     }
     ///function test all functions that are in the ViewModel
     func testViewModel(){
