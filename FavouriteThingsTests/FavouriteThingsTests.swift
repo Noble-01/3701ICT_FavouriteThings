@@ -6,10 +6,17 @@
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
 import SwiftUI
+import UIKit
 import XCTest
 @testable import FavouriteThings
 
 class FavouriteThingTests: XCTestCase {
+    
+    private let fileManager = FileManager.default
+    lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
+    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("things.json")
+    private let decoder = JSONDecoder()
+    
     ///assign var potato to class Potato
     ///make class Potato optional
     var favouriteThing: FavouriteThing?
@@ -23,8 +30,6 @@ class FavouriteThingTests: XCTestCase {
     ///sets up the objects before they can be used by the tests
     override func setUp() {
 
-        
-        
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create potato array with set properties
         favouriteThing = FavouriteThing()
@@ -64,7 +69,7 @@ class FavouriteThingTests: XCTestCase {
     }
     
     ///function tests all properties and functions of the potato model
-    func testPotatModel(){
+    func testFavouriteThingsModel(){
         ///Assign test varaibles to assert
         ///variable to test potato name
         let thingTitle = "Kipfler"
@@ -121,6 +126,20 @@ class FavouriteThingTests: XCTestCase {
         
         ///test if getter function works with uiImage as Nil
         XCTAssertNotNil(favouriteThing?.getterImage())
+        
+        
+        do{
+        let t = try Data(contentsOf: fileURL)
+      ///assign a new JSON decoder Object
+        let decoder = JSONDecoder()
+      ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
+        let decodedModel = try decoder.decode(ViewModel.self, from: t)
+      ////test is there are any data in the file
+        print(decodedModel.favouriteThings.first?.thingTitle ?? "No products")
+        //print("There are this many objects in the JSON file: \(model.$thingTitle.count)")
+        }catch{
+            fatalError("did not load \(fileURL)")
+        }
     }
     ///function test all functions that are in the ViewModel
     func testViewModel(){

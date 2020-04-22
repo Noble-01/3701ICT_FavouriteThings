@@ -83,6 +83,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        print("Saving Data")
         ///when app is minimised execute the following code
         do{
             ///assign a new JSON decoder Object
