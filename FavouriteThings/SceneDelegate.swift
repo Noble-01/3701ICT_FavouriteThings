@@ -17,14 +17,18 @@ let favouriteThing3 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Sola
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    ///retrieve the reference for default FileManager to be used in the process
     private let fileManager = FileManager.default
+    ///retireve url for document directory from the FileManager and gets the first url as the user's document folder
     lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
+    ///adds name of the "data" file for the viewModel and to the end of the document folder url which then becomes the new file url
     lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
     
     var window: UIWindow?
+    ///create new object of ViewModel class
     var viewModel = ViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-    
+    ///Handles the decoding of the viewModel and errors
         do{
             ///attempt to read the file data into memory
             let t = try Data(contentsOf: fileURL)
@@ -32,8 +36,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let decoder = JSONDecoder()
             ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
             let decodedModel = try decoder.decode(ViewModel.self, from: t)
-            ////test is there are any data in the file
-            print(decodedModel.favouriteThings.first?.thingTitle ?? "No products")
             ///assign the decoded object to viewModel
             viewModel = decodedModel
         }
@@ -41,6 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         catch{
             print("Could not load \(fileURL): \(error)")
         }
+        
         if (viewModel.favouriteThings.count < 1){
             ///insert hard coded objects into list array
             viewModel.addElement(favouriteThing: favouriteThing1)
@@ -83,7 +86,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        print("Saving Data")
         ///when app is minimised execute the following code
         do{
             ///assign a new JSON decoder Object
@@ -92,6 +94,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let data = try json.encode(viewModel)
             ///write encoded data to JSON file location
             try data.write(to: fileURL)
+            ///if saving is successful print the following text
             print("successfully wrote file \(fileURL.path)")
             }catch{
                 print("Could not write file \(fileURL.path): \(error)")

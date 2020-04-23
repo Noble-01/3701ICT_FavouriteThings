@@ -12,16 +12,20 @@ import XCTest
 
 class FavouriteThingTests: XCTestCase {
     
+    ///retrieve the reference for default FileManager to be used in the process
     private let fileManager = FileManager.default
+    ///retireve url for document directory from the FileManager and gets the first url as the user's document folder
     lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
+    ///adds name of the "data" file for the viewModel and to the end of the document folder url which then becomes the new file url 
     lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
+    
     private let decoder = JSONDecoder()
     
-    ///assign var potato to class Potato
-    ///make class Potato optional
+    ///assign var favouriteThing to class FavouriteThing
+    ///make class FavouriteThing optional
     var favouriteThing: FavouriteThing?
     
-    ///create array for class Potato
+    ///create array for class FavouriteThing
     var favouriteThings: [FavouriteThing] = []
     
     ///assign var viewModel to class ViewModel
@@ -29,38 +33,26 @@ class FavouriteThingTests: XCTestCase {
     
     ///sets up the objects before they can be used by the tests
     override func setUp() {
-
         /// Put setup code here. This method is called before the invocation of each test method in the class.
-        ///create potato array with set properties
-        favouriteThing = FavouriteThing()
-        viewModel = ViewModel()
-        ///unwrap object potato to be safely used by the viewModel
+        ///create favouriteThing array with set properties
+        favouriteThing = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+        
+        ///unwrap object favouriteThing to be safely used by the viewModel
         guard let favouriteThing = favouriteThing else {
             return
         }
-
-        favouriteThing.thingTitle = "Kipfler"
-        favouriteThing.thingSubTitle = "Solanum tuberosum"
-        favouriteThing.thingHeading1 = "Family: "
-        favouriteThing.thingHeading2 = "Weight: "
-        favouriteThing.thingHeading3 = "Nurtition: "
-        favouriteThing.thingHeading1Value = "Sweet Potato"
-        favouriteThing.thingHeading2Value = "20grams"
-        favouriteThing.thingHeading3Value = "manganese, potassium and vitamin C"
-        favouriteThing.image = "potato"
         
-        
-        
-        ///assign var potato to an array which contains the potato objects
+        ///assign var favouriteThings to an array which contains the FavouriteThing objects
         favouriteThings = [favouriteThing]
         
-        ///assign viewModel to the unwrapped potato object
+        ///assign viewModel to the unwrapped favouriteThing object
         viewModel = ViewModel()
         
+        ///unwrap viewModel
         guard let viewModel = viewModel else {
             return
         }
-        
+        ///variable to test title of the viewModel object
         viewModel.listTitle = "Favourite Things"
     }
 
@@ -68,50 +60,49 @@ class FavouriteThingTests: XCTestCase {
         /// Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    ///function tests all properties and functions of the potato model
+    ///function tests all properties and functions of the favouriteThing  model
     func testFavouriteThingsModel(){
         ///Assign test varaibles to assert
-        ///variable to test potato name
+        ///variable to test favouriteThing title
         let thingTitle = "Kipfler"
-        ///variable to test potato weight
+        ///variable to test favouriteThing heading 2 value
         let thingHeading2Value = "20grams"
-        ///variable to test potato scientific name
+        ///variable to test favouriteThing sub title
         let thingSubTitle = "Solanum tuberosum"
-        ///variable to test potato family name
+        ///variable to test favouriteThing heading 1 value
         let thingHeading1Value = "Sweet Potato"
-        ///variable to test potato image
+        ///variable to test favouriteThing image
         let thingImage = "potato"
-        
+        ///variable to test favouriteThing heading 3 value
         let thingHeading3Value = "manganese, potassium and vitamin C"
-        
+        ///variable to test favouriteThing heading 1
         let thingHeading1 = "Family: "
-        
+        ///variable to test favouriteThing heading 2
         let thingHeading2 = "Weight: "
-        
+        ///variable to test favouriteThing heading 3
         let thingHeading3 = "Nurtition: "
         
         ///XCTAssertEqual compares two non-optional values of the same type.
-        ///test name of potatoare the same
+        ///test favourtiteThing title are the same
         XCTAssertEqual(favouriteThing?.thingTitle,thingTitle)
-        ///test scientific name of potato are the same
+        ///test favourtiteThing sub title are the same
         XCTAssertEqual(favouriteThing?.thingSubTitle,thingSubTitle)
-        
+        ///test favourtiteThing heading 1 are the same
         XCTAssertEqual(favouriteThing?.thingHeading1, thingHeading1)
-        
+        ///test favourtiteThing heading 2 are the same
         XCTAssertEqual(favouriteThing?.thingHeading2, thingHeading2)
-        
+        ///test favourtiteThing heading 3 are the same
         XCTAssertEqual(favouriteThing?.thingHeading3, thingHeading3)
         
-        ///test family name of the potato are the same
+        ///test favourtiteThing heading 1 value are the same
         XCTAssertEqual(favouriteThing?.thingHeading1Value,thingHeading1Value)
-        ///test weight of potato are the same
+        ///test favourtiteThing heading 2 value  are the same
         XCTAssertEqual(favouriteThing?.thingHeading2Value,thingHeading2Value)
-        
+        ///test favourtiteThing heading 3 value are the same
         XCTAssertEqual(favouriteThing?.thingHeading3Value,thingHeading3Value)
-        ///test image of the potato are the same
+        ///test image of the favouriteThing are the same
         XCTAssertEqual(favouriteThing?.image, thingImage)
-        
-        
+
         ///testing if array has anything inisde it
         XCTAssert((favouriteThing as Any)is FavouriteThing)
         ///testing if array is not eqault to nil
@@ -130,8 +121,10 @@ class FavouriteThingTests: XCTestCase {
     }
     ///function test all functions that are in the ViewModel
     func testViewModel(){
+        ///variable to test the list title of the view model class
         let title = "Favourite Things"
         
+        ///test if the list title of the view model are the same
         XCTAssertEqual(viewModel?.listTitle, title)
         
         ///testing if ViewModel exists or contents
@@ -152,10 +145,18 @@ class FavouriteThingTests: XCTestCase {
         
     }
     func testJSON(){
-        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
-        	
-        viewModel?.addElement(favouriteThing: favouriteThing4)
         
+        ///create object with the following parameters
+        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+       
+        ///unwrap viewmodel to safetly use
+        guard let viewModel = viewModel else{
+            XCTFail("ViewModel NIL")
+            return
+        }
+        ///add the new object into the view model
+        viewModel.addElement(favouriteThing: favouriteThing4)
+        /// Handle errors from encoding and saving viewModel data
         do{
           ///assign a new JSON decoder Object
           let json = JSONEncoder()
@@ -163,34 +164,46 @@ class FavouriteThingTests: XCTestCase {
           let data = try json.encode(viewModel)
           ///write encoded data to JSON file location
           try data.write(to: fileURL)
-          print("successfully wrote file \(fileURL.path)")
           }catch{
-              print("Could not write file \(fileURL.path): \(error)")
+            XCTFail("Encoding failed \(fileURL.path): \(error)")
         }
+        ///create variable of ViewModel
         var model : ViewModel
-       ///decodes the data.json file which then can be used for testing
+       ///decodes the viewModel which then can be used for testing also handles the errors
         do{
+            ///read the data from the file into memory
             let t = try Data(contentsOf: fileURL)
            ///assign a new JSON decoder Object
             let decoder = JSONDecoder()
            ///attempt to decode the file data with the JSON decoder to produce a ViewModel object
             let decodedModel = try decoder.decode(ViewModel.self, from: t)
-           ////test is there are any data in the file
+           ////test if the view model was saved to the JSON file
            print("There are this many objects in the JSON file: \(decodedModel.favouriteThings.count)")
+            ///assign array in decodedModel to model var
            model = decodedModel
         }catch{
            ///if the try throws an error it is cuaght prints the below text to the console
-             fatalError("did not load \(fileURL)")
+             fatalError("decode failed \(fileURL)")
          }
+        ///compare that the orignal data is the same to the decoded model for the object title
         XCTAssertEqual(favouriteThing4.thingTitle, model.favouriteThings[0].thingTitle)
+        ///compare that the orignal data is the same to the decoded model for the object sub title
         XCTAssertEqual(favouriteThing4.thingSubTitle, model.favouriteThings[0].thingSubTitle)
+        ///compare that the orignal data is the same to the decoded model for the object heading 1
         XCTAssertEqual(favouriteThing4.thingHeading1, model.favouriteThings[0].thingHeading1)
+        ///compare that the orignal data is the same to the decoded model for the object heading 2
         XCTAssertEqual(favouriteThing4.thingHeading2, model.favouriteThings[0].thingHeading2)
+        ///compare that the orignal data is the same to the decoded model for the object heading 3
         XCTAssertEqual(favouriteThing4.thingHeading3, model.favouriteThings[0].thingHeading3)
+        ///compare that the orignal data is the same to the decoded model for the object heading 1 value
         XCTAssertEqual(favouriteThing4.thingHeading1Value, model.favouriteThings[0].thingHeading1Value)
+        ///compare that the orignal data is the same to the decoded model for the object heading 2 value
         XCTAssertEqual(favouriteThing4.thingHeading2Value, model.favouriteThings[0].thingHeading2Value)
+        ///compare that the orignal data is the same to the decoded model for the object heading 3 value
         XCTAssertEqual(favouriteThing4.thingHeading3Value, model.favouriteThings[0].thingHeading3Value)
+        ///compare that the orignal data is the same to the decoded model for the object image name
         XCTAssertEqual(favouriteThing4.image, model.favouriteThings[0].image)
+        ///compare that the orignal data is the same to the decoded model for the object notes
         XCTAssertEqual(favouriteThing4.note, model.favouriteThings[0].note)
         
     }

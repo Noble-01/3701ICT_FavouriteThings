@@ -14,17 +14,17 @@ struct RowView: View {
     @ObservedObject var favouriteThing: FavouriteThing
     var body: some View {
         HStack(){
-            ///calls image from the func "getterImage" for the potato object
+            ///calls image from the func "getterImage" for the favouriteThing object
             favouriteThing.getterImage().resizable()
             .padding(.vertical, 5.0)
             .frame(width: 80.0, height: 80.0)
             .shadow(radius: 10)
             .scaledToFit()
             
-            ///display name of potato
+            ///display title of favouriteThing
             Text(favouriteThing.thingTitle).fontWeight(.bold)
             
-            ///display scientific name of potato
+            ///display sub title of favouriteThing
             Text(favouriteThing.thingSubTitle)
             .font(.subheadline)
             .fontWeight(.light)

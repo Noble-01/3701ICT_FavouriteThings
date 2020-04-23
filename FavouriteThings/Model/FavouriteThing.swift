@@ -7,18 +7,18 @@
 //
 
 
-//the struct contains all the parameters that make for the objects in "Potato"
+///the struct contains all the parameters that make for the objects in "FavouriteThing"
 import SwiftUI
 import Foundation
 class FavouriteThing : ObservableObject, Identifiable, Codable{
     /**
      A class of types whose instances hold the value of an entity with stable identity
-     1. id is given to identify the objects of potatos in the array
+     1. id is given to identify the objects of favouriteThings in the array
     */
     var id = UUID()
-    ///generic name for potato
+    ///generic title for favouriteThing
     @Published var thingTitle:String = "Title"
-    ///scientific name for potato
+    ///italics style text for favouriteThing object
     @Published var thingSubTitle:String = "subTitle"
     /**
     remote URL variable name
@@ -27,15 +27,15 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     2.  Either stores an image or is blank
     */
     @Published var uiImage:UIImage?
-    ///string for textfield car note
+    ///string for textfield  note
     var note: String = ""
     ///image name for potato in the assets folder
     var image:String = "potato"
-    ///type of family for potato
+    ///value associated with  heading 1
     var thingHeading1Value:String = ""
-    ///weight of the potato
+    ///value associated with  heading 2
     var thingHeading2Value: String = ""
-    ///nutrition values of potato
+    ////value associated with  heading 3
     var thingHeading3Value:String = ""
     ///textfield for the first heading
     var thingHeading1: String = ""
@@ -44,6 +44,8 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     ///textfield for the last heading
     var thingHeading3: String = ""
     
+    ///key components of the JSON key value paris.
+    ///A type that can be used as a key for encoding and decoding.
     enum CodingKeys: String, CodingKey{
         case thingTitle
         case thingSubTitle
@@ -57,18 +59,28 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         case image
     }
     
+    /**
+     initialises a new favouriteThing with a default FavouriteThing data
+     
+     - Returns: New favouriteThing object
+     */
+
     init() {
     }
     /**
-     initialize the attributes of the class
-    - parameter name: The common name of the potato
-    - parameter family: The family of the potato
-    - parameter weight: Average weight of potato
-    - parameter scienceName: Scientific name of the potato
-    - parameter nutrition: Nutritional value of potato
+     initialize the attributes of the class with the provided FavouriteThing data
+    - parameter thingTitle: name for the FavouriteThing
+    - parameter thingSubTitle: sub title of the FavouriteThing in italics
+    - parameter thingHeading1: Heading for first textfield
+    - parameter thingHeading2: Heading for second textfield
+    - parameter thingHeading3: Heading for third textfield
+    - parameter thingHeading1Value: Value associated with the first heading
+    - parameter thingHeading2Value: Value associated with the second heading
+    - parameter thingHeading3Value: Value associated with the third heading
     - parameter image: string of image, can be a local or URL
+    - parameter note: notes of the object
      
-    - Returns: New Potato object
+    - Returns: New favouriteThing object
     */
     init(thingTitle:String, thingSubTitle:String, thingHeading1Value:String, thingHeading2Value:String, thingHeading3Value:String,thingHeading1:String, thingHeading2:String,thingHeading3:String,image: String, note: String) {
         self.thingTitle = thingTitle
@@ -82,6 +94,13 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         self.image = image
         self.note = note
     }
+    /**
+     decodes the favouriteThing based on the CodingKeys above
+    - Parameter from: A Decoder object used to decode the favouriteThing data
+     
+    - Returns: A new favouriteThing object
+     
+     */
     required init(from decoder: Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
         thingTitle = try container.decode(String.self, forKey: .thingTitle)
@@ -95,7 +114,13 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         note = try container.decode(String.self, forKey: .note)
         image = try container.decode(String.self, forKey: .image)
     }
-    
+    /**
+     decodes the favouriteThing based on the CodingKeys above
+    - Parameter encoder: A Encoder object used to encode the favouriteThing data
+     
+    - Returns: A new favouriteThing object
+     
+     */
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(thingTitle, forKey: .thingTitle)

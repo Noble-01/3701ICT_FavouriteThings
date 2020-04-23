@@ -11,16 +11,16 @@ import SwiftUI
 
 struct DetailView: View {
     /**
-        the follwoing code is used to display the information about the potato objects when they are selcted from the MasterView
+        the follwoing code is used to display the information about the favouriteThing objects when they are selcted from the MasterView
      */
-    ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class potato so that objects can use its parameters
+    ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class FavouriteThing so that objects can use its parameters
     @ObservedObject var model: FavouriteThing
     
     var body: some View {
         
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
-            ///display the name for the object on the screen
+            ///display the title for the object on the screen
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingTitle)
                 .font(.title)
             HStack{
@@ -31,7 +31,7 @@ struct DetailView: View {
                 .multilineTextAlignment(.center)
                 .frame(maxHeight: .infinity)
                 
-                ///display the scientific name of potato
+                ///display the sub title of favouriteThing
                 TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingSubTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
@@ -49,17 +49,17 @@ struct DetailView: View {
             HStack(alignment: .center) {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
-                    ///display text "family:"
+                    ///display text "Heading1:"
                     TextField(ViewModel.heading1PlaceHolder, text:$model.thingHeading1)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
-                    ///display text "weight:"
+                    ///display text "Heading2t:"
                     TextField(ViewModel.heading2PlaceHolder, text: $model.thingHeading2)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
-                    ///display text "nutrition:"
+                    ///display text "Heading3:"
                     TextField(ViewModel.heading3PlaceHolder, text: $model.thingHeading3)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
@@ -79,17 +79,17 @@ struct DetailView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    ///display default text "<new>" or display the family of potato if there is a string in the object property
+                    ///display default text "<new>" or display the heading 1 value of favouriteThing if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder,text: $model.thingHeading1Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                    ///display default text "<new>" or display the weight of potato if there is a string in the object property
+                    ///display default text "<new>" or display the heading 2 value of favouriteThing if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading2Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
-                    ///display default text "<new>" or display the nutrition of potato if there is a string in the object property
+                    ///display default text "<new>" or display the heading 3 value of favouriteThing if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading3Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -102,7 +102,7 @@ struct DetailView: View {
                         
                     }.textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    ///display default text "Add a note" or display the notes of potato if there is a string in the object property
+                    ///display default text "Add a note" or display the notes of favouriteThingif there is a string in the object property
                     TextField(ViewModel.notesTextFieldPlaceHolder, text: self.$model.note)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
