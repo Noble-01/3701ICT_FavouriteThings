@@ -86,6 +86,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        
+        /**
+        if you want the app to always have data in it each time u close it after deleting everything instead of reruning the app to get the hard coded objects appended again use the following code
+         it will append the new objects to the list every time u leave the app to the background
+         
+        if (viewModel.favouriteThings.count < 1){
+            ///insert hard coded objects into list array
+            viewModel.addElement(favouriteThing: favouriteThing1)
+            viewModel.addElement(favouriteThing: favouriteThing2)
+            viewModel.addElement(favouriteThing: favouriteThing3)
+        }
+         */
         ///when app is minimised execute the following code
         do{
             ///assign a new JSON decoder Object
