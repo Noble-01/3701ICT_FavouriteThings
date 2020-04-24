@@ -17,7 +17,7 @@ class FavouriteThingTests: XCTestCase {
     ///retireve url for document directory from the FileManager and gets the first url as the user's document folder
     lazy private var documentFolderUrl: URL = { FileManager.default.urls(for: .documentDirectory, in : .userDomainMask)[0]}()
     ///adds name of the "data" file for the viewModel and to the end of the document folder url which then becomes the new file url 
-    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("data.json")
+    lazy private var fileURL =  documentFolderUrl.appendingPathComponent("test.json")
     
     private let decoder = JSONDecoder()
     
@@ -33,9 +33,22 @@ class FavouriteThingTests: XCTestCase {
     
     ///sets up the objects before they can be used by the tests
     override func setUp() {
+        
+        /// Handle errors from encoding and saving viewModel data. make sure the file exists before starting the tests
+              do{
+                ///assign a new JSON decoder Object
+                let json = JSONEncoder()
+                ///attempt to encode the data from the viewModel
+                let data = try json.encode(viewModel)
+                ///write encoded data to JSON file location
+                try data.write(to: fileURL)
+                }catch{
+                  XCTFail("Encoding failed \(fileURL.path): \(error)")
+              }
+
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create favouriteThing array with set properties
-        favouriteThing = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+        favouriteThing = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight: ", thingHeading3: "Nutrition: ", image: "potato", note: "")
         
         ///unwrap object favouriteThing to be safely used by the viewModel
         guard let favouriteThing = favouriteThing else {
@@ -80,7 +93,7 @@ class FavouriteThingTests: XCTestCase {
         ///variable to test favouriteThing heading 2
         let thingHeading2 = "Weight: "
         ///variable to test favouriteThing heading 3
-        let thingHeading3 = "Nurtition: "
+        let thingHeading3 = "Nutrition: "
         
         ///XCTAssertEqual compares two non-optional values of the same type.
         ///test favourtiteThing title are the same
