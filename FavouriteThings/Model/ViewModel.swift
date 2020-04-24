@@ -35,7 +35,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     ///placeholder variable for subtitle textfield
     static var subTitleHeadingPlaceHolder: String = "Subtitle:"
     ///placeholder variable for default image if no image is loaded by remote URL
-    static var defaultImagePlaceHolder: String = "potato"
+    static var defaultImagePlaceHolder: String = "Potato"
   
     /**
     class is used to hold the array

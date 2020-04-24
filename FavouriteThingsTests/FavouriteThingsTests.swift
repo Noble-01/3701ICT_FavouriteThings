@@ -48,7 +48,7 @@ class FavouriteThingTests: XCTestCase {
 
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create favouriteThing array with set properties
-        favouriteThing = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight: ", thingHeading3: "Nutrition: ", image: "potato", note: "")
+        favouriteThing = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight: ", thingHeading3: "Nutrition: ", image: "Potato", note: "")
         
         ///unwrap object favouriteThing to be safely used by the viewModel
         guard let favouriteThing = favouriteThing else {
@@ -85,7 +85,7 @@ class FavouriteThingTests: XCTestCase {
         ///variable to test favouriteThing heading 1 value
         let thingHeading1Value = "Sweet Potato"
         ///variable to test favouriteThing image
-        let thingImage = "potato"
+        let thingImage = "Potato"
         ///variable to test favouriteThing heading 3 value
         let thingHeading3Value = "manganese, potassium and vitamin C"
         ///variable to test favouriteThing heading 1
@@ -160,7 +160,7 @@ class FavouriteThingTests: XCTestCase {
     func testJSON(){
         
         ///create object with the following parameters
-        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "potato", note: "")
+        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
        
         ///unwrap viewmodel to safetly use
         guard let viewModel = viewModel else{

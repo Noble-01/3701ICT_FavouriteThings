@@ -30,7 +30,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     ///string for textfield  note
     var note: String = ""
     ///image name for potato in the assets folder
-    var image:String = "potato"
+    var image:String = "Potato"
     ///value associated with  heading 1
     var thingHeading1Value:String = ""
     ///value associated with  heading 2
@@ -113,6 +113,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         thingHeading3 = try container.decode(String.self, forKey: .thingHeading3)
         note = try container.decode(String.self, forKey: .note)
         image = try container.decode(String.self, forKey: .image)
+        updateImage(imageURL: image)
     }
     /**
      decodes the favouriteThing based on the CodingKeys above

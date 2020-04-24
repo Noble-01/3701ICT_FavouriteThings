@@ -94,7 +94,7 @@ struct DetailView: View {
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    ///display default text "URL of image" or display the url of potato if there is a string in the object property
+                    ///display default text "URL of image" or display the url of favouriteThing if there is a string in the object property
                     TextField(ViewModel.imageURLTextFieldPlaceHolder, text: $model.image)
                     {
                         ///send url string as a parameter for func updateImage()
