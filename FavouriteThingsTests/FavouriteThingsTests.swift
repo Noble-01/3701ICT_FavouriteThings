@@ -160,7 +160,7 @@ class FavouriteThingTests: XCTestCase {
     func testJSON(){
         
         ///create object with the following parameters
-        let favouriteThing4 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
+        let favouriteThingTest = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
        
         ///unwrap viewmodel to safetly use
         guard let viewModel = viewModel else{
@@ -168,7 +168,7 @@ class FavouriteThingTests: XCTestCase {
             return
         }
         ///add the new object into the view model
-        viewModel.addElement(favouriteThing: favouriteThing4)
+        viewModel.addElement(favouriteThing: favouriteThingTest)
         /// Handle errors from encoding and saving viewModel data
         do{
           ///assign a new JSON decoder Object
@@ -199,25 +199,25 @@ class FavouriteThingTests: XCTestCase {
              fatalError("decode failed \(fileURL)")
          }
         ///compare that the orignal data is the same to the decoded model for the object title
-        XCTAssertEqual(favouriteThing4.thingTitle, model.favouriteThings[0].thingTitle)
+        XCTAssertEqual(favouriteThingTest.thingTitle, model.favouriteThings[0].thingTitle)
         ///compare that the orignal data is the same to the decoded model for the object sub title
-        XCTAssertEqual(favouriteThing4.thingSubTitle, model.favouriteThings[0].thingSubTitle)
+        XCTAssertEqual(favouriteThingTest.thingSubTitle, model.favouriteThings[0].thingSubTitle)
         ///compare that the orignal data is the same to the decoded model for the object heading 1
-        XCTAssertEqual(favouriteThing4.thingHeading1, model.favouriteThings[0].thingHeading1)
+        XCTAssertEqual(favouriteThingTest.thingHeading1, model.favouriteThings[0].thingHeading1)
         ///compare that the orignal data is the same to the decoded model for the object heading 2
-        XCTAssertEqual(favouriteThing4.thingHeading2, model.favouriteThings[0].thingHeading2)
+        XCTAssertEqual(favouriteThingTest.thingHeading2, model.favouriteThings[0].thingHeading2)
         ///compare that the orignal data is the same to the decoded model for the object heading 3
-        XCTAssertEqual(favouriteThing4.thingHeading3, model.favouriteThings[0].thingHeading3)
+        XCTAssertEqual(favouriteThingTest.thingHeading3, model.favouriteThings[0].thingHeading3)
         ///compare that the orignal data is the same to the decoded model for the object heading 1 value
-        XCTAssertEqual(favouriteThing4.thingHeading1Value, model.favouriteThings[0].thingHeading1Value)
+        XCTAssertEqual(favouriteThingTest.thingHeading1Value, model.favouriteThings[0].thingHeading1Value)
         ///compare that the orignal data is the same to the decoded model for the object heading 2 value
-        XCTAssertEqual(favouriteThing4.thingHeading2Value, model.favouriteThings[0].thingHeading2Value)
+        XCTAssertEqual(favouriteThingTest.thingHeading2Value, model.favouriteThings[0].thingHeading2Value)
         ///compare that the orignal data is the same to the decoded model for the object heading 3 value
-        XCTAssertEqual(favouriteThing4.thingHeading3Value, model.favouriteThings[0].thingHeading3Value)
+        XCTAssertEqual(favouriteThingTest.thingHeading3Value, model.favouriteThings[0].thingHeading3Value)
         ///compare that the orignal data is the same to the decoded model for the object image name
-        XCTAssertEqual(favouriteThing4.image, model.favouriteThings[0].image)
+        XCTAssertEqual(favouriteThingTest.image, model.favouriteThings[0].image)
         ///compare that the orignal data is the same to the decoded model for the object notes
-        XCTAssertEqual(favouriteThing4.note, model.favouriteThings[0].note)
+        XCTAssertEqual(favouriteThingTest.note, model.favouriteThings[0].note)
         
     }
     
