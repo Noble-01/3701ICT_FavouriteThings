@@ -11,8 +11,8 @@ import SwiftUI
 
 ///creation of object with certain parameters using the FavouriteThings class
 let favouriteThing1 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
-let favouriteThing2 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
-let favouriteThing3 = FavouriteThing(thingTitle: "Kipfler", thingSubTitle: "Solanum tuberosum", thingHeading1Value:"Sweet Potato", thingHeading2Value: "20grams", thingHeading3Value: "manganese, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato", note: "")
+let favouriteThing2 = FavouriteThing(thingTitle: "Vitelotte", thingSubTitle: "Solanum Vitelotte", thingHeading1Value:"Starch Potato", thingHeading2Value: "300grams", thingHeading3Value: "protien, potassium and vitamin C", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato1", note: "")
+let favouriteThing3 = FavouriteThing(thingTitle: "Laura", thingSubTitle: "Laura tuberosum", thingHeading1Value:"Cultivar Potato", thingHeading2Value: "150grams", thingHeading3Value: "Laura tuberosum", thingHeading1: "Family: ", thingHeading2: "Weight:", thingHeading3: "Nutrition: ", image: "Potato2", note: "")
 
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -23,19 +23,11 @@ struct DetailView: View {
             ///display the title for the object on the screen
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingTitle)
                 .font(.title)
-            HStack{
-                ///display text "SubtItle:"
-                Text(ViewModel.subTitleHeadingPlaceHolder)
-                .font(.subheadline)
-                .lineLimit(nil)
-                .multilineTextAlignment(.center)
-                .frame(maxHeight: .infinity)
                 
                 ///display the sub title of favouriteThing
                 TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingSubTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
-            }
 
             ///retrieve image from getter func
             model.getterImage()

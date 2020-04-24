@@ -32,8 +32,6 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     static var notesTextFieldPlaceHolder: String = "Add a note"
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
-    ///placeholder variable for subtitle textfield
-    static var subTitleHeadingPlaceHolder: String = "Subtitle:"
     ///placeholder variable for default image if no image is loaded by remote URL
     static var defaultImagePlaceHolder: String = "Potato"
   
