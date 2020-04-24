@@ -117,9 +117,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     }
     /**
      decodes the favouriteThing based on the CodingKeys above
-    - Parameter encoder: A Encoder object used to encode the favouriteThing data
-     
-    - Returns: A new favouriteThing object
+    - Parameter to: A Encoder object used to encode the favouriteThing data
      
      */
     func encode(to encoder: Encoder) throws {

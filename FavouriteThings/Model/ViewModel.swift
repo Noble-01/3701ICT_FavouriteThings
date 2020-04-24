@@ -73,8 +73,6 @@ class ViewModel: ObservableObject, Identifiable, Codable{
       decodes the favouriteThing based on the CodingKeys above
      - Parameter encoder: A Encoder object used to encode the favouriteThing data
       
-     - Returns: A new favouriteThing object
-      
       */
      func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
