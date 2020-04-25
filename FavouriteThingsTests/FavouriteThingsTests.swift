@@ -218,6 +218,8 @@ class FavouriteThingTests: XCTestCase {
         XCTAssertEqual(favouriteThingTest.image, model.favouriteThings[0].image)
         ///compare that the orignal data is the same to the decoded model for the object notes
         XCTAssertEqual(favouriteThingTest.note, model.favouriteThings[0].note)
+        ///compare the original data is the same as the decoded model for the viewModel list title
+        XCTAssertEqual(viewModel.listTitle, model.listTitle)
         
     }
     
