@@ -13,10 +13,11 @@
         <attribute name="thingTitle" attributeType="String"/>
     </entity>
     <entity name="ViewModel" representedClassName="ViewModel" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES"/>
+        <attribute name="listTitle" attributeType="String"/>
+        <relationship name="favouriteThings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavouriteThing"/>
     </entity>
     <elements>
         <element name="FavouriteThing" positionX="-12628.91015625" positionY="-1191.01953125" width="128" height="193"/>
-        <element name="ViewModel" positionX="-12618" positionY="-1107" width="128" height="58"/>
+        <element name="ViewModel" positionX="-12992.94140625" positionY="-1158.99609375" width="128" height="73"/>
     </elements>
 </model>
