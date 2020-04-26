@@ -11,13 +11,14 @@
         <attribute name="thingHeading3Value" attributeType="String"/>
         <attribute name="thingSubTitle" attributeType="String"/>
         <attribute name="thingTitle" attributeType="String"/>
+        <relationship name="viewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ViewModel" inverseName="favouriteThings" inverseEntity="ViewModel"/>
     </entity>
     <entity name="ViewModel" representedClassName="ViewModel" syncable="YES" codeGenerationType="class">
         <attribute name="listTitle" attributeType="String"/>
-        <relationship name="favouriteThings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavouriteThing"/>
+        <relationship name="favouriteThings" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FavouriteThing" inverseName="viewModel" inverseEntity="FavouriteThing"/>
     </entity>
     <elements>
-        <element name="FavouriteThing" positionX="-12628.91015625" positionY="-1191.01953125" width="128" height="193"/>
+        <element name="FavouriteThing" positionX="-12623.87890625" positionY="-1311.09765625" width="128" height="208"/>
         <element name="ViewModel" positionX="-12992.94140625" positionY="-1158.99609375" width="128" height="73"/>
     </elements>
 </model>
