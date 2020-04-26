@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="FavouriteThing" representedClassName="FavouriteThing" syncable="YES" codeGenerationType="class">
+        <attribute name="image" attributeType="String"/>
+        <attribute name="note" attributeType="String"/>
+        <attribute name="thingHeading1" attributeType="String"/>
+        <attribute name="thingHeading1Value" attributeType="String"/>
+        <attribute name="thingHeading2" attributeType="String"/>
+        <attribute name="thingHeading2Value" attributeType="String"/>
+        <attribute name="thingHeading3" attributeType="String"/>
+        <attribute name="thingHeading3Value" attributeType="String"/>
+        <attribute name="thingSubTitle" attributeType="String"/>
+        <attribute name="thingTitle" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="FavouriteThing" positionX="-63" positionY="-18" width="128" height="193"/>
+    </elements>
 </model>
