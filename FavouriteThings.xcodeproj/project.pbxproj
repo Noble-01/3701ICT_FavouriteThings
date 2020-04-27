@@ -13,6 +13,7 @@
 		B8D3DC6824565C5C0070C224 /* FavouriteThing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DC6424565C5C0070C224 /* FavouriteThing+CoreDataProperties.swift */; };
 		B8D3DC6924565C5C0070C224 /* ViewModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DC6524565C5C0070C224 /* ViewModel+CoreDataClass.swift */; };
 		B8D3DC6A24565C5C0070C224 /* ViewModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DC6624565C5C0070C224 /* ViewModel+CoreDataProperties.swift */; };
+		B8D3DC6D24565D6C0070C224 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D3DC6C24565D6C0070C224 /* CoreData.framework */; };
 		B8FD2ECC24457D0A00A50693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */; };
 		B8FD2ECE24457D0A00A50693 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FD2ECD24457D0A00A50693 /* SceneDelegate.swift */; };
 		B8FD2ED224457D0B00A50693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8FD2ED124457D0B00A50693 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		B8D3DC6424565C5C0070C224 /* FavouriteThing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouriteThing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8D3DC6524565C5C0070C224 /* ViewModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B8D3DC6624565C5C0070C224 /* ViewModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B8D3DC6C24565D6C0070C224 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B8FD2EC824457D0A00A50693 /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8FD2ECD24457D0A00A50693 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D3DC6D24565D6C0070C224 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8D3DC6B24565D6C0070C224 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8D3DC6C24565D6C0070C224 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B8FD2EBF24457D0A00A50693 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +118,7 @@
 				B8FD2EE124457D0B00A50693 /* FavouriteThingsTests */,
 				B8FD2EEC24457D0B00A50693 /* FavouriteThingsUITests */,
 				B8FD2EC924457D0A00A50693 /* Products */,
+				B8D3DC6B24565D6C0070C224 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

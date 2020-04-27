@@ -18,6 +18,8 @@ extension ViewModel {
     }
 
     @NSManaged public var listTitle: String?
+    ///takes care of the ordering for the list
+    
     @NSManaged public var favouriteThings: NSOrderedSet?
 
 }
