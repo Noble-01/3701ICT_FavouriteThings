@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="FavouriteThing" representedClassName="FavouriteThing" syncable="YES" codeGenerationType="class">
+    <entity name="Thing" representedClassName="Thing" syncable="YES" codeGenerationType="class">
         <attribute name="image" attributeType="String"/>
         <attribute name="note" attributeType="String"/>
         <attribute name="thingHeading1" attributeType="String"/>
@@ -11,14 +11,14 @@
         <attribute name="thingHeading3Value" attributeType="String"/>
         <attribute name="thingSubTitle" attributeType="String"/>
         <attribute name="thingTitle" attributeType="String"/>
-        <relationship name="viewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ViewModel" inverseName="favouriteThings" inverseEntity="ViewModel"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
     </entity>
-    <entity name="ViewModel" representedClassName="ViewModel" syncable="YES" codeGenerationType="class">
-        <attribute name="listTitle" attributeType="String"/>
-        <relationship name="favouriteThings" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="FavouriteThing" inverseName="viewModel" inverseEntity="FavouriteThing"/>
+    <entity name="Things" representedClassName="Things" syncable="YES" codeGenerationType="class">
+        <attribute name="listTitle" attributeType="String" defaultValueString="Favourite Things"/>
+        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="list" inverseEntity="Thing"/>
     </entity>
     <elements>
-        <element name="FavouriteThing" positionX="-12623.87890625" positionY="-1311.09765625" width="128" height="208"/>
-        <element name="ViewModel" positionX="-12992.94140625" positionY="-1158.99609375" width="128" height="73"/>
+        <element name="Things" positionX="-13001.9296875" positionY="-1122.96484375" width="128" height="73"/>
+        <element name="Thing" positionX="-12671.85546875" positionY="-1227.07421875" width="128" height="208"/>
     </elements>
 </model>

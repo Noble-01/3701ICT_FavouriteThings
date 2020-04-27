@@ -8,7 +8,7 @@
 
 import Foundation
 ///@Identifiable: A class of types whose instances hold the value of an entity with stable identity.
-class ViewModel: ObservableObject, Identifiable, Codable{
+class ViewModel: ObservableObject, Identifiable{
     
     ///placeholder variable for list title  text
     @Published var listTitle: String = "Favourite Things"

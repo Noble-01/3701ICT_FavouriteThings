@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ///if the database doesn't exist then it will create it
     lazy var persistentContainer: NSPersistentContainer = {
         ///name of database
-        let container = NSPersistentContainer(name: "ViewModel")
+        let container = NSPersistentContainer(name: "Model")
         ///loads the database
         container.loadPersistentStores { (storeDescription, error) in
             ///if database can't be opened

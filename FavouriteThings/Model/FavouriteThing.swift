@@ -10,7 +10,7 @@
 ///the struct contains all the parameters that make for the objects in "FavouriteThing"
 import SwiftUI
 import Foundation
-class FavouriteThing : ObservableObject, Identifiable, Codable{
+class FavouriteThing : ObservableObject, Identifiable{
     /**
      A class of types whose instances hold the value of an entity with stable identity
      1. id is given to identify the objects of favouriteThings in the array

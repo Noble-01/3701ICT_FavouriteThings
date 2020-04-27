@@ -15,7 +15,7 @@ struct DetailView: View {
         the follwoing code is used to display the information about the favouriteThing objects when they are selcted from the MasterView
      */
     ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class FavouriteThing so that objects can use its parameters
-    @ObservedObject var model: FavouriteThing
+    @ObservedObject var model: Thing
     
     var body: some View {
         

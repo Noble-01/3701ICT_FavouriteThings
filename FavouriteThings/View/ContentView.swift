@@ -13,24 +13,24 @@ import SwiftUI
  */
 struct ContentView : View {
     @Environment(\.managedObjectContext) var context
-   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \viewModel.listTitle, ascending: true)]) var viewModel: FetchedResults<ViewModel>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Things.title, ascending: true)]) var things: FetchedResults<Things>
     ///is viewd by the viewmodel for any changes done to the array
     
     var body: some View{
                 NavigationView {
                     ///shows the MasterView which then utalizes the ViewModel file
-                    MasterView(viewModel: viewModel)
+                    MasterView(things: things.first ?? Things(context: context))
                     ///Configures the navigation bar items for the view.
                     .navigationBarItems(
-                        leading: EditButton(),
-                        trailing:HStack {
+                        leading: EditButton()//,
+                        /**trailing:HStack {
                             ///A button is a  control that performs an action when triggered.
                             ///performs the addElement func in the ViewModel file
                             Button(action:{withAnimation{self.viewModel.addElement()}
                             }){
                                 Image(systemName: "plus")
                             }
-                        }
+                        }*/
                     )
         }
     }
