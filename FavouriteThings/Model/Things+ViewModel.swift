@@ -18,6 +18,6 @@ extension Things {
         get {self.listTitle ?? ""}
     }
     func moveItems(from source: IndexSet, to destination: Int) {
-        entries.move(fromOffsets: IndexSet, toOffset: Int)
+        entries.move(fromOffsets: source, toOffset: destination)
     }
 }
