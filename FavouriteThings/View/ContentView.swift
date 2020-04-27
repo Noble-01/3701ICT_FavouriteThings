@@ -12,6 +12,7 @@ import SwiftUI
  items within the navigation
  */
 struct ContentView : View {
+     @Environment(\managedObjectContext) var context
     ///is viewd by the viewmodel for any changes done to the array
     @ObservedObject var viewModel:ViewModel
     

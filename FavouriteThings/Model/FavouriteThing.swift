@@ -43,21 +43,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
     var thingHeading2: String = ""
     ///textfield for the last heading
     var thingHeading3: String = ""
-    
-    ///key components of the JSON key value paris.
-    ///A type that can be used as a key for encoding and decoding.
-    enum CodingKeys: String, CodingKey{
-        case thingTitle
-        case thingSubTitle
-        case thingHeading1Value
-        case thingHeading2Value
-        case thingHeading3Value
-        case thingHeading1
-        case thingHeading2
-        case thingHeading3
-        case note
-        case image
-    }
+
     
     /**
      initialises a new favouriteThing with a default FavouriteThing data
@@ -94,45 +80,7 @@ class FavouriteThing : ObservableObject, Identifiable, Codable{
         self.image = image
         self.note = note
     }
-    /**
-     decodes the favouriteThing based on the CodingKeys above
-    - Parameter from: A Decoder object used to decode the favouriteThing data
-     
-    - Returns: A new favouriteThing object
-     
-     */
-    required init(from decoder: Decoder)throws{
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        thingTitle = try container.decode(String.self, forKey: .thingTitle)
-        thingSubTitle = try container.decode(String.self, forKey: .thingSubTitle)
-        thingHeading1Value = try container.decode(String.self, forKey: .thingHeading1Value)
-        thingHeading2Value = try container.decode(String.self, forKey: .thingHeading2Value)
-        thingHeading3Value = try container.decode(String.self, forKey: .thingHeading3Value)
-        thingHeading1 = try container.decode(String.self, forKey: .thingHeading1)
-        thingHeading2 = try container.decode(String.self, forKey: .thingHeading2)
-        thingHeading3 = try container.decode(String.self, forKey: .thingHeading3)
-        note = try container.decode(String.self, forKey: .note)
-        image = try container.decode(String.self, forKey: .image)
-        updateImage(imageURL: image)
-    }
-    /**
-     decodes the favouriteThing based on the CodingKeys above
-    - Parameter to: A Encoder object used to encode the favouriteThing data
-     
-     */
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(thingTitle, forKey: .thingTitle)
-        try container.encode(thingSubTitle, forKey: .thingSubTitle)
-        try container.encode(thingHeading1Value, forKey: .thingHeading1Value)
-        try container.encode(thingHeading2Value, forKey: .thingHeading2Value)
-        try container.encode(thingHeading3Value, forKey: .thingHeading3Value)
-        try container.encode(thingHeading1, forKey: .thingHeading1)
-        try container.encode(thingHeading2, forKey: .thingHeading2)
-        try container.encode(thingHeading3, forKey: .thingHeading3)
-        try container.encode(note, forKey: .note)
-        try container.encode(image, forKey: .image)
-    }
+
     /**
     function is used to update the  uiImage variable and assign a image to the prarameter.
      

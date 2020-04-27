@@ -41,15 +41,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     1. Using @published we can look at the new array when a change is made to it
     */
     @Published var favouriteThings : [FavouriteThing]
-    /**
-    key components of the JSON key value paris.
-    A type that can be used as a key for encoding and decoding.
-    encodes the listTitle and array of objects
-     */
-    enum CodingKeys: String, CodingKey{
-        case favouriteThings
-        case listTitle
-    }
+
     /**
      initialises a new ViewModel with the provided ViewModel data
     - Returns: a new ViewModel object
@@ -57,28 +49,7 @@ class ViewModel: ObservableObject, Identifiable, Codable{
     init() {
         favouriteThings = [FavouriteThing]()
     }
-    /**
-     decodes the favouriteThing based on the CodingKeys above
-    - Parameter from: A Decoder object used to decode the viewModel data
-     
-    - Returns: A new viewModel object
-     
-     */
-    required init(from decoder: Decoder)throws{
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        favouriteThings = try container.decode([FavouriteThing].self, forKey:.favouriteThings)
-        listTitle = try container.decode(String.self, forKey: .listTitle)
-     }
-     /**
-      decodes the favouriteThing based on the CodingKeys above
-     - Parameter encoder: A Encoder object used to encode the favouriteThing data
-      
-      */
-     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(favouriteThings, forKey: CodingKeys.favouriteThings)
-         try container.encode(listTitle, forKey: CodingKeys.listTitle)
-     }
+
     /**
     func creates new object using the FavouriteThing model
     append new object to potato array "favouriteThings"
