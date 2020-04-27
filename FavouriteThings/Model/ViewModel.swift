@@ -79,7 +79,5 @@ class ViewModel: ObservableObject, Identifiable{
     - Parameter source: index place of object being moved in list
     - Parameter destination: index place that object is being moved to
      */
-    func moveItems(from source: IndexSet, to destination: Int) {
-    favouriteThings.move(fromOffsets: source, toOffset: destination)
-    }
+
 }

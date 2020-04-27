@@ -16,4 +16,6 @@ extension Things {
         set(newTitle) {self.listTitle = newTitle}
         get {self.listTitle ?? ""}
     }
+    func moveItems(from source: IndexSet, to destination: Int) {
+    }
 }
