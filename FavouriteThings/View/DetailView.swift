@@ -30,16 +30,16 @@ struct DetailView: View {
             TextField("", text: self.$model.subTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
-            /*
+            
             ///retrieve image from getter func
-            model.getterImage()
+            self.model.updateImage()
                 .resizable()
                 .padding(.vertical, 15.0)
                 .frame(width: 299.0, height: 300.0)
                 .clipShape(Circle())
                 .shadow(radius: 10)
                 .scaledToFit()
-            */
+            
             HStack(alignment: .center) {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
@@ -89,12 +89,9 @@ struct DetailView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     ///display default text "URL of image" or display the url of favouriteThing if there is a string in the object property
-                    TextField("", text: self.$model.thingImage)
-                   /* {
-                        ///send url string as a parameter for func updateImage()
-                        self.model.updateImage()
+                    TextField("", text: self.$model.thingImageURL)
                         
-                    }*/.textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     ///display default text "Add a note" or display the notes of favouriteThingif there is a string in the object property
                     TextField("", text: self.$model.thingNote)

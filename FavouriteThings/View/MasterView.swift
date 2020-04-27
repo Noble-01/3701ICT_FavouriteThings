@@ -42,7 +42,7 @@ struct MasterView: View {
                             RowView(favouriteThing: favouriteThing)
                         }
                     ///move items in list when the edit button is selected
-                }//.onMove(perform: self.list.moveItems(from:to:))
+                }//.onMove(perform: self.things.moveItems(from:to:))
                 ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
                     .onDelete{indices in indices.forEach
                     {

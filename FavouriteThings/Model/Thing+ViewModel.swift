@@ -65,8 +65,9 @@ extension Thing {
         
         - parameter imageURL: String  contains the url for the location of the image
        */
-    /*
-       func updateImage() -> Image{           ///guard unrwaps the variable so it the program doesn't throw a fatal error
+    
+       func updateImage() -> Image{
+        ///guard unrwaps the variable so it the program doesn't throw a fatal error
         guard let imageURL = imageURL,
            let url = URL(string: imageURL),
            let imageData = try? Data(contentsOf: url),
@@ -80,7 +81,7 @@ extension Thing {
                return Image(image ?? "Potato")
            }
         return Image(uiImage: uiImage)
-       }*/
+       }
        /**
         getter function that retrieves the image for the object, if a UIImage has been downloaded via remote URL it will set the Image porperty for the object to that downloaded UIImage. Else return an image if there is one assigned to the object already
         
