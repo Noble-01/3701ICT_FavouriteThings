@@ -45,13 +45,13 @@
 
 /* Begin PBXFileReference section */
 		B856EB362456C97300A70518 /* Things+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+ViewModel.swift"; sourceTree = "<group>"; };
+		B85B4B8524572E1E00EAE800 /* Things+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B85B4B8624572E1E00EAE800 /* Things+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B85B4B8724572E1E00EAE800 /* Thing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B85B4B8824572E1E00EAE800 /* Thing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8CAD6FE244863780023F64F /* FavouriteThing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteThing.swift; sourceTree = "<group>"; };
 		B8D3DC6124564DB70070C224 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B8D3DC6C24565D6C0070C224 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		B8E287F12456DF0300283EE3 /* Thing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B8E287F22456DF0300283EE3 /* Thing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B8E287F32456DF0300283EE3 /* Things+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B8E287F42456DF0300283EE3 /* Things+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8EA03A82456E6E4002CE9D5 /* Thing+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+ViewModel.swift"; sourceTree = "<group>"; };
 		B8FD2EC824457D0A00A50693 /* FavouriteThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,10 +110,10 @@
 		B8FD2EBF24457D0A00A50693 = {
 			isa = PBXGroup;
 			children = (
-				B8E287F12456DF0300283EE3 /* Thing+CoreDataClass.swift */,
-				B8E287F22456DF0300283EE3 /* Thing+CoreDataProperties.swift */,
-				B8E287F32456DF0300283EE3 /* Things+CoreDataClass.swift */,
-				B8E287F42456DF0300283EE3 /* Things+CoreDataProperties.swift */,
+				B85B4B8524572E1E00EAE800 /* Things+CoreDataClass.swift */,
+				B85B4B8624572E1E00EAE800 /* Things+CoreDataProperties.swift */,
+				B85B4B8724572E1E00EAE800 /* Thing+CoreDataClass.swift */,
+				B85B4B8824572E1E00EAE800 /* Thing+CoreDataProperties.swift */,
 				B8FD2ECA24457D0A00A50693 /* FavouriteThings */,
 				B8FD2EE124457D0B00A50693 /* FavouriteThingsTests */,
 				B8FD2EEC24457D0B00A50693 /* FavouriteThingsUITests */,

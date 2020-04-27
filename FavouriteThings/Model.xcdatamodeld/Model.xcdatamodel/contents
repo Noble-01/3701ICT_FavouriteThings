@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Thing" representedClassName="Thing" syncable="YES" codeGenerationType="class">
-        <attribute name="image" attributeType="String"/>
-        <attribute name="note" attributeType="String"/>
-        <attribute name="thingHeading1" attributeType="String"/>
-        <attribute name="thingHeading1Value" attributeType="String"/>
-        <attribute name="thingHeading2" attributeType="String"/>
-        <attribute name="thingHeading2Value" attributeType="String"/>
-        <attribute name="thingHeading3" attributeType="String"/>
-        <attribute name="thingHeading3Value" attributeType="String"/>
-        <attribute name="thingSubTitle" attributeType="String"/>
+        <attribute name="image" attributeType="String" defaultValueString="Potato"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <attribute name="note" attributeType="String" defaultValueString="NOTES"/>
+        <attribute name="thingHeading1" attributeType="String" defaultValueString="Heading1"/>
+        <attribute name="thingHeading1Value" attributeType="String" defaultValueString="Heading1Value"/>
+        <attribute name="thingHeading2" attributeType="String" defaultValueString="Heading2"/>
+        <attribute name="thingHeading2Value" attributeType="String" defaultValueString="Heading2Value"/>
+        <attribute name="thingHeading3" attributeType="String" defaultValueString="Heading3"/>
+        <attribute name="thingHeading3Value" attributeType="String" defaultValueString="Headin3gValue"/>
+        <attribute name="thingSubTitle" attributeType="String" defaultValueString="subTitle"/>
         <attribute name="thingTitle" attributeType="String" defaultValueString="Title"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
     </entity>
@@ -18,7 +19,7 @@
         <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="list" inverseEntity="Thing"/>
     </entity>
     <elements>
-        <element name="Thing" positionX="-12671.85546875" positionY="-1227.07421875" width="128" height="208"/>
+        <element name="Thing" positionX="-12671.85546875" positionY="-1227.07421875" width="128" height="223"/>
         <element name="Things" positionX="-13001.9296875" positionY="-1122.96484375" width="128" height="73"/>
     </elements>
 </model>

@@ -18,19 +18,19 @@ struct DetailView: View {
     @ObservedObject var model: Thing
     
     var body: some View {
-        TextField("Title", text: self.$model.title)
-            .font(.title)
-        /**
+
+        
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the title for the object on the screen
-
+            TextField("Title", text: self.$model.title)
+                .font(.title)
                 
                 ///display the sub title of favouriteThing
-                TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingSubTitle)
+            TextField("", text: self.$model.subTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
-
+            /*
             ///retrieve image from getter func
             model.getterImage()
                 .resizable()
@@ -39,22 +39,22 @@ struct DetailView: View {
                 .clipShape(Circle())
                 .shadow(radius: 10)
                 .scaledToFit()
-        
+            */
             HStack(alignment: .center) {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "Heading1:"
-                    TextField(ViewModel.heading1PlaceHolder, text:$model.thingHeading1)
+                    TextField("", text: self.$model.heading1)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "Heading2t:"
-                    TextField(ViewModel.heading2PlaceHolder, text: $model.thingHeading2)
+                    TextField("", text: self.$model.heading2)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "Heading3:"
-                    TextField(ViewModel.heading3PlaceHolder, text: $model.thingHeading3)
+                    TextField("", text: self.$model.heading3)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
 
@@ -74,30 +74,30 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading){
                     ///display default text "<new>" or display the heading 1 value of favouriteThing if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder,text: $model.thingHeading1Value)
+                    TextField("",text: self.$model.heading1Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the heading 2 value of favouriteThing if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading2Value)
+                    TextField("", text: self.$model.heading2Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the heading 3 value of favouriteThing if there is a string in the object property
-                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingHeading3Value)
+                    TextField("", text: self.$model.heading3Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     ///display default text "URL of image" or display the url of favouriteThing if there is a string in the object property
-                    TextField(ViewModel.imageURLTextFieldPlaceHolder, text: $model.image)
-                    {
+                    TextField("", text: self.$model.thingImage)
+                   /* {
                         ///send url string as a parameter for func updateImage()
-                        self.model.updateImage(imageURL: self.model.image)
+                        self.model.updateImage()
                         
-                    }.textFieldStyle(RoundedBorderTextFieldStyle())
+                    }*/.textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     ///display default text "Add a note" or display the notes of favouriteThingif there is a string in the object property
-                    TextField(ViewModel.notesTextFieldPlaceHolder, text: self.$model.note)
+                    TextField("", text: self.$model.thingNote)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
 
@@ -107,6 +107,6 @@ struct DetailView: View {
 
         }
         .padding(.bottom, 150.0)
- */
+ 
     }
 }

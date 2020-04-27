@@ -27,6 +27,7 @@ extension Thing {
     @NSManaged public var thingHeading3Value: String?
     @NSManaged public var thingSubTitle: String?
     @NSManaged public var thingTitle: String?
+    @NSManaged public var imageURL: String?
     @NSManaged public var list: Things?
 
 }
