@@ -5,7 +5,7 @@
 //  Created by Zac Cripps on 13/4/20.
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
-
+import CoreData
 import UIKit
 
 @UIApplicationMain
@@ -32,6 +32,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    ///contains the objects that represent the database. calls the closure
+    ///if the database doesn't exist then it will create it
+    lazy var persistentContainer: NSPersistentContainer = {
+        ///name of database
+        let container = NSPersistentContainer(name: "ViewModel")
+        ///loads the database
+        container.loadPersistentStores { (storeDescription, error) in
+            ///if database can't be opened
+            if let actualError = error as NSError? {
+                fatalError("can't load database \(actualError): \(actualError.userInfo)")
+            }
+        }
+            return container
+    }()
+    ///save any changes made to the database
+    func saveContent(){
+        let context = persistentContainer.viewContext
+        ///if context has any changes try save the data
+        if context.hasChanges{
+            do{
+                ///save data
+                try context.save()
+            }catch{
+                let nserror = error as NSError
+                ///alternate to forcefully crashing the app
+                print("can't save data to database \(nserror): \(nserror.userInfo)")
+            }
+        }
+    }
 }
 

@@ -28,6 +28,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ///create new object of ViewModel class
     var viewModel = ViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        ///variable for the AppDelegate. cast the app delegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            fatalError("no app delegate")
+        }
+        let context = appDelegate.persistentContainer.viewContext
     ///Handles the decoding of the viewModel and errors
         do{
             ///attempt to read the file data into memory
@@ -52,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(viewModel: viewModel)
+        let contentView = ContentView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
