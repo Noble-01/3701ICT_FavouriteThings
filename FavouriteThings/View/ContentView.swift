@@ -13,7 +13,7 @@ import SwiftUI
  */
 struct ContentView : View {
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Things.title, ascending: true)]) var things: FetchedResults<Things>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)]) var things: FetchedResults<Things>
     ///is viewd by the viewmodel for any changes done to the array
     
     var body: some View{
@@ -22,15 +22,18 @@ struct ContentView : View {
                     MasterView(things: things.first ?? Things(context: context))
                     ///Configures the navigation bar items for the view.
                     .navigationBarItems(
-                        leading: EditButton()//,
-                        /**trailing:HStack {
+                        leading: EditButton(),
+                        trailing:HStack {
                             ///A button is a  control that performs an action when triggered.
                             ///performs the addElement func in the ViewModel file
-                            Button(action:{withAnimation{self.viewModel.addElement()}
+                            Button(action:{withAnimation{
+                                let thing = Thing(context: self.context)
+                                thing.list = self.things.first
+                                try? self.context.save()}
                             }){
                                 Image(systemName: "plus")
                             }
-                        }*/
+                        }
                     )
         }
     }

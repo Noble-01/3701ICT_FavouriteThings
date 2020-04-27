@@ -10,7 +10,7 @@
         <attribute name="thingHeading3" attributeType="String"/>
         <attribute name="thingHeading3Value" attributeType="String"/>
         <attribute name="thingSubTitle" attributeType="String"/>
-        <attribute name="thingTitle" attributeType="String"/>
+        <attribute name="thingTitle" attributeType="String" defaultValueString="Title"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
     </entity>
     <entity name="Things" representedClassName="Things" syncable="YES" codeGenerationType="class">
@@ -18,7 +18,7 @@
         <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="list" inverseEntity="Thing"/>
     </entity>
     <elements>
-        <element name="Things" positionX="-13001.9296875" positionY="-1122.96484375" width="128" height="73"/>
         <element name="Thing" positionX="-12671.85546875" positionY="-1227.07421875" width="128" height="208"/>
+        <element name="Things" positionX="-13001.9296875" positionY="-1122.96484375" width="128" height="73"/>
     </elements>
 </model>

@@ -18,12 +18,13 @@ struct DetailView: View {
     @ObservedObject var model: Thing
     
     var body: some View {
-        
+        TextField("Title", text: self.$model.title)
+            .font(.title)
+        /**
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the title for the object on the screen
-            TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingTitle)
-                .font(.title)
+
                 
                 ///display the sub title of favouriteThing
                 TextField(ViewModel.newElementTextPlaceHolder, text: $model.thingSubTitle)
@@ -106,5 +107,6 @@ struct DetailView: View {
 
         }
         .padding(.bottom, 150.0)
+ */
     }
 }
