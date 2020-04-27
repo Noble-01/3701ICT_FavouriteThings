@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Environment(\managedObjectContext) var context
+    @Environment(\.managedObjectContext) var context
     /**
         the follwoing code is used to display the information about the favouriteThing objects when they are selcted from the MasterView
      */

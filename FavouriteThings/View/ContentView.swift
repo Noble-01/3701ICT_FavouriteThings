@@ -12,9 +12,9 @@ import SwiftUI
  items within the navigation
  */
 struct ContentView : View {
-     @Environment(\managedObjectContext) var context
+    @Environment(\.managedObjectContext) var context
+   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \viewModel.listTitle, ascending: true)]) var viewModel: FetchedResults<ViewModel>
     ///is viewd by the viewmodel for any changes done to the array
-    @ObservedObject var viewModel:ViewModel
     
     var body: some View{
                 NavigationView {
