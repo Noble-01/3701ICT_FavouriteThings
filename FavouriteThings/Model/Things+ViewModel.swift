@@ -10,12 +10,14 @@ import Foundation
 
 extension Things {
     var entries: [Thing]{
-        (self.things?.array as? [Thing]) ?? []
+        set {things = NSOrderedSet(array: newValue)}
+        get {(things?.array as? [Thing]) ?? []}
     }
     var title: String {
         set(newTitle) {self.listTitle = newTitle}
         get {self.listTitle ?? ""}
     }
     func moveItems(from source: IndexSet, to destination: Int) {
+        entries.move(fromOffsets: IndexSet, toOffset: Int)
     }
 }
