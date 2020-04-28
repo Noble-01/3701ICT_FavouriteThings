@@ -56,32 +56,47 @@ extension Thing {
         get {note ?? ""}
         }
     /**
-       function is used to update the  uiImage variable and assign a image to the prarameter.
+       function is used to update the  uiImage variable and assign a image to the prarameter. function also makes use of a dictionary to store image urls
         
             ##important Notes##
-           1. UIImageView that downloads image data
-           2. converts that data to a UIImage
-           3. loads it back into the image view
+     1. check for dictionary in scenedelegate
+     2. dictionary is used to download image urls
+     3. UIImageView that downloads image data
+     4. converts that data to a UIImage
+     5. loads it back into the image view
         
-        - parameter imageURL: String  contains the url for the location of the image
        */
-    
-       func updateImage() -> Image{
-        ///guard unrwaps the variable so it the program doesn't throw a fatal error
-        guard let imageURL = imageURL,
-           let url = URL(string: imageURL),
-           let imageData = try? Data(contentsOf: url),
-           let uiImage = UIImage(data: imageData)
-           else{
-               /**
-               If no image is retrieved from the url return nil for the var.
-               essentially not present anything and in this assignment reverting back to the default image of object.
-                if the self.uiImage = nil is commented out or deleted the object will only revert to the previous image instead of default
-               */
-               return Image(image ?? "Potato")
-           }
-        return Image(uiImage: uiImage)
-       }
+    func updateImage() -> Image {
+        ///checking if dictionary exists and going through keys within the dictionary
+        if SceneDelegate.imageDownloads.keys.contains(thingImageURL) {
+            guard let uiImage = SceneDelegate.imageDownloads[thingImageURL] else {
+                ///returns the image from the dictionary if not returns a default image
+                return Image(image ?? "potato")
+            }
+            ///return value UIImage
+            print("Image retrieved from SceneDelegate")
+            return Image(uiImage: uiImage)
+        } else {
+             ///guard unrwaps the variable so it the program doesn't throw a fatal error
+            guard let imageURL = imageURL,
+                let url = URL(string: imageURL),
+                let imageData = try? Data(contentsOf: url),
+                let uiImage = UIImage(data: imageData) else {
+                    /**
+                    If no image is retrieved from the url return nil for the var.
+                    essentially not present anything and in this assignment reverting back to the default image of object.
+                     if the self.uiImage = nil is commented out or deleted the object will only revert to the previous image instead of default
+                    */
+                    return Image(image ?? "potato")
+            }
+            ///places imagURL as key in the dictionary
+            SceneDelegate.imageDownloads[imageURL] = uiImage
+            print("Image retrieved from internet")
+            ///return value UIImage
+            return Image(uiImage: uiImage)
+        }
+    }
+
 
 }
 
