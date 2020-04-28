@@ -15,6 +15,26 @@ extension Thing {
     
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
+       ///placeholder variable for textfield heading values when new object is created
+     static var newElementTextPlaceHolder: String = "<new>"
+     ///placeholder variable for the title text/textfield property when a new object is created
+     static var titleValuePlaceHolder: String = "<Title>"
+     ///placeholder variable for sub title text/textfield property when a new object is created
+     static var subtTitleValuePlaceHolder: String = "<Subtitle>"
+     ///placeholder varaible for Image URL textfield default value
+     static var imageURLTextFieldPlaceHolder: String = "URL of Image"
+     ///placeholder variable for heading 1  textfield
+     static var heading1PlaceHolder: String = "Heading1:"
+     ///placeholder variable for heading 2  textfield
+     static var heading2PlaceHolder: String = "Heading2:"
+     ///placeholder variable for heading 3  textfield
+     static var heading3PlaceHolder: String = "Heading3:"
+     ///placeholder variable for notes textfield default value
+     static var notesTextFieldPlaceHolder: String = "Add a note"
+     ///placeholder variable for default image if no image is loaded by remote URL
+     static var defaultImagePlaceHolder: String = "Potato"
+    
+    ///https://i.redd.it/qi0r0pdbsgs31.jpg
     
     var thingImageURL : String {
         set{imageURL = newValue}
@@ -79,7 +99,7 @@ extension Thing {
                 return Image(image ?? "potato")
             }
             ///return value UIImage
-            print("Image retrieved from SceneDelegate")
+            print("image recieved from the SceneDelegate dictionary")
             return Image(uiImage: uiImage)
         } else {
              ///guard unrwaps the variable so it the program doesn't throw a fatal error
@@ -96,7 +116,7 @@ extension Thing {
             }
             ///places imagURL as key in the dictionary
             SceneDelegate.imageDownloads[imageURL] = uiImage
-            print("Image retrieved from internet")
+            print("Image URL downloaded from internet")
             ///return value UIImage
             return Image(uiImage: uiImage)
         }

@@ -29,7 +29,9 @@ struct ContentView : View {
                             Button(action:{withAnimation{
                                 let thing = Thing(context: self.context)
                                 thing.list = self.things.first
-                                try? self.context.save()}
+                                try? self.context.save()
+                                print("Successfully saved context")
+                                }
                             }){
                                 Image(systemName: "plus")
                             }

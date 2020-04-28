@@ -52,7 +52,7 @@ struct MasterView: View {
             }
         }
         ///use an empty title if in edit mode or use the listTitle variable string
-        .navigationBarTitle(mode?.wrappedValue == .active ? "" : things.title ?? "")
+            .navigationBarTitle(mode?.wrappedValue == .active ? "" : things.title )
     }
 
 }

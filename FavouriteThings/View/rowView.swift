@@ -23,10 +23,10 @@ struct RowView: View {
             .scaledToFit()
             
             ///display title of thing
-            Text(thing.thingTitle ?? "").fontWeight(.bold)
+            Text(thing.thingTitle ?? Thing.titleValuePlaceHolder).fontWeight(.bold)
             
             ///display sub title of thing
-            Text(thing.thingSubTitle ?? "")
+            Text(thing.thingSubTitle ?? Thing.subtTitleValuePlaceHolder)
             .font(.subheadline)
             .fontWeight(.light)
             .italic()

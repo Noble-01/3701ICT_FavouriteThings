@@ -65,6 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context  = appDelegate.persistentContainer.viewContext
         if context.hasChanges{
             _ = try? context.save()
+            print("Successfully saved context")
         }
     }
 

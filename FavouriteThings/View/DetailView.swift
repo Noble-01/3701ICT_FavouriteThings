@@ -23,11 +23,11 @@ struct DetailView: View {
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the title for the object stored in CoreData
-            TextField("Title", text: self.$model.title)
+            TextField(Thing.titleValuePlaceHolder, text: self.$model.title)
                 .font(.title)
                 
                 ///display the sub title of thing stored in CoreData
-            TextField("", text: self.$model.subTitle)
+            TextField(Thing.subtTitleValuePlaceHolder, text: self.$model.subTitle)
                     .font(.subheadline)
                     .lineLimit(nil)
             
@@ -44,17 +44,17 @@ struct DetailView: View {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "Heading1:" or value stored in coredata
-                    TextField("", text: self.$model.heading1)
+                    TextField(Thing.heading1PlaceHolder, text: self.$model.heading1)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "Heading2:" or value stored in coredata
-                    TextField("", text: self.$model.heading2)
+                    TextField(Thing.heading2PlaceHolder, text: self.$model.heading2)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
                     
                     ///display text "Heading3:" or value stored in coredata
-                    TextField("", text: self.$model.heading3)
+                    TextField(Thing.heading3PlaceHolder, text: self.$model.heading3)
                     .multilineTextAlignment(.trailing)
                     .frame(maxHeight: .infinity)
 
@@ -74,27 +74,27 @@ struct DetailView: View {
                 
                 VStack(alignment: .leading){
                     /// display the heading 1 value of thing if there is a string in the coredata
-                    TextField("",text: self.$model.heading1Value)
+                    TextField(Thing.newElementTextPlaceHolder,text: self.$model.heading1Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display the heading 2 value of thing if there is a string in the coredata
-                    TextField("", text: self.$model.heading2Value)
+                    TextField(Thing.newElementTextPlaceHolder, text: self.$model.heading2Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display the heading 3 value of thing if there is a string in the coredata
-                    TextField("", text: self.$model.heading3Value)
+                    TextField(Thing.newElementTextPlaceHolder, text: self.$model.heading3Value)
                     .multilineTextAlignment(.leading)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     /// display the url of thing image stored in coredata
-                    TextField("", text: self.$model.thingImageURL)
+                    TextField(Thing.defaultImagePlaceHolder, text: self.$model.thingImageURL)
                         
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     /// display the notes of thing stored in coredata
-                    TextField("", text: self.$model.thingNote)
+                    TextField(Thing.notesTextFieldPlaceHolder, text: self.$model.thingNote)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
 

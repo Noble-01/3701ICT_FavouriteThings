@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do{
                 ///save data
                 try context.save()
+                print("Successfully saved context")
             }catch{
                 let nserror = error as NSError
                 ///alternate to forcefully crashing the app
