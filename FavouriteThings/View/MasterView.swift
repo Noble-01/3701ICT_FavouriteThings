@@ -26,7 +26,7 @@ struct MasterView: View {
             ///if the current mode has changed environment into editMode execute the following code
            if mode?.wrappedValue == .active{
                 HStack{
-                ///show the textfield of the title
+                ///show the textfield of the thing tile
                 Text("📝").font(Font.system(.largeTitle).bold())
                     TextField("title", text: self.$things.title).font(Font.system(.largeTitle).bold())
                 }
@@ -43,7 +43,7 @@ struct MasterView: View {
                         }
                     ///move items in list when the edit button is selected
                 }.onMove(perform: self.things.moveItems)
-                ///when an item is deleted remove from array with the index position
+                ///when an item is deleted it's removed from array with at index position
                     .onDelete{indices in indices.forEach
                     {
                         self.things.removeFromThings(at: $0)
