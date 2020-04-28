@@ -10,6 +10,11 @@ import SwiftUI
 import Foundation
 
 extension Thing {
+    ///placeholder variable for notes  label text
+    static var notesPlaceHolder: String = "Notes:"
+    
+    ///placeholder variable for image URL  label text
+    static var imageURLPlaceHolder: String = "Image URL:"
     
     var thingImageURL : String {
         set{imageURL = newValue}

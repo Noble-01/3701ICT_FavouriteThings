@@ -12,21 +12,21 @@ import SwiftUI
 struct RowView: View {
     @Environment(\.managedObjectContext) var context
     ///@ObservedObject:  property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
-    @ObservedObject var favouriteThing: Thing
+    @ObservedObject var thing: Thing
     var body: some View {
         HStack(){
-            ///calls image from the func "getterImage" for the favouriteThing object
-            favouriteThing.updateImage().resizable()
+            ///calls image from the func "getterImage" for the thing object
+            thing.updateImage().resizable()
             .padding(.vertical, 5.0)
             .frame(width: 80.0, height: 80.0)
             .shadow(radius: 10)
             .scaledToFit()
             
-            ///display title of favouriteThing
-            Text(favouriteThing.thingTitle ?? "").fontWeight(.bold)
+            ///display title of thing
+            Text(thing.thingTitle ?? "").fontWeight(.bold)
             
-            ///display sub title of favouriteThing
-            Text(favouriteThing.thingSubTitle ?? "")
+            ///display sub title of thing
+            Text(thing.thingSubTitle ?? "")
             .font(.subheadline)
             .fontWeight(.light)
             .italic()

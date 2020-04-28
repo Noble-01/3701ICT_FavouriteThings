@@ -26,24 +26,24 @@ struct MasterView: View {
             ///if the current mode has changed environment into editMode execute the following code
            if mode?.wrappedValue == .active{
                 HStack{
-                ///show the textfield of the listTile
+                ///show the textfield of the title
                 Text("📝").font(Font.system(.largeTitle).bold())
                     TextField("title", text: self.$things.title).font(Font.system(.largeTitle).bold())
                 }
             }
             List{
-            ///creates a for loop to run through the array with the var favouriteThing
+            ///creates a for loop to run through the array with the var thing
                 ForEach(things.entries, id: \.self)
                 {
-                    favouriteThing in
-                    ///links the items in the list to the detailView for the favouriteThing object selected
-                        NavigationLink(destination: DetailView(model: favouriteThing))
+                    thing in
+                    ///links the items in the list to the detailView for the thing object selected
+                        NavigationLink(destination: DetailView(model: thing))
                         {
-                            RowView(favouriteThing: favouriteThing)
+                            RowView(thing: thing)
                         }
                     ///move items in list when the edit button is selected
                 }.onMove(perform: self.things.moveItems)
-                ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
+                ///when an item is deleted remove from array with the index position
                     .onDelete{indices in indices.forEach
                     {
                         self.things.removeFromThings(at: $0)
