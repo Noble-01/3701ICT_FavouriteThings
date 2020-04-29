@@ -9,7 +9,8 @@ import CoreData
 import Foundation
 
 extension Things {
-
+    ///placeholder variable for things title  text
+    static var thingsTitle: String = "Favourite Things"
     ///setter and getter for array of entries in CoreData
     var entries: [Thing]{
         ///set array as an OrderedSet array
@@ -19,8 +20,8 @@ extension Things {
     }
     ///setter and getter for list title of things 
     var title: String {
-        set(newTitle) {self.listTitle = newTitle}
-        get {self.listTitle ?? ""}
+        set {listTitle = newValue}
+        get {listTitle ?? ""}
     }
         /**
      function is used to move objects in the ViewModel

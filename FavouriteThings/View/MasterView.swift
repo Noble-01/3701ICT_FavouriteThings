@@ -28,7 +28,7 @@ struct MasterView: View {
                 HStack{
                 ///show the textfield of the thing tile
                 Text("📝").font(Font.system(.largeTitle).bold())
-                    TextField("title", text: self.$things.title).font(Font.system(.largeTitle).bold())
+                    TextField("", text: self.$things.title).font(Font.system(.largeTitle).bold())
                 }
             }
             List{
@@ -52,7 +52,7 @@ struct MasterView: View {
             }
         }
         ///use an empty title if in edit mode or use the listTitle variable string
-            .navigationBarTitle(mode?.wrappedValue == .active ? "" : things.title )
+            .navigationBarTitle(mode?.wrappedValue == .active ? "" : things.title)
     }
 
 }
