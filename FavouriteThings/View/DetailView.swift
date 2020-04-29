@@ -90,7 +90,6 @@ struct DetailView: View {
                     
                     /// display the url of thing image stored in coredata
                     TextField(Thing.defaultImagePlaceHolder, text: self.$model.thingImageURL)
-                        
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     /// display the notes of thing stored in coredata

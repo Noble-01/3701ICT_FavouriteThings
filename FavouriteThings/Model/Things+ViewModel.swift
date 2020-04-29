@@ -10,11 +10,14 @@ import Foundation
 
 extension Things {
 
-    
+    ///setter and getter for array of entries in CoreData
     var entries: [Thing]{
+        ///set array as an OrderedSet array
         set {things = NSOrderedSet(array: newValue)}
+        ///if no array create new empty array
         get {(things?.array as? [Thing]) ?? []}
     }
+    ///setter and getter for list title of things 
     var title: String {
         set(newTitle) {self.listTitle = newTitle}
         get {self.listTitle ?? ""}
