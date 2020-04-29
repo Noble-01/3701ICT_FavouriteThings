@@ -34,47 +34,57 @@ extension Thing {
      static var defaultImagePlaceHolder: String = "potato"
     
     ///https://i.redd.it/qi0r0pdbsgs31.jpg
-    
+     ///setter and getter for imageURL  of object thing
     var thingImageURL : String {
         set{imageURL = newValue}
         get {imageURL ?? ""}
         }
+    ///setter and getter for title  of object thing
     var title : String {
         set {thingTitle = newValue}
         get {thingTitle ?? ""}
         }
+    ///setter and getter for imageURL  of object thing
     var subTitle : String {
         set{thingSubTitle = newValue}
         get {thingSubTitle ?? ""}
         }
+    ///setter and getter for heading1   of object thing
     var heading1 : String {
         set{thingHeading1 = newValue}
         get {thingHeading1 ?? ""}
         }
+    ///setter and getter for heading 2  of object thing
     var heading2 : String {
         set{thingHeading2 = newValue}
         get {thingHeading2 ?? ""}
         }
+    ///setter and getter for heading 3  of object thing
     var heading3 : String {
         set{thingHeading3 = newValue}
         get {thingHeading3 ?? ""}
         }
+    ///setter and getter for heading 1 value  of object thing
     var heading1Value : String {
         set{thingHeading1Value = newValue}
         get {thingHeading1Value ?? ""}
         }
+    ///setter and getter for heading 2 value  of object thing
     var heading2Value : String {
         set{thingHeading2Value = newValue}
         get {thingHeading2Value ?? ""}
         }
+    ///setter and getter for heading 3 value  of object thing
     var heading3Value : String {
         set{thingHeading3Value = newValue}
         get {thingHeading3Value ?? ""}
         }
+    ///setter and getter for image  of object thing
     var thingImage : String {
         set{image = newValue}
         get {image ?? ""}
         }
+    ///setter and getter for notes of object thing
     var thingNote : String {
         set{note = newValue}
         get {note ?? ""}
@@ -84,10 +94,11 @@ extension Thing {
         
             ##important Notes##
      1. check for dictionary in scenedelegate
-     2. dictionary is used to download image urls
-     3. UIImageView that downloads image data
+     2. dictionary is used to download/store image urls
+     3. UIImageView downloads image data
      4. converts that data to a UIImage
      5. loads it back into the image view
+     6. load imageURL into dictionary
         
        */
     func updateImage() -> Image {
