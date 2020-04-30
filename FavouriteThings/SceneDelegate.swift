@@ -5,23 +5,93 @@
 //  Created by Zac Cripps on 13/4/20.
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
-
+import CoreData
 import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ///dictionary to store the UIImages
     static var imageDownloads: [String: UIImage] = [:]
-
     var window: UIWindow?
-    ///create new object of ViewModel class
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
         
         ///variable for the AppDelegate. cast the app delegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             fatalError("no app delegate")
         }
         let context = appDelegate.persistentContainer.viewContext
+
+        
+        var thingsArray: [Things] = [Things]()
+        
+        let thingsFetch: NSFetchRequest<Things> = Things.fetchRequest()
+        
+        let thingsSort: NSSortDescriptor = NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)
+        
+        thingsFetch.sortDescriptors = [thingsSort]
+        do{
+            thingsArray = try context.fetch(thingsFetch)
+            
+        }catch{
+            print("didn't return anything")
+        }
+        
+        let count = thingsArray.count
+        if (count == 0){
+            if let things = NSEntityDescription.insertNewObject(forEntityName: "Things", into: context) as? Things{
+                things.listTitle = "Favourite Things"
+                thingsArray.append(things)
+                appDelegate.saveContent()
+                
+                let object1 = Thing(context: context)
+                    object1.thingTitle = "Potato"
+                    object1.subTitle = "subTitle"
+                    object1.heading1 = "heading1"
+                    object1.heading1Value = "A"
+                    object1.heading2 = "heading2"
+                    object1.heading2Value = "B"
+                    object1.heading3 = "heading3"
+                    object1.heading3Value = "C"
+                    object1.image = "potato"
+                    object1.imageURL = ""
+                    object1.note = ""
+                    object1.list = things
+                things.addToThings(object1)
+                
+                let object2 = Thing(context: context)
+                    object2.thingTitle = "Potato"
+                    object2.subTitle = "subTitle"
+                    object2.heading1 = "heading1"
+                    object2.heading1Value = "A"
+                    object2.heading2 = "heading2"
+                    object2.heading2Value = "B"
+                    object2.heading3 = "heading3"
+                    object2.heading3Value = "C"
+                    object2.image = "potato"
+                    object2.imageURL = ""
+                    object2.note = ""
+                    object2.list = things
+                things.addToThings(object2)
+                
+                let object3 = Thing(context: context)
+                    object3.thingTitle = "Potato"
+                    object3.subTitle = "subTitle"
+                    object3.heading1 = "heading1"
+                    object3.heading1Value = "A"
+                    object3.heading2 = "heading2"
+                    object3.heading2Value = "B"
+                    object3.heading3 = "heading3"
+                    object3.heading3Value = "C"
+                    object3.image = "potato"
+                    object3.imageURL = ""
+                    object3.note = ""
+                    object3.list = things
+                things.addToThings(object3)
+                appDelegate.saveContent()
+            }
+        }
+
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environment(\.managedObjectContext, context)

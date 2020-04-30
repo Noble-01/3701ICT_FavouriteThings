@@ -15,7 +15,7 @@ struct RowView: View {
     @ObservedObject var thing: Thing
     var body: some View {
         HStack(){
-            ///calls image from the func "getterImage" for the thing object
+            ///calls image from the func "updateImage" for the thing object
             thing.updateImage().resizable()
             .padding(.vertical, 5.0)
             .frame(width: 80.0, height: 80.0)

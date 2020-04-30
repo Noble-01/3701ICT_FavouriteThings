@@ -14,8 +14,6 @@ import SwiftUI
 struct ContentView : View {
     @Environment(\.managedObjectContext) var context
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)]) var things: FetchedResults<Things>
-    ///is viewd by the viewmodel for any changes done to the array
-    
     var body: some View{
                 NavigationView {
                     ///shows the MasterView which then utalizes the ViewModel file
@@ -25,7 +23,7 @@ struct ContentView : View {
                         leading: EditButton(),
                         trailing:HStack {
                             ///A button is a  control that performs an action when triggered.
-                            ///performs the addElement func in the ViewModel file
+                            ///creates new object then saves the context to the CoreData
                             Button(action:{withAnimation{
                                 let thing = Thing(context: self.context)
                                 thing.list = self.things.first

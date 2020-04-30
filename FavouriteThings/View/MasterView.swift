@@ -13,7 +13,6 @@ struct MasterView: View {
     ///create a variable for the editMode envrionment of the app
     @Environment(\.editMode) var mode
    
-    
     /**
             the following code is used to create a naviagtion view that displays all the favouriteThing objects saved into an array
      */
