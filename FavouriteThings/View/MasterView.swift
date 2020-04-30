@@ -30,7 +30,7 @@ struct MasterView: View {
                 }
             }
             List{
-            ///creates a for loop to run through the array with the var thing
+            ///creates a for loop to run through the entries with the var thing
                 ForEach(things.entries, id: \.self)
                 {
                     thing in
@@ -44,6 +44,7 @@ struct MasterView: View {
                 ///when an item is deleted it's removed from array with at index position
                     .onDelete{indices in indices.forEach
                     {
+                        ///remove object from model
                         self.things.removeFromThings(at: $0)
                     }
                 }

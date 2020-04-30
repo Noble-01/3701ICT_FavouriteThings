@@ -26,11 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var thingsArray: [Things] = [Things]()
         ///fetch the data from the persistent store  Things
         let thingsFetch: NSFetchRequest<Things> = Things.fetchRequest()
-        ///sort array 
+        ///instructions to be used by thingsFetch to define the order of the items
         let thingsSort: NSSortDescriptor = NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)
-        
+        ///store instructions in array to be used for context.fetch
         thingsFetch.sortDescriptors = [thingsSort]
         do{
+            ///returns an array of Things from the model
             thingsArray = try context.fetch(thingsFetch)
             
         }catch{
@@ -40,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let count = thingsArray.count
         ///if it doesn't execute the following code
         if (count == 0){
-            ///create things to store the entires
+            ///create "things" to store the entires
             if let things = NSEntityDescription.insertNewObject(forEntityName: "Things", into: context) as? Things{
                 ///set the title attribute for the entity things to Favourite Things
                 things.listTitle = "Favourite Things"
@@ -136,12 +137,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        ///calls AppDelegate ensuring that it is actually the app delegate
         guard let appDelegate = UIApplication.shared.delegate as?
             AppDelegate else{
                 fatalError("No app delegate")
         }
+        ///retrieves the context from the persisten container in Model
         let context  = appDelegate.persistentContainer.viewContext
+        ///check if there are any changes made to the context, if so save context
         if context.hasChanges{
+            ///save context
             _ = try? context.save()
             print("Successfully saved context")
         }
