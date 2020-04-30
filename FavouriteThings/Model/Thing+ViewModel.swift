@@ -14,7 +14,7 @@ extension Thing {
     static var notesPlaceHolder: String = "Notes:"
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
-       ///placeholder variable for textfield heading values
+    ///placeholder variable for textfield heading values
      static var newElementTextPlaceHolder: String = "<new>"
      ///placeholder variable for the title text/textfield property
      static var titleValuePlaceHolder: String = "<Title>"
@@ -33,10 +33,13 @@ extension Thing {
      ///placeholder variable for default image if no image is loaded by remote URL
      static var defaultImagePlaceHolder: String = "potato"
     
+    ///image to test the remoteURL for images
     ///https://i.redd.it/qi0r0pdbsgs31.jpg
      ///setter and getter for imageURL  of object thing
     var thingImageURL : String {
+        ///set the attribute imageURL for entity Things to a new value
         set{imageURL = newValue}
+        ///retrieve the value stored in attribute imageURL or return an empty string
         get {imageURL ?? ""}
         }
     ///setter and getter for title  of object thing

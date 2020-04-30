@@ -22,11 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         let context = appDelegate.persistentContainer.viewContext
 
-        
+        ///create array for things
         var thingsArray: [Things] = [Things]()
-        
+        ///fetch the data from the persistent store  Things
         let thingsFetch: NSFetchRequest<Things> = Things.fetchRequest()
-        
+        ///sort array 
         let thingsSort: NSSortDescriptor = NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)
         
         thingsFetch.sortDescriptors = [thingsSort]
@@ -36,14 +36,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }catch{
             print("didn't return anything")
         }
-        
+        ///check if things has any entries in it
         let count = thingsArray.count
+        ///if it doesn't execute the following code
         if (count == 0){
+            ///create things to store the entires
             if let things = NSEntityDescription.insertNewObject(forEntityName: "Things", into: context) as? Things{
+                ///set the title attribute for the entity things to Favourite Things
                 things.listTitle = "Favourite Things"
+                ///append title to Things entity
                 thingsArray.append(things)
+                ///save context
                 appDelegate.saveContent()
-                
+                ///create new objects with the following porperties
                 let object1 = Thing(context: context)
                     object1.thingTitle = "Potato"
                     object1.subTitle = "subTitle"
@@ -56,7 +61,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     object1.image = "potato"
                     object1.imageURL = ""
                     object1.note = ""
+                ///define the objects relationship to entity things
                     object1.list = things
+                ///add object to things using the functions provided in the Things+CoreDataProperties.swift
                 things.addToThings(object1)
                 
                 let object2 = Thing(context: context)
@@ -88,6 +95,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     object3.note = ""
                     object3.list = things
                 things.addToThings(object3)
+                ///save the context to the CoreData
                 appDelegate.saveContent()
             }
         }

@@ -14,9 +14,8 @@ struct MasterView: View {
     @Environment(\.editMode) var mode
    
     /**
-            the following code is used to create a naviagtion view that displays all the favouriteThing objects saved into an array
+        the following code is used to create a naviagtion view that displays all the Thing objects saved into an array
      */
-    ///the list changes according to the array in the model
     @ObservedObject var things: Things
     var body: some View {
 

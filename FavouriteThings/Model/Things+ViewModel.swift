@@ -15,7 +15,7 @@ extension Things {
     var entries: [Thing]{
         ///set array as an OrderedSet array
         set {things = NSOrderedSet(array: newValue)}
-        ///if no array create new empty array
+        ///if no array,  create new empty array
         get {(things?.array as? [Thing]) ?? []}
     }
     ///setter and getter for list title of things 
@@ -29,6 +29,10 @@ extension Things {
     - Parameter destination: index place that object is being moved to
      */
     func moveItems(from source: IndexSet, to destination: Int) {
+        /**change the entry position using function inbuilt move
+         - Parameter source: index place of object being moved in list
+         - Parameter destination: index place that object is being moved to
+         */
         entries.move(fromOffsets: source, toOffset: destination)
     }
 }

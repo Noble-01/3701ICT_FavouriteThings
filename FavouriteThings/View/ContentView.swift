@@ -25,8 +25,10 @@ struct ContentView : View {
                             ///A button is a  control that performs an action when triggered.
                             ///creates new object then saves the context to the CoreData
                             Button(action:{withAnimation{
+                                ///create new object
                                 let thing = Thing(context: self.context)
                                 thing.list = self.things.first
+                                ///save the context to CoreData
                                 try? self.context.save()
                                 print("Successfully saved context")
                                 }
