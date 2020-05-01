@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MasterView: View {
+    ///calls the context from the Mode
     @Environment(\.managedObjectContext) var context
     ///create a variable for the editMode envrionment of the app
     @Environment(\.editMode) var mode

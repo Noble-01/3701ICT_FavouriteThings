@@ -12,7 +12,10 @@ import SwiftUI
  items within the navigation
  */
 struct ContentView : View {
+    ///calls the context from the Model
+    ///inject context into environment from the scenedelegate and access it through the @environment property wrapper
     @Environment(\.managedObjectContext) var context
+    ///fetches the database throug using a keypath and stores it as var things
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Things.listTitle, ascending: true)]) var things: FetchedResults<Things>
     var body: some View{
                 NavigationView {

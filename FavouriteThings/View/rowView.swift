@@ -10,6 +10,7 @@ import SwiftUI
 ///separate view for the contents in the list
 ///allows fot the objects to be observed and therefore show changes to the items
 struct RowView: View {
+    ///calls the context from the Mode
     @Environment(\.managedObjectContext) var context
     ///@ObservedObject:  property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
     @ObservedObject var thing: Thing

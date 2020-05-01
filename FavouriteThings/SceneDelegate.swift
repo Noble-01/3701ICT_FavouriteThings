@@ -16,10 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         
-        ///variable for the AppDelegate. cast the app delegate
+        ///variable for the AppDelegate. cast the app delegate and check if it is type app delegate
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             fatalError("no app delegate")
         }
+         ///retrieves the context from the persisten container in Model
         let context = appDelegate.persistentContainer.viewContext
 
         ///create array for things
@@ -103,6 +104,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         // Create the SwiftUI view that provides the window contents.
+        ///insert the context of the Model into the context view
         let contentView = ContentView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.

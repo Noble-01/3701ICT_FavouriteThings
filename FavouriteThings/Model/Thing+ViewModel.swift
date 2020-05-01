@@ -39,7 +39,7 @@ extension Thing {
     var thingImageURL : String {
         ///set the attribute imageURL for entity Things to a new value
         set{imageURL = newValue}
-        ///retrieve the value stored in attribute imageURL or return an empty string
+        ///retrieve the value stored in attribute imageURL or return an empty string if value is nil
         get {imageURL ?? ""}
         }
     ///setter and getter for title  of object thing
@@ -108,7 +108,7 @@ extension Thing {
         ///checking if dictionary exists and going through keys within the dictionary
         if SceneDelegate.imageDownloads.keys.contains(thingImageURL) {
             guard let uiImage = SceneDelegate.imageDownloads[thingImageURL] else {
-                ///returns the image from the dictionary if not returns a default image
+                ///returns the image from the dictionary if not, returns a default image
                 return Image(image ?? "potato")
             }
             ///return value UIImage
@@ -121,9 +121,7 @@ extension Thing {
                 let imageData = try? Data(contentsOf: url),
                 let uiImage = UIImage(data: imageData) else {
                     /**
-                    If no image is retrieved from the url return nil for the var.
-                    essentially not present anything and in this assignment reverting back to the default image of object.
-                     if the self.uiImage = nil is commented out or deleted the object will only revert to the previous image instead of default
+                    If no image is retrieved from the url return default name for the var.
                     */
                     return Image(image ?? "potato")
             }
