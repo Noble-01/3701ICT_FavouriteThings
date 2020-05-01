@@ -5,11 +5,11 @@
         <attribute name="imageURL" attributeType="String" defaultValueString=""/>
         <attribute name="note" attributeType="String" defaultValueString=""/>
         <attribute name="thingHeading1" attributeType="String" defaultValueString="Heading 1:"/>
-        <attribute name="thingHeading1Value" attributeType="String"/>
+        <attribute name="thingHeading1Value" attributeType="String" defaultValueString=""/>
         <attribute name="thingHeading2" attributeType="String" defaultValueString="Heading 2:"/>
-        <attribute name="thingHeading2Value" attributeType="String"/>
+        <attribute name="thingHeading2Value" attributeType="String" defaultValueString=""/>
         <attribute name="thingHeading3" attributeType="String" defaultValueString="Heading 3:"/>
-        <attribute name="thingHeading3Value" attributeType="String"/>
+        <attribute name="thingHeading3Value" attributeType="String" defaultValueString=""/>
         <attribute name="thingSubTitle" attributeType="String" defaultValueString="subTitle"/>
         <attribute name="thingTitle" attributeType="String" defaultValueString="Title"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
