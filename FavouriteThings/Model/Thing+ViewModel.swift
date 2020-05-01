@@ -15,7 +15,7 @@ extension Thing {
     ///placeholder variable for image URL  label text
     static var imageURLPlaceHolder: String = "Image URL:"
     ///placeholder variable for textfield heading values
-     static var newElementTextPlaceHolder: String = "<new>"
+     static var newElementTextPlaceHolder: String = "<value>"
      ///placeholder variable for the title text/textfield property
      static var titleValuePlaceHolder: String = "<Title>"
      ///placeholder variable for sub title text/textfield property
