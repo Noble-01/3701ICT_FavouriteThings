@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Thing" representedClassName="Thing" syncable="YES" codeGenerationType="class">
-        <attribute name="image" attributeType="String"/>
-        <attribute name="imageURL" attributeType="String"/>
-        <attribute name="note" attributeType="String"/>
+        <attribute name="image" attributeType="String" defaultValueString="potato"/>
+        <attribute name="imageURL" attributeType="String" defaultValueString=""/>
+        <attribute name="note" attributeType="String" defaultValueString=""/>
         <attribute name="thingHeading1" attributeType="String" defaultValueString="Heading 1:"/>
-        <attribute name="thingHeading1Value" attributeType="String" defaultValueString="Heading 1 value"/>
+        <attribute name="thingHeading1Value" attributeType="String"/>
         <attribute name="thingHeading2" attributeType="String" defaultValueString="Heading 2:"/>
-        <attribute name="thingHeading2Value" attributeType="String" defaultValueString="Heading 2 value"/>
+        <attribute name="thingHeading2Value" attributeType="String"/>
         <attribute name="thingHeading3" attributeType="String" defaultValueString="Heading 3:"/>
-        <attribute name="thingHeading3Value" attributeType="String" defaultValueString="Heading 3 value"/>
+        <attribute name="thingHeading3Value" attributeType="String"/>
         <attribute name="thingSubTitle" attributeType="String" defaultValueString="subTitle"/>
         <attribute name="thingTitle" attributeType="String" defaultValueString="Title"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>

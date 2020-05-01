@@ -34,73 +34,73 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         do{
             ///returns an array of Things from the model
             thingsArray = try context.fetch(thingsFetch)
-            
+            ///check if things has any entries in it
+             let count = thingsArray.count
+             ///if it doesn't execute the following code
+             if (count == 0){
+                 ///create "things" to store the entires
+                 if let things = NSEntityDescription.insertNewObject(forEntityName: "Things", into: context) as? Things{
+                     ///set the title attribute for the entity things to Favourite Things
+                     things.listTitle = "Favourite Things"
+                     ///append title to Things entity
+                     thingsArray.append(things)
+                     ///save context
+                     appDelegate.saveContent()
+                     ///create new objects with the following porperties
+                     let object1 = Thing(context: context)
+                         object1.thingTitle = "Potato"
+                         object1.subTitle = "subTitle"
+                         object1.heading1 = "heading1"
+                         object1.heading1Value = "A"
+                         object1.heading2 = "heading2"
+                         object1.heading2Value = "B"
+                         object1.heading3 = "heading3"
+                         object1.heading3Value = "C"
+                         object1.image = "potato"
+                         object1.imageURL = ""
+                         object1.note = ""
+                     ///define the objects relationship to entity things
+                         object1.list = things
+                     ///add object to things using the functions provided in the Things+CoreDataProperties.swift
+                     things.addToThings(object1)
+                     
+                     let object2 = Thing(context: context)
+                         object2.thingTitle = "Potato"
+                         object2.subTitle = "subTitle"
+                         object2.heading1 = "heading1"
+                         object2.heading1Value = "A"
+                         object2.heading2 = "heading2"
+                         object2.heading2Value = "B"
+                         object2.heading3 = "heading3"
+                         object2.heading3Value = "C"
+                         object2.image = "potato"
+                         object2.imageURL = ""
+                         object2.note = ""
+                         object2.list = things
+                     things.addToThings(object2)
+                     
+                     let object3 = Thing(context: context)
+                         object3.thingTitle = "Potato"
+                         object3.subTitle = "subTitle"
+                         object3.heading1 = "heading1"
+                         object3.heading1Value = "A"
+                         object3.heading2 = "heading2"
+                         object3.heading2Value = "B"
+                         object3.heading3 = "heading3"
+                         object3.heading3Value = "C"
+                         object3.image = "potato"
+                         object3.imageURL = ""
+                         object3.note = ""
+                         object3.list = things
+                     things.addToThings(object3)
+                     ///save the context to the CoreData
+                     appDelegate.saveContent()
+                 }
+             }
         }catch{
             print("didn't return anything")
         }
-        ///check if things has any entries in it
-        let count = thingsArray.count
-        ///if it doesn't execute the following code
-        if (count == 0){
-            ///create "things" to store the entires
-            if let things = NSEntityDescription.insertNewObject(forEntityName: "Things", into: context) as? Things{
-                ///set the title attribute for the entity things to Favourite Things
-                things.listTitle = "Favourite Things"
-                ///append title to Things entity
-                thingsArray.append(things)
-                ///save context
-                appDelegate.saveContent()
-                ///create new objects with the following porperties
-                let object1 = Thing(context: context)
-                    object1.thingTitle = "Potato"
-                    object1.subTitle = "subTitle"
-                    object1.heading1 = "heading1"
-                    object1.heading1Value = "A"
-                    object1.heading2 = "heading2"
-                    object1.heading2Value = "B"
-                    object1.heading3 = "heading3"
-                    object1.heading3Value = "C"
-                    object1.image = "potato"
-                    object1.imageURL = ""
-                    object1.note = ""
-                ///define the objects relationship to entity things
-                    object1.list = things
-                ///add object to things using the functions provided in the Things+CoreDataProperties.swift
-                things.addToThings(object1)
-                
-                let object2 = Thing(context: context)
-                    object2.thingTitle = "Potato"
-                    object2.subTitle = "subTitle"
-                    object2.heading1 = "heading1"
-                    object2.heading1Value = "A"
-                    object2.heading2 = "heading2"
-                    object2.heading2Value = "B"
-                    object2.heading3 = "heading3"
-                    object2.heading3Value = "C"
-                    object2.image = "potato"
-                    object2.imageURL = ""
-                    object2.note = ""
-                    object2.list = things
-                things.addToThings(object2)
-                
-                let object3 = Thing(context: context)
-                    object3.thingTitle = "Potato"
-                    object3.subTitle = "subTitle"
-                    object3.heading1 = "heading1"
-                    object3.heading1Value = "A"
-                    object3.heading2 = "heading2"
-                    object3.heading2Value = "B"
-                    object3.heading3 = "heading3"
-                    object3.heading3Value = "C"
-                    object3.image = "potato"
-                    object3.imageURL = ""
-                    object3.note = ""
-                    object3.list = things
-                things.addToThings(object3)
-                ///save the context to the CoreData
-                appDelegate.saveContent()
-            }
-        }
+ 
 
 
         // Create the SwiftUI view that provides the window contents.
@@ -144,14 +144,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             AppDelegate else{
                 fatalError("No app delegate")
         }
-        ///retrieves the context from the persisten container in Model
-        let context  = appDelegate.persistentContainer.viewContext
-        ///check if there are any changes made to the context, if so save context
-        if context.hasChanges{
-            ///save context
-            _ = try? context.save()
-            print("Successfully saved context")
-        }
+        ///save context
+        appDelegate.saveContent()
     }
 
 
