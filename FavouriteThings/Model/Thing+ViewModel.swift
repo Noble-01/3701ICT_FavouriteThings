@@ -30,8 +30,8 @@ extension Thing {
      static var heading3PlaceHolder: String = "Heading3:"
      ///placeholder variable for notes textfield default value
      static var notesTextFieldPlaceHolder: String = "Add a note"
-     ///placeholder variable for default image if no image is loaded by remote URL
-     static var defaultImagePlaceHolder: String = "potato"
+     ///placeholder variable for image URL textfield
+     static var defaultImagePlaceHolder: String = "Image URL"
     
     ///image to test the remoteURL for images
     ///https://i.redd.it/qi0r0pdbsgs31.jpg
