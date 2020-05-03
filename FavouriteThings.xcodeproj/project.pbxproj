@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B85A2BCE245EC24E00C10C0C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A2BCD245EC24E00C10C0C /* Keyboard.swift */; };
 		B8D3DC6224564DB70070C224 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DC6024564DB70070C224 /* Model.xcdatamodeld */; };
 		B8D3DC6D24565D6C0070C224 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D3DC6C24565D6C0070C224 /* CoreData.framework */; };
 		B8EA03A92456E8C6002CE9D5 /* Things+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856EB362456C97300A70518 /* Things+ViewModel.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B856EB362456C97300A70518 /* Things+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+ViewModel.swift"; sourceTree = "<group>"; };
+		B85A2BCD245EC24E00C10C0C /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		B85B4B8524572E1E00EAE800 /* Things+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B85B4B8624572E1E00EAE800 /* Things+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B85B4B8724572E1E00EAE800 /* Thing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		B8FD2F10244582C600A50693 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B85A2BCD245EC24E00C10C0C /* Keyboard.swift */,
 				B8FD2F11244582D700A50693 /* ContentView.swift */,
 				B8FD2F13244582E500A50693 /* MasterView.swift */,
 				B8FD2F15244582F100A50693 /* DetailView.swift */,
@@ -323,6 +326,7 @@
 			files = (
 				B8FD2F14244582E500A50693 /* MasterView.swift in Sources */,
 				B8EA03AA2456E8CC002CE9D5 /* Thing+ViewModel.swift in Sources */,
+				B85A2BCE245EC24E00C10C0C /* Keyboard.swift in Sources */,
 				B8FD2ECC24457D0A00A50693 /* AppDelegate.swift in Sources */,
 				B8D3DC6224564DB70070C224 /* Model.xcdatamodeld in Sources */,
 				B8FD2F12244582D700A50693 /* ContentView.swift in Sources */,

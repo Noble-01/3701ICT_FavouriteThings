@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ///store instructions in array to be used for context.fetch
         thingsFetch.sortDescriptors = [thingsSort]
         do{
-            ///returns an array of Things from the model
+            ///returns a storted array of Things from the model
             thingsArray = try context.fetch(thingsFetch)
             ///check if things has any entries in it
              let count = thingsArray.count
@@ -98,6 +98,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                  }
              }
         }catch{
+            ///error message if the fetch fails
             print("didn't return anything")
         }
  
