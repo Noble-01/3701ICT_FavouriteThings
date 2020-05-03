@@ -103,7 +103,7 @@ struct DetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
 
             }
-        }.modifier(Keyboard())
+        }.KeyboardResponsive()
     }
 }
 

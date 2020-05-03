@@ -26,3 +26,8 @@ struct Keyboard : ViewModifier {
         }
     }
 }
+extension View{
+    func KeyboardResponsive() -> ModifiedContent<Self, Keyboard>{
+        return modifier(Keyboard())
+    }
+}
