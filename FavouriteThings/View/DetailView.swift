@@ -19,7 +19,7 @@ struct DetailView: View {
     @ObservedObject var model: Thing
     @State var value : CGFloat = 0
     var body: some View {
-
+        ///scrollView allows user to scroll through content
         ScrollView{
             ///formats all text and images in a vertical stack
                    VStack(alignment: .center) {
@@ -103,6 +103,7 @@ struct DetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
 
             }
+            ///function calls extension from struct keyboard
         }.KeyboardResponsive()
     }
 }
