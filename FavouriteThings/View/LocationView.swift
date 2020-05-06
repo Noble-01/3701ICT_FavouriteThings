@@ -9,22 +9,22 @@
 import SwiftUI
 
 struct LocationView: View{
-    @State var name = ""
-    @State var latitude = ""
-    @State var longitude = ""
+    ///place is an object of class Place that gets updated with coordinates and names
+    @ObservableObject var place = Place()
+
     var body: some View{
         VStack{
             HStack{
                 Text("Location:")
-                TextField("Enter location", text: $name)
+                TextField("Enter location", text: $place.name)
             }
             HStack{
                 Text("Lat:")
-                TextField("Enter location", text: $latitude)
+                TextField("Enter location", text: $place.latitude)
             }
             HStack{
                 Text("Long:")
-                TextField("Enter location", text: $longitude)
+                TextField("Enter location", text: $palce.longitude)
             }
         }
 
