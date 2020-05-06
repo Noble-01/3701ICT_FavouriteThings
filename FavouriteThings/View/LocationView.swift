@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MapView: View{
+struct LocationView: View{
     @State var name = ""
     @State var latitude = ""
     @State var longitude = ""
