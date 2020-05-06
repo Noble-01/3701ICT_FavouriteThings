@@ -13,30 +13,35 @@ struct LocationView: View{
     @ObservedObject var place = Place()
 
     var body: some View{
+        
         VStack{
             MapView(viewModel: place)
-            HStack{
-                Text("Location:")
-                TextField("Enter location", text: $place.name, onCommit: {
-                    ///call function in Place class to update coordinates once named and been fully entered 
+
+            ScrollView{
+                VStack{
+                Text("Location:").font(.title)
+                    TextField("Enter location", text: $place.name)
+                }
+                HStack{
+                    Text("Latitude:")
+                    TextField("Enter location", text: $place.latitude, onCommit: {
+                        self.place.updateNameFromCoordinate()
+                    })
+                }
+                HStack{
+                    Text("Longitude:")
+                    TextField("Enter location", text: $place.longitude, onCommit: {
+                        self.place.updateNameFromCoordinate()
+                    })
+                }
+                Button("Find coordinates for location name"){
+                    ///call function in Place class  to update the name from the coordinates places in the textfields
                     self.place.updateCoordinateFromName()
-                })
+                }
             }
-            HStack{
-                Text("Lat:")
-                TextField("Enter location", text: $place.latitude)
-            }
-            HStack{
-                Text("Long:")
-                TextField("Enter location", text: $place.longitude)
-            }
-            Button("update location name"){
-                ///call function in Place class  to update the name from the coordinates places in the textfields
-                self.place.updateNameFromCoordinate()
-            }
+
             Spacer()
             ///function calls extension from struct keyboard
         }.KeyboardResponsive()
-          
     }
 }
