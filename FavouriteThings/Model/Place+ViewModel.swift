@@ -8,12 +8,17 @@
 
 import Foundation
 import CoreLocation
-
-class Place: Identifiable, ObservableObject{
+import MapKit
+///create objective C class Place
+@objc class Place: NSObject, Identifiable, ObservableObject{
     ///default coordinates for which the below vars use
+    ///when the var coordinates are changed they change the coordinates in the below variable which it then uses
     @Published var coordinates = CLLocationCoordinate2D(latitude: -27.962, longitude: 153.382)
+    ///when a name is returned from a coordinated it is published and therefore can be seen in the location view
+    @Published var name = ""
     
-    var name = ""
+    var isUpdating = false
+    
     ///created varaible latitude  for map and stores in model
     var latitude: String {
         ///getter function for retrieving coordinates
@@ -80,4 +85,22 @@ class Place: Identifiable, ObservableObject{
                 self.name = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
             }
         }
+}
+///updates the lat and long coordinates from the coordinates taken at the centre of the map
+extension  Place: MKMapViewDelegate{
+    ///updates   the coordinates from changes in the map
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        ///if update is called will moving then don't do anything
+        guard !isUpdating else{
+            return
+        }
+        isUpdating = true
+        ///geographical coordinate
+        let centre = mapView.centerCoordinate
+        coordinates = centre
+        ///wait for 250 milliseconds if no updates are made then set updating to false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(250)){
+            self.isUpdating=false
+        }
+    }
 }
