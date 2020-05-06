@@ -40,9 +40,13 @@ struct DetailView: View {
                            .clipShape(Circle())
                            .shadow(radius: 10)
                            .scaledToFit()
-                       
+                    
+                       NavigationLink( destination: LocationView()) {
+                           Text("🌏")
+                           Text("Location")
+                       }
                        HStack(alignment: .center) {
-                           ///display the following elements horizontally
+                        ///display the following elements horizontally
                            VStack(alignment: .trailing){
                                ///display text "Heading1:" or value stored in coredata
                                TextField(Thing.heading1PlaceHolder, text: self.$model.heading1)

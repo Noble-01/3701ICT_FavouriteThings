@@ -29,7 +29,12 @@ struct LocationView: View{
                 Text("Long:")
                 TextField("Enter location", text: $place.longitude)
             }
-        }
-
+            Button("update location name"){
+                ///call function in Place class  to update the name from the coordinates places in the textfields
+                self.place.updateNameFromCoordinate()
+            }
+            ///function calls extension from struct keyboard
+        }.KeyboardResponsive()
+          
     }
 }
