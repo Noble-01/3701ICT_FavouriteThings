@@ -17,6 +17,8 @@ import MapKit
     ///when a name is returned from a coordinated it is published and therefore can be seen in the location view
     @Published var name = ""
     
+    var mapCoordinates = CLLocationCoordinate2D(latitude: -27.962, longitude: 153.382)
+    
     var isUpdating = false
     
     ///created varaible latitude  for map and stores in model
@@ -85,22 +87,16 @@ import MapKit
                 self.name = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
             }
         }
+    func updateMapCoordinate(){
+        mapCoordinates = coordinates
+    }
 }
 ///updates the lat and long coordinates from the coordinates taken at the centre of the map
 extension  Place: MKMapViewDelegate{
-    ///updates   the coordinates from changes in the map
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        ///if update is called will moving then don't do anything
-        guard !isUpdating else{
-            return
-        }
-        isUpdating = true
-        ///geographical coordinate
+    ///updates coordinates once map has stopped moving
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let centre = mapView.centerCoordinate
         coordinates = centre
-        ///wait for 250 milliseconds if no updates are made then set updating to false
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(250)){
-            self.isUpdating=false
-        }
+        updateMapCoordinate()
     }
 }

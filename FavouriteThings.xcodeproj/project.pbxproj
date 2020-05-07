@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B81889E724627823002DDE72 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81889E624627823002DDE72 /* MapView.swift */; };
+		B858396924643537003838AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858396824643537003838AA /* Extensions.swift */; };
 		B85A2BCE245EC24E00C10C0C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A2BCD245EC24E00C10C0C /* Keyboard.swift */; };
 		B8CF0303246263F3005C096E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0302246263F3005C096E /* CoreLocation.framework */; };
 		B8CF030524626418005C096E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF030424626418005C096E /* MapKit.framework */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		B81889E624627823002DDE72 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B856EB362456C97300A70518 /* Things+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+ViewModel.swift"; sourceTree = "<group>"; };
+		B858396824643537003838AA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B85A2BCD245EC24E00C10C0C /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		B85B4B8524572E1E00EAE800 /* Things+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B85B4B8624572E1E00EAE800 /* Things+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				B8FD2ED924457D0B00A50693 /* Info.plist */,
 				B8FD2ED324457D0B00A50693 /* Preview Content */,
 				B8D3DC6024564DB70070C224 /* Model.xcdatamodeld */,
+				B858396824643537003838AA /* Extensions.swift */,
 			);
 			path = FavouriteThings;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				B8EA03A92456E8C6002CE9D5 /* Things+ViewModel.swift in Sources */,
 				B8FD2F16244582F100A50693 /* DetailView.swift in Sources */,
 				B8FD2ECE24457D0A00A50693 /* SceneDelegate.swift in Sources */,
+				B858396924643537003838AA /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

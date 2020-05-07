@@ -29,7 +29,7 @@ struct MapView: UIViewRepresentable {
         ///if the map is updating don't change the maps region 
         guard !viewModel.isUpdating else {return}
         let region = MKCoordinateRegion(center: viewModel.coordinates, latitudinalMeters: 5_000, longitudinalMeters: 5_000)
-        mapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: false)
     }
 
 }
