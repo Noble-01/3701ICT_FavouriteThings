@@ -27,8 +27,7 @@ struct MapView: UIViewRepresentable {
     ///func draws map and updates the map (essentially keeps redrawing map)
     func updateUIView(_ mapView: MKMapView, context: Context) {
         ///if the map is updating don't change the maps region 
-        guard !viewModel.isUpdating else {return}
-        let region = MKCoordinateRegion(center: viewModel.coordinates, latitudinalMeters: 5_000, longitudinalMeters: 5_000)
+        let region = MKCoordinateRegion(center: viewModel.mapCoordinates, latitudinalMeters: 5_000, longitudinalMeters: 5_000)
         mapView.setRegion(region, animated: false)
     }
 
