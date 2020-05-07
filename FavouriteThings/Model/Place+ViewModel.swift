@@ -19,7 +19,6 @@ import MapKit
     
     var mapCoordinates = CLLocationCoordinate2D(latitude: -27.962, longitude: 153.382)
     
-    var isUpdating = false
     
     ///created varaible latitude  for map and stores in model
     var latitude: String {
@@ -61,10 +60,12 @@ import MapKit
                 }
                 ///update the coordinates which updates the view
                 self.coordinates = location.coordinate
+                self.updateMapCoordinate()
             }
         }
     ///update name once the coordinates has been fully entered into the textfield
     func updateNameFromCoordinate(){
+        self.updateMapCoordinate()
             /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
             let geocoder = CLGeocoder()
             ///var to store location name from coordinates
