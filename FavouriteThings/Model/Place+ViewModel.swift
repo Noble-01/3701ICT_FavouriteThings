@@ -96,6 +96,7 @@ import MapKit
 extension  Place: MKMapViewDelegate{
     ///updates coordinates once map has stopped moving
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        ///retrieves values from center of map
         let centre = mapView.centerCoordinate
         coordinates = centre
         updateMapCoordinate()

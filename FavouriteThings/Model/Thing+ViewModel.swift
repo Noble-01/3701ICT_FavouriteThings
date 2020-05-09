@@ -92,6 +92,20 @@ extension Thing {
         set{note = newValue}
         get {note ?? ""}
         }
+    var thingLocationName: String{
+        set {locationName = newValue}
+        get {locationName ?? ""}
+    }
+    
+    var thingLatitude: String {
+        set {latitude = Double(newValue) ?? -27.962}
+        get {"\(latitude)"}
+    }
+    
+    var thingLongitude: String {
+        set {longitude = Double(newValue) ??  153.382}
+        get {"\(longitude)"}
+    }
     /**
        function is used to update the  uiImage variable and assign a image to the prarameter. function also makes use of a dictionary to store image urls
         
