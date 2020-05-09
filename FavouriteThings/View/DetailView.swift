@@ -41,9 +41,9 @@ struct DetailView: View {
                            .shadow(radius: 10)
                            .scaledToFit()
                     
-                       NavigationLink( destination: LocationView()) {
+                    NavigationLink( destination: LocationView(model: self.model)) {
                            Text("🌏")
-                           Text("Location")
+                        Text("Location: \(self.model.thingLocationName)")
                        }
                        HStack(alignment: .center) {
                         ///display the following elements horizontally

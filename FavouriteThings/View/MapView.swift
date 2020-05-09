@@ -11,7 +11,7 @@ import MapKit
 
 ///UIViewRepresentable a wrapper for view used to intergrate this view into the swiftui view hierarchy
 struct MapView: UIViewRepresentable {
-    @ObservedObject var viewModel : Place
+    @ObservedObject var viewModel : Thing
     /**
      creates map view for context on screen
      - Parameter context: A context structure containing information about the current state of the system
@@ -27,7 +27,7 @@ struct MapView: UIViewRepresentable {
     ///func draws map and updates the map (essentially keeps redrawing map)
     func updateUIView(_ mapView: MKMapView, context: Context) {
         ///if the map is updating don't change the maps region 
-        let region = MKCoordinateRegion(center: viewModel.mapCoordinates, latitudinalMeters: 5_000, longitudinalMeters: 5_000)
+        let region = MKCoordinateRegion(center: viewModel.getterMapCoordinates(), latitudinalMeters: 5_000, longitudinalMeters: 5_000)
         mapView.setRegion(region, animated: false)
     }
 
