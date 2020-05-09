@@ -8,6 +8,8 @@
 import CoreData
 import SwiftUI
 import Foundation
+import MapKit
+import CoreLocation
 
 extension Thing {
     ///placeholder variable for notes  label text
@@ -98,14 +100,73 @@ extension Thing {
     }
     
     var thingLatitude: String {
+        ///default coordinates for which the below vars use
         set {latitude = Double(newValue) ?? -27.962}
         get {"\(latitude)"}
     }
     
     var thingLongitude: String {
+        ///default coordinates for which the below vars use
         set {longitude = Double(newValue) ??  153.382}
         get {"\(longitude)"}
     }
+    ///retrieve coordinates from model and place them into varaibles latitude and longitude
+    func getterMapCoordinates() -> CLLocationCoordinate2D{
+    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    ///set the long and lat values to the vars for the Thing object
+    func setterMapCoordinates(newCoordinates: CLLocationCoordinate2D){
+        thingLongitude = "\(newCoordinates.longitude)"
+        thingLatitude = "\(newCoordinates.latitude)"
+    }
+    ///update coordinates once the name has been fully entered into the textfield
+    func updateCoordinateFromName(){
+            /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
+            let geocoder = CLGeocoder()
+            ///returns long and lat coordinates based on name used
+            geocoder.geocodeAddressString(thingLocationName) { (maybePlaceMarks, maybeError) in
+                ///location is optional in case we don't get anything returned
+                guard let placemark = maybePlaceMarks?.first,
+                    ///location is an attribute of CLLocation class
+                    ///let location set the coordinate attributes of CLLocation
+                let location = placemark.location else{
+                    let description: String
+                    if let error = maybeError{
+                        description = "\(error)"
+                    } else{
+                        description = "<unknown error>"
+                    }
+                    print("got error: \(description)")
+                    return
+                }
+                ///update the coordinates which updates the view
+                self.setterMapCoordinates(newCoordinates: location.coordinate)
+            }
+        }
+    ///update name once the coordinates has been fully entered into the textfield
+    func updateNameFromCoordinate(){
+            /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
+            let geocoder = CLGeocoder()
+            ///var to store location name from coordinates
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            ///returns location based on long and lat coordinates used
+            geocoder.reverseGeocodeLocation(location) { (maybePlaceMarks, maybeError) in
+                ///location is optional in case we don't get anything returned
+                guard let placemark = maybePlaceMarks?.first else{
+                    let description: String
+                    if let error = maybeError{
+                        description = "\(error)"
+                    } else{
+                        description = "<unknown error>"
+                    }
+                    print("got error: \(description)")
+                    return
+                }
+                ///update name from placemark which is placed based on the coordinates or return the administrative area of the placemark etc
+                ///just returns something for user to see
+                self.thingLocationName = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
+            }
+        }
     /**
        function is used to update the  uiImage variable and assign a image to the prarameter. function also makes use of a dictionary to store image urls
         
@@ -150,3 +211,12 @@ extension Thing {
 
 }
 
+///updates the lat and long coordinates from the coordinates taken at the centre of the map
+extension  Thing: MKMapViewDelegate{
+    ///updates coordinates once map has stopped moving
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimatžd animated: Bool) {
+        ///retrieves values from center of map
+        let centre = mapView.centerCoordinate
+        setterMapCoordinates(newCoordinates: centre)
+    }
+}

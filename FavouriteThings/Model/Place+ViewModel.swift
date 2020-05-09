@@ -92,13 +92,4 @@ import MapKit
         mapCoordinates = coordinates
     }
 }
-///updates the lat and long coordinates from the coordinates taken at the centre of the map
-extension  Place: MKMapViewDelegate{
-    ///updates coordinates once map has stopped moving
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        ///retrieves values from center of map
-        let centre = mapView.centerCoordinate
-        coordinates = centre
-        updateMapCoordinate()
-    }
-}
+
