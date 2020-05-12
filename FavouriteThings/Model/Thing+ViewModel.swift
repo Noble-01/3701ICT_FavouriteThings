@@ -11,7 +11,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
-extension Thing {
+extension Thing{
     ///placeholder variable for notes  label text
     static var notesPlaceHolder: String = "Notes:"
     ///placeholder variable for image URL  label text
@@ -110,21 +110,31 @@ extension Thing {
         set {longitude = Double(newValue) ??  153.382}
         get {"\(longitude)"}
     }
+
+}
+
+class ThingViewDelegate: NSObject, Identifiable, ObservableObject{
+    
+    @ObservedObject  var thing: Thing
+    
+    init(thing: Thing) {
+        self.thing = thing
+    }
     ///retrieve coordinates from model and place them into varaibles latitude and longitude
     func getterMapCoordinates() -> CLLocationCoordinate2D{
-    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return CLLocationCoordinate2D(latitude: thing.latitude, longitude: thing.longitude)
     }
     ///set the long and lat values to the vars for the Thing object
     func setterMapCoordinates(newCoordinates: CLLocationCoordinate2D){
-        thingLongitude = "\(newCoordinates.longitude)"
-        thingLatitude = "\(newCoordinates.latitude)"
+        thing.thingLongitude = "\(newCoordinates.longitude)"
+        thing.thingLatitude = "\(newCoordinates.latitude)"
     }
     ///update coordinates once the name has been fully entered into the textfield
     func updateCoordinateFromName(){
             /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
             let geocoder = CLGeocoder()
             ///returns long and lat coordinates based on name used
-            geocoder.geocodeAddressString(thingLocationName) { (maybePlaceMarks, maybeError) in
+        geocoder.geocodeAddressString(thing.thingLocationName) { (maybePlaceMarks, maybeError) in
                 ///location is optional in case we don't get anything returned
                 guard let placemark = maybePlaceMarks?.first,
                     ///location is an attribute of CLLocation class
@@ -148,7 +158,7 @@ extension Thing {
             /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
             let geocoder = CLGeocoder()
             ///var to store location name from coordinates
-            let location = CLLocation(latitude: latitude, longitude: longitude)
+        let location = CLLocation(latitude: thing.latitude, longitude: thing.longitude)
             ///returns location based on long and lat coordinates used
             geocoder.reverseGeocodeLocation(location) { (maybePlaceMarks, maybeError) in
                 ///location is optional in case we don't get anything returned
@@ -181,24 +191,24 @@ extension Thing {
        */
     func updateImage() -> Image {
         ///checking if dictionary exists and going through keys within the dictionary
-        if SceneDelegate.imageDownloads.keys.contains(thingImageURL) {
-            guard let uiImage = SceneDelegate.imageDownloads[thingImageURL] else {
+        if SceneDelegate.imageDownloads.keys.contains(thing.thingImageURL) {
+            guard let uiImage = SceneDelegate.imageDownloads[thing.thingImageURL] else {
                 ///returns the image from the dictionary if not, returns a default image
-                return Image(image ?? "potato")
+                return Image(thing.image ?? "potato")
             }
             ///return value UIImage
             //print("image recieved from the SceneDelegate dictionary")
             return Image(uiImage: uiImage)
         } else {
              ///guard unrwaps the variable so it the program doesn't throw a fatal error
-            guard let imageURL = imageURL,
+            guard let imageURL = thing.imageURL,
                 let url = URL(string: imageURL),
                 let imageData = try? Data(contentsOf: url),
                 let uiImage = UIImage(data: imageData) else {
                     /**
                     If no image is retrieved from the url return default name for the var.
                     */
-                    return Image(image ?? "potato")
+                    return Image(thing.image ?? "potato")
             }
             ///places imagURL as key in the dictionary
             SceneDelegate.imageDownloads[imageURL] = uiImage
@@ -207,16 +217,16 @@ extension Thing {
             return Image(uiImage: uiImage)
         }
     }
-
-
 }
 
 ///updates the lat and long coordinates from the coordinates taken at the centre of the map
-extension  Thing: MKMapViewDelegate{
+extension  ThingViewDelegate: MKMapViewDelegate{
+
     ///updates coordinates once map has stopped moving
-    public func mapView(_ mapView: MKMapView, regionDidChangeAnimatžd animated: Bool) {
+   public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         ///retrieves values from center of map
         let centre = mapView.centerCoordinate
         setterMapCoordinates(newCoordinates: centre)
     }
 }
+
