@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LocationView: View{
     ///place is an object of class Place that gets updated with coordinates and names
-    @ObservedObject var model = Thing()
+    @ObservedObject var model: ThingMapViewDelegate
 
     var body: some View{
         
@@ -20,17 +20,17 @@ struct LocationView: View{
             ScrollView{
                 VStack{
                 Text("Location:").font(.title)
-                    TextField("Enter location", text: $model.thingLocationName)
+                    TextField("Enter location", text: model.$thing.thingLocationName)
                 }
                 HStack{
                     Text("Latitude:")
-                    TextField("Enter location", text: $model.thingLatitude, onCommit: {
+                    TextField("Enter location", text: $model.textFieldLatitude, onCommit: {
                         self.model.updateNameFromCoordinate()
                     })
                 }
                 HStack{
                     Text("Longitude:")
-                    TextField("Enter location", text: $model.thingLongitude, onCommit: {
+                    TextField("Enter location", text: $model.textFieldLongitude, onCommit: {
                         self.model.updateNameFromCoordinate()
                     })
                 }

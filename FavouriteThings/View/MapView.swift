@@ -11,7 +11,7 @@ import MapKit
 
 ///UIViewRepresentable a wrapper for view used to intergrate this view into the swiftui view hierarchy
 struct MapView: UIViewRepresentable {
-    @ObservedObject var viewModel : Thing
+    @ObservedObject var viewModel : ThingMapViewDelegate
     /**
      creates map view for context on screen
      - Parameter context: A context structure containing information about the current state of the system

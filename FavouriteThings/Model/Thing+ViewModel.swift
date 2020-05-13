@@ -110,10 +110,50 @@ extension Thing{
         set {longitude = Double(newValue) ??  153.382}
         get {"\(longitude)"}
     }
+    /**
+       function is used to update the  uiImage variable and assign a image to the prarameter. function also makes use of a dictionary to store image urls
+        
+            ##important Notes##
+     1. check for dictionary in scenedelegate
+     2. dictionary is used to download/store image urls
+     3. UIImageView downloads image data
+     4. converts that data to a UIImage
+     5. loads it back into the image view
+     6. load imageURL into dictionary
+        
+       */
+    func updateImage() -> Image {
+        ///checking if dictionary exists and going through keys within the dictionary
+        if SceneDelegate.imageDownloads.keys.contains(thingImageURL) {
+            guard let uiImage = SceneDelegate.imageDownloads[thingImageURL] else {
+                ///returns the image from the dictionary if not, returns a default image
+                return Image(image ?? "potato")
+            }
+            ///return value UIImage
+            //print("image recieved from the SceneDelegate dictionary")
+            return Image(uiImage: uiImage)
+        } else {
+             ///guard unrwaps the variable so it the program doesn't throw a fatal error
+            guard let imageURL = imageURL,
+                let url = URL(string: imageURL),
+                let imageData = try? Data(contentsOf: url),
+                let uiImage = UIImage(data: imageData) else {
+                    /**
+                    If no image is retrieved from the url return default name for the var.
+                    */
+                    return Image(image ?? "potato")
+            }
+            ///places imagURL as key in the dictionary
+            SceneDelegate.imageDownloads[imageURL] = uiImage
+            //print("Image URL downloaded from internet")
+            ///return value UIImage
+            return Image(uiImage: uiImage)
+        }
+    }
 
 }
 
-class ThingViewDelegate: NSObject, Identifiable, ObservableObject{
+class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
     
     @ObservedObject  var thing: Thing
     
@@ -186,53 +226,14 @@ class ThingViewDelegate: NSObject, Identifiable, ObservableObject{
                 }
                 ///update name from placemark which is placed based on the coordinates or return the administrative area of the placemark etc
                 ///just returns something for user to see
-                self.thingLocationName = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
+                self.thing.thingLocationName = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
             }
         }
-    /**
-       function is used to update the  uiImage variable and assign a image to the prarameter. function also makes use of a dictionary to store image urls
-        
-            ##important Notes##
-     1. check for dictionary in scenedelegate
-     2. dictionary is used to download/store image urls
-     3. UIImageView downloads image data
-     4. converts that data to a UIImage
-     5. loads it back into the image view
-     6. load imageURL into dictionary
-        
-       */
-    func updateImage() -> Image {
-        ///checking if dictionary exists and going through keys within the dictionary
-        if SceneDelegate.imageDownloads.keys.contains(thing.thingImageURL) {
-            guard let uiImage = SceneDelegate.imageDownloads[thing.thingImageURL] else {
-                ///returns the image from the dictionary if not, returns a default image
-                return Image(thing.image ?? "potato")
-            }
-            ///return value UIImage
-            //print("image recieved from the SceneDelegate dictionary")
-            return Image(uiImage: uiImage)
-        } else {
-             ///guard unrwaps the variable so it the program doesn't throw a fatal error
-            guard let imageURL = thing.imageURL,
-                let url = URL(string: imageURL),
-                let imageData = try? Data(contentsOf: url),
-                let uiImage = UIImage(data: imageData) else {
-                    /**
-                    If no image is retrieved from the url return default name for the var.
-                    */
-                    return Image(thing.image ?? "potato")
-            }
-            ///places imagURL as key in the dictionary
-            SceneDelegate.imageDownloads[imageURL] = uiImage
-            //print("Image URL downloaded from internet")
-            ///return value UIImage
-            return Image(uiImage: uiImage)
-        }
-    }
+
 }
 
 ///updates the lat and long coordinates from the coordinates taken at the centre of the map
-extension  ThingViewDelegate: MKMapViewDelegate{
+extension  ThingMapViewDelegate: MKMapViewDelegate{
 
     ///updates coordinates once map has stopped moving
    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {

@@ -41,7 +41,7 @@ struct DetailView: View {
                            .shadow(radius: 10)
                            .scaledToFit()
                     
-                    NavigationLink( destination: LocationView(model: self.model)) {
+                    NavigationLink( destination: LocationView(model: ThingMapViewDelegate(thing: self.model))) {
                            Text("🌏")
                         Text("Location: \(self.model.thingLocationName)")
                        }
