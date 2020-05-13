@@ -117,17 +117,28 @@ class ThingViewDelegate: NSObject, Identifiable, ObservableObject{
     
     @ObservedObject  var thing: Thing
     
+    var textFieldLatitude: String
+    var textFieldLongitude: String
+    
     init(thing: Thing) {
         self.thing = thing
+        textFieldLatitude = thing.thingLatitude
+        textFieldLongitude = thing.thingLongitude
     }
     ///retrieve coordinates from model and place them into varaibles latitude and longitude
     func getterMapCoordinates() -> CLLocationCoordinate2D{
         return CLLocationCoordinate2D(latitude: thing.latitude, longitude: thing.longitude)
     }
-    ///set the long and lat values to the vars for the Thing object
+    
+        ///set the long and lat values to the vars for the Thing object
     func setterMapCoordinates(newCoordinates: CLLocationCoordinate2D){
         thing.thingLongitude = "\(newCoordinates.longitude)"
         thing.thingLatitude = "\(newCoordinates.latitude)"
+    }
+    ///set the long and lat values to the vars for the Thing object
+    func setterMapCoordinates(latitude: String, longitude: String){
+        thing.thingLongitude =  longitude
+        thing.thingLatitude = latitude
     }
     ///update coordinates once the name has been fully entered into the textfield
     func updateCoordinateFromName(){
@@ -155,6 +166,7 @@ class ThingViewDelegate: NSObject, Identifiable, ObservableObject{
         }
     ///update name once the coordinates has been fully entered into the textfield
     func updateNameFromCoordinate(){
+        setterMapCoordinates(latitude: textFieldLatitude, longitude: textFieldLongitude)
             /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
             let geocoder = CLGeocoder()
             ///var to store location name from coordinates
