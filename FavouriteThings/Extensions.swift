@@ -8,6 +8,7 @@
 import MapKit
 import CoreLocation
 import Foundation
+import UIKit
 ///updates the lat and long coordinates from the coordinates taken at the centre of the map
 extension  ThingMapViewDelegate: MKMapViewDelegate{
 

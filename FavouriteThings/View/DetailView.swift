@@ -108,8 +108,8 @@ struct DetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
 
             }
-            ///function calls extension from struct keyboard
-        }.KeyboardResponsive()
+            ///calls struct Keyboard that ViewModifiers the context
+        }.modifier(Keyboard())
     }
 }
 

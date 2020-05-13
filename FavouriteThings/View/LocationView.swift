@@ -55,8 +55,8 @@ struct LocationView: View{
             }
             ///padding for the bottom of the view
             Spacer()
-            ///function calls extension from struct keyboard
-        }.KeyboardResponsive()
+            ///calls struct Keyboard that ViewModifiers the context
+        }.modifier(Keyboard())
             ///make nav bar in line rather then a block element, making the top padding smaller
         .navigationBarTitle("", displayMode: .inline)    }
 }
