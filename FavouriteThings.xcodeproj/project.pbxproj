@@ -10,6 +10,7 @@
 		B81889E724627823002DDE72 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81889E624627823002DDE72 /* MapView.swift */; };
 		B858396924643537003838AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B858396824643537003838AA /* Extensions.swift */; };
 		B85A2BCE245EC24E00C10C0C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A2BCD245EC24E00C10C0C /* Keyboard.swift */; };
+		B873792B246B7DF800A77ABA /* ThingMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873792A246B7DF800A77ABA /* ThingMapViewDelegate.swift */; };
 		B8CF0303246263F3005C096E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF0302246263F3005C096E /* CoreLocation.framework */; };
 		B8CF030524626418005C096E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CF030424626418005C096E /* MapKit.framework */; };
 		B8CF030724626450005C096E /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CF030624626450005C096E /* LocationView.swift */; };
@@ -56,6 +57,7 @@
 		B85B4B8624572E1E00EAE800 /* Things+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Things+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B85B4B8724572E1E00EAE800 /* Thing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B85B4B8824572E1E00EAE800 /* Thing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thing+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B873792A246B7DF800A77ABA /* ThingMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingMapViewDelegate.swift; sourceTree = "<group>"; };
 		B8CF0302246263F3005C096E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B8CF030424626418005C096E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B8CF030624626450005C096E /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				B856EB362456C97300A70518 /* Things+ViewModel.swift */,
 				B8EA03A82456E6E4002CE9D5 /* Thing+ViewModel.swift */,
+				B873792A246B7DF800A77ABA /* ThingMapViewDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				B8FD2F18244582FC00A50693 /* rowView.swift in Sources */,
 				B8EA03A92456E8C6002CE9D5 /* Things+ViewModel.swift in Sources */,
 				B8FD2F16244582F100A50693 /* DetailView.swift in Sources */,
+				B873792B246B7DF800A77ABA /* ThingMapViewDelegate.swift in Sources */,
 				B8FD2ECE24457D0A00A50693 /* SceneDelegate.swift in Sources */,
 				B858396924643537003838AA /* Extensions.swift in Sources */,
 			);
