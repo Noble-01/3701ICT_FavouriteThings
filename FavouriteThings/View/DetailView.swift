@@ -41,8 +41,9 @@ struct DetailView: View {
                            .shadow(radius: 10)
                            .scaledToFit()
                     
+                    ///navigation link to change view to locationView
                     NavigationLink( destination: LocationView(model: ThingMapViewDelegate(thing: self.model))) {
-                           Text("🌏")
+                        ///display the name of the location for Thing
                         Text("Location: \(self.model.thingLocationName)")
                        }
                        HStack(alignment: .center) {

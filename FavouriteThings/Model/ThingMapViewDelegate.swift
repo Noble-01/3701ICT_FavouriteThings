@@ -14,21 +14,28 @@ import CoreLocation
 class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
     
     @ObservedObject  var thing: Thing
-    
+    ///latitude variable for textfields in locationView
     var textFieldLatitude: String
+    ///longitude variable for textfields in locationView
     var textFieldLongitude: String
     
+    ///initilizer for the thing object and longitude/longitude variables
     init(thing: Thing) {
         self.thing = thing
         textFieldLatitude = thing.thingLatitude
         textFieldLongitude = thing.thingLongitude
     }
     ///retrieve coordinates from model and place them into varaibles latitude and longitude
+    /**
+        gets the coordinates from the Thing in a CLLocationCoordinate2D
+        
+     - Returns: Longitude and Latitude in a CLLocationCoordinate2D
+     */
     func getterMapCoordinates() -> CLLocationCoordinate2D{
         return CLLocationCoordinate2D(latitude: thing.latitude, longitude: thing.longitude)
     }
     
-        ///set the long and lat values to the vars for the Thing object
+    ///set the long and lat values to the vars for the Thing object from a CLLocationCoordinate2D
     func setterMapCoordinates(newCoordinates: CLLocationCoordinate2D){
         thing.thingLongitude = "\(newCoordinates.longitude)"
         thing.thingLatitude = "\(newCoordinates.latitude)"
