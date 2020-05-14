@@ -32,7 +32,7 @@ struct LocationView: View{
                     Text(Thing.latitudeTextPlaceHolder)
                     ///display textfield for the location name for the thing or placeholder text
                     TextField(Thing.latitudeTextFieldPlaceHolder, text: $model.textFieldLatitude, onCommit: {
-                        if self.model.textFieldLatitude.isEmpty {
+                        if self.model.thing.thingLocationName == ""{
                              ///update name based on coordinates in textfields
                             self.model.updateNameFromCoordinate()
                         }
@@ -45,7 +45,7 @@ struct LocationView: View{
                     Text(Thing.longitudeTextPlaceHolder)
                     ///display textfield for the location name for the thing or placeholder text
                     TextField(Thing.longitudeTextFieldPlaceHolder, text: $model.textFieldLongitude, onCommit: {
-                        if self.model.textFieldLongitude.isEmpty{
+                        if self.model.thing.thingLocationName == ""{
                             ///update name based on coordinates in textfields
                             self.model.updateNameFromCoordinate()
                         }
