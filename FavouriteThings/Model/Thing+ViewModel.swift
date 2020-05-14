@@ -34,7 +34,20 @@ extension Thing{
      static var notesTextFieldPlaceHolder: String = "Add a note"
      ///placeholder variable for image URL textfield
      static var defaultImagePlaceHolder: String = "Image URL"
-    
+    ///placeholder variable for location text
+    static var LocationTextPlaceHolder: String = "Location"
+    ///placeholder variable for location name textfield
+    static var locationNameTextFieldPlaceHolder: String = "Location Name"
+    ///placeholder variable for latitude text
+    static var latitudeTextPlaceHolder: String = "Latitude:"
+     ///placeholder variable for longitude text
+    static var longitudeTextPlaceHolder: String = "Longitude:"
+    ///placeholder variable for latitude textfield
+    static var latitudeTextFieldPlaceHolder: String = "Enter latitude"
+    ///placeholder variable for longitude textfield
+    static var longitudeTextFieldPlaceHolder: String = "Enter longitude"
+    ///placeholder variable for location view button text
+    static var coordinatesOfLocationButton: String = "Find coordinates for location name"
     ///image to test the remoteURL for images
     ///https://i.redd.it/qi0r0pdbsgs31.jpg
      ///setter and getter for imageURL  of object thing

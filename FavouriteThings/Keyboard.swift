@@ -13,15 +13,15 @@ struct Keyboard : ViewModifier {
     @State var offset : CGFloat = 0
     func body (content: Content) -> some View {
         content.padding(.bottom, offset).onAppear{
-            //when keybaord appears on screen offset screen from keyboard
+            ///when keybaord appears on screen offset screen from keyboard
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) {
                 (notification) in
-                let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {return}
                 let height = value.height
                 
                 self.offset = height
             }
-            //when keyboard disappears remove offset
+            ///when keyboard disappears reset offset back to zero which 
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {
                 (notification) in
                 self.offset = 0

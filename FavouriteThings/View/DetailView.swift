@@ -26,10 +26,12 @@ struct DetailView: View {
                        ///display the title for the object stored in CoreData
                        TextField(Thing.titleValuePlaceHolder, text: self.$model.title)
                            .font(.title)
+                        .multilineTextAlignment(.center)
                            
                            ///display the sub title of thing stored in CoreData
                        TextField(Thing.subtTitleValuePlaceHolder, text: self.$model.subTitle)
                                .font(.subheadline)
+                        .multilineTextAlignment(.center)
                                .lineLimit(nil)
                        
                        ///retrieve image from updateImage func
@@ -46,36 +48,24 @@ struct DetailView: View {
                         ///display the name of the location for Thing
                         Text("Location: \(self.model.thingLocationName)")
                        }
-                       HStack(alignment: .center) {
+                    HStack(alignment: .center) {
                         ///display the following elements horizontally
-                           VStack(alignment: .trailing){
+                           VStack(alignment: .leading){
                                ///display text "Heading1:" or value stored in coredata
                                TextField(Thing.heading1PlaceHolder, text: self.$model.heading1)
-                               .multilineTextAlignment(.trailing)
+                               .multilineTextAlignment(.leading)
                                .frame(maxHeight: .infinity)
                                
                                ///display text "Heading2:" or value stored in coredata
                                TextField(Thing.heading2PlaceHolder, text: self.$model.heading2)
-                               .multilineTextAlignment(.trailing)
+                               .multilineTextAlignment(.leading)
                                .frame(maxHeight: .infinity)
                                
                                ///display text "Heading3:" or value stored in coredata
                                TextField(Thing.heading3PlaceHolder, text: self.$model.heading3)
-                               .multilineTextAlignment(.trailing)
+                               .multilineTextAlignment(.leading)
                                .frame(maxHeight: .infinity)
-
-                               ///display text "Image URL"
-                               Text(Thing.imageURLPlaceHolder)
-                               .fontWeight(.bold)
-                               .multilineTextAlignment(.center)
-                               .frame(maxHeight: .infinity)
-                               
-                               ///display text "Notes:"
-                               Text(Thing.notesPlaceHolder)
-                               .fontWeight(.bold)
-                               .multilineTextAlignment(.center)
-                               .frame(maxHeight: .infinity)
-
+                                
                            }
                            
                            VStack(alignment: .leading){
@@ -93,23 +83,39 @@ struct DetailView: View {
                                TextField(Thing.newElementTextPlaceHolder, text: self.$model.heading3Value)
                                .multilineTextAlignment(.leading)
                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                               
-                               /// display the url of thing image stored in coredata
-                               TextField(Thing.defaultImagePlaceHolder, text: self.$model.thingImageURL)
-                               .textFieldStyle(RoundedBorderTextFieldStyle())
-                               
-                               /// display the notes of thing stored in coredata
-                               TextField(Thing.notesTextFieldPlaceHolder, text: self.$model.thingNote)
-                               .textFieldStyle(RoundedBorderTextFieldStyle())
-
-
                            }
+
                        } .padding(.horizontal)
                         .fixedSize(horizontal: false, vertical: true)
-
+                    
+                    HStack(alignment: .center) {
+                        VStack(alignment: .leading){
+                            ///display text "Image URL"
+                            Text(Thing.imageURLPlaceHolder)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .frame(maxHeight: .infinity)
+                            
+                            /// display the url of thing image stored in coredata
+                            TextField(Thing.defaultImagePlaceHolder, text: self.$model.thingImageURL)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                            ///display text "Notes:"
+                            Text(Thing.notesPlaceHolder)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .frame(maxHeight: .infinity)
+                            
+                            /// display the notes of thing stored in coredata
+                            TextField(Thing.notesTextFieldPlaceHolder, text: self.$model.thingNote)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        }
+                    }.padding(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             ///calls struct Keyboard that ViewModifiers the context
         }.modifier(Keyboard())
+        
     }
 }
 
