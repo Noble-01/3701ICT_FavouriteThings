@@ -59,6 +59,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                          object1.image = "potato"
                          object1.imageURL = ""
                          object1.note = ""
+                        object1.thingLocationName = "Sydney"
+                        object1.latitude = Double(-33.8688)
+                        object1.longitude = Double(151.2093)
                      ///define the objects relationship to entity things
                          object1.list = things
                      ///add object to things using the functions provided in the Things+CoreDataProperties.swift
@@ -76,6 +79,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                          object2.image = "potato1"
                          object2.imageURL = ""
                          object2.note = ""
+                        object2.thingLocationName = "Gold Coast"
+                        object2.latitude = Double(-28.001889300000023)
+                        object2.longitude = Double(153.42848270000013)
                          object2.list = things
                      things.addToThings(object2)
                      
@@ -91,6 +97,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                          object3.image = "potato2"
                          object3.imageURL = ""
                          object3.note = ""
+                        object3.thingLocationName = "Brisbane"
+                        object3.latitude = Double(-27.4698)
+                        object3.longitude = Double(153.0251)
                          object3.list = things
                      things.addToThings(object3)
                      ///save the context to the CoreData

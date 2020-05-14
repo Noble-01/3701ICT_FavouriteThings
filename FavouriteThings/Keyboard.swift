@@ -8,20 +8,22 @@
 
 import Foundation
 import SwiftUI
+///struct is modifies the view of the context
 struct Keyboard : ViewModifier {
-    //var for offset
+    ///var for offset
     @State var offset : CGFloat = 0
     func body (content: Content) -> some View {
         content.padding(.bottom, offset).onAppear{
-            ///when keybaord appears on screen offset screen from keyboard
+            ///when keybaord appears on screen, offset screen from keyboard
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) {
                 (notification) in
+                ///safely unwraps value retrieved from the keyboard frame
                 guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {return}
                 let height = value.height
                 
                 self.offset = height
             }
-            ///when keyboard disappears reset offset back to zero which 
+            ///when keyboard disappears reset offset back to zero which lowers the view
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {
                 (notification) in
                 self.offset = 0

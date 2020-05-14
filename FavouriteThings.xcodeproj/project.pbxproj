@@ -149,8 +149,8 @@
 		B8FD2ECA24457D0A00A50693 /* FavouriteThings */ = {
 			isa = PBXGroup;
 			children = (
-				B858396824643537003838AA /* Extensions.swift */,
 				B85A2BCD245EC24E00C10C0C /* Keyboard.swift */,
+				B858396824643537003838AA /* Extensions.swift */,
 				B8FD2F10244582C600A50693 /* View */,
 				B8FD2F0B2445829600A50693 /* Model */,
 				B8FD2ECB24457D0A00A50693 /* AppDelegate.swift */,
