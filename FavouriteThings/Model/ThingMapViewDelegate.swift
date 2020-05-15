@@ -71,6 +71,8 @@ class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
         }
     ///update name once the coordinates has been fully entered into the textfield
     func updateNameFromCoordinate(){
+        ///only execute code if textfield for location name is empty
+        guard thing.thingLocationName == "" else {return}
         setterMapCoordinates(latitude: textFieldLatitude, longitude: textFieldLongitude)
             /// CLGeocoder allows for reverse and forwarding geocoding with both names and coordinates
             let geocoder = CLGeocoder()
