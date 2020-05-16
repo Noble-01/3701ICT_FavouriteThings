@@ -7,7 +7,7 @@
 //
 import CoreData
 import Foundation
-
+import SwiftUI
 extension Things {
     ///placeholder variable for things title  text
     static var thingsTitle: String = "Favourite Things"
@@ -34,5 +34,19 @@ extension Things {
          - Parameter destination: index place that object is being moved to
          */
         entries.move(fromOffsets: source, toOffset: destination)
+    }
+    /*
+    func addObject (context: NSManagedObjectContext){
+        ///create new object
+        let thing = Thing(context:context)
+        thing.things = self
+        ///save the context to CoreData
+        thing.save()
+    }*/
+    func save(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            fatalError("No App delegate")
+        }
+        appDelegate.saveContent()
     }
 }

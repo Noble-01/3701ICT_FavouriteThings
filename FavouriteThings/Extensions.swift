@@ -12,7 +12,6 @@ import UIKit
 
 ///updates the lat and long coordinates from the coordinates taken at the centre of the map
 extension  ThingMapViewDelegate: MKMapViewDelegate{
-
     ///updates coordinates once map has stopped moving
    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         ///retrieves values from center of map

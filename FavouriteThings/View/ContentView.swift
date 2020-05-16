@@ -33,7 +33,7 @@ struct ContentView : View {
                                 let thing = Thing(context: self.context)
                                 thing.list = self.things.first
                                 ///save the context to CoreData
-                                try? self.context.save()
+                                thing.list?.save()
                                 print("Successfully saved context")
                                 }
                             }){
