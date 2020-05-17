@@ -15,11 +15,11 @@
         <attribute name="thingHeading3Value" attributeType="String" defaultValueString=""/>
         <attribute name="thingSubTitle" attributeType="String" defaultValueString="subTitle"/>
         <attribute name="thingTitle" attributeType="String" defaultValueString="Title"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
+        <relationship name="things" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Things" inverseName="things" inverseEntity="Things"/>
     </entity>
     <entity name="Things" representedClassName="Things" syncable="YES" codeGenerationType="class">
         <attribute name="listTitle" attributeType="String" defaultValueString="Favourite Things"/>
-        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="list" inverseEntity="Thing"/>
+        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Thing" inverseName="things" inverseEntity="Thing"/>
     </entity>
     <elements>
         <element name="Thing" positionX="-12671.85546875" positionY="-1227.07421875" width="128" height="268"/>

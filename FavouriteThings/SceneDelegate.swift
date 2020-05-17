@@ -63,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         object1.latitude = Double(-33.8688)
                         object1.longitude = Double(151.2093)
                      ///define the objects relationship to entity things
-                         object1.list = things
+                         object1.things = things
                      ///add object to things using the functions provided in the Things+CoreDataProperties.swift
                      things.addToThings(object1)
                      
@@ -82,7 +82,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         object2.thingLocationName = "Gold Coast"
                         object2.latitude = Double(-28.001889300000023)
                         object2.longitude = Double(153.42848270000013)
-                         object2.list = things
+                         object2.things = things
                      things.addToThings(object2)
                      
                      let object3 = Thing(context: context)
@@ -100,7 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         object3.thingLocationName = "Brisbane"
                         object3.latitude = Double(-27.4698)
                         object3.longitude = Double(153.0251)
-                         object3.list = things
+                         object3.things = things
                      things.addToThings(object3)
                      ///save the context to the CoreData
                      appDelegate.saveContent()

@@ -31,6 +31,6 @@ extension Thing {
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
     @NSManaged public var locationName: String?
-    @NSManaged public var list: Things?
+    @NSManaged public var things: Things?
 
 }

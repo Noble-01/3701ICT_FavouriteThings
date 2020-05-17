@@ -35,14 +35,14 @@ extension Things {
          */
         entries.move(fromOffsets: source, toOffset: destination)
     }
-    /*
+    
     func addObject (context: NSManagedObjectContext){
         ///create new object
         let thing = Thing(context:context)
         thing.things = self
         ///save the context to CoreData
-        thing.save()
-    }*/
+        self.save()
+    }
     func save(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             fatalError("No App delegate")

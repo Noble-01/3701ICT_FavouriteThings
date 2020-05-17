@@ -59,68 +59,94 @@ extension Thing{
         }
     ///setter and getter for title  of object thing
     var title : String {
-        set {thingTitle = newValue}
+        set {thingTitle = newValue
+            things?.save()
+        }
         get {thingTitle ?? ""}
         }
     ///setter and getter for imageURL  of object thing
     var subTitle : String {
-        set{thingSubTitle = newValue}
+        set{thingSubTitle = newValue
+            things?.save()
+        }
         get {thingSubTitle ?? ""}
         }
     ///setter and getter for heading1   of object thing
     var heading1 : String {
-        set{thingHeading1 = newValue}
+        set{thingHeading1 = newValue
+            things?.save()
+        }
         get {thingHeading1 ?? ""}
         }
     ///setter and getter for heading 2  of object thing
     var heading2 : String {
-        set{thingHeading2 = newValue}
+        set{thingHeading2 = newValue
+            things?.save()
+        }
         get {thingHeading2 ?? ""}
         }
     ///setter and getter for heading 3  of object thing
     var heading3 : String {
-        set{thingHeading3 = newValue}
+        set{thingHeading3 = newValue
+            things?.save()
+        }
         get {thingHeading3 ?? ""}
         }
     ///setter and getter for heading 1 value  of object thing
     var heading1Value : String {
-        set{thingHeading1Value = newValue}
+        set{thingHeading1Value = newValue
+            things?.save()
+        }
         get {thingHeading1Value ?? ""}
         }
     ///setter and getter for heading 2 value  of object thing
     var heading2Value : String {
-        set{thingHeading2Value = newValue}
+        set{thingHeading2Value = newValue
+            things?.save()
+        }
         get {thingHeading2Value ?? ""}
         }
     ///setter and getter for heading 3 value  of object thing
     var heading3Value : String {
-        set{thingHeading3Value = newValue}
+        set{thingHeading3Value = newValue
+            things?.save()
+        }
         get {thingHeading3Value ?? ""}
         }
     ///setter and getter for image  of object thing
     var thingImage : String {
-        set{image = newValue}
+        set{image = newValue
+            things?.save()
+        }
         get {image ?? ""}
         }
     ///setter and getter for notes of object thing
     var thingNote : String {
-        set{note = newValue}
+        set{note = newValue
+            things?.save()
+        }
         get {note ?? ""}
         }
     var thingLocationName: String{
-        set {locationName = newValue}
+        set {locationName = newValue
+            things?.save()
+        }
         get {locationName ?? ""}
     }
     
     var thingLatitude: String {
         ///default coordinates for which the below vars use
-        set {latitude = Double(newValue) ?? -27.962}
+        set {latitude = Double(newValue) ?? -27.962
+            things?.save()
+        }
         get {"\(latitude)"}
     }
     
     var thingLongitude: String {
         ///default coordinates for which the below vars use
-        set {longitude = Double(newValue) ??  153.382}
+        set {longitude = Double(newValue) ??  153.382
+            things?.save()
+        }
         get {"\(longitude)"}
     }
     /**
