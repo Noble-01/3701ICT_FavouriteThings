@@ -33,6 +33,7 @@ extension Things {
          - Parameter destination: index place that object is being moved to
          */
         entries.move(fromOffsets: source, toOffset: destination)
+        self.save()
     }
     
     func addObject (context: NSManagedObjectContext){
