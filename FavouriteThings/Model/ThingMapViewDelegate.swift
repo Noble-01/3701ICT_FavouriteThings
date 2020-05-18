@@ -11,7 +11,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
+class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject, MKMapViewDelegate{
     
     @ObservedObject  var thing: Thing
     ///latitude variable for textfields in locationView
@@ -98,7 +98,12 @@ class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
                 self.thing.thingLocationName = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
             }
         }
-
+     ///updates coordinates once map has stopped moving
+    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+         ///retrieves values from center of map
+         let centre = mapView.centerCoordinate
+        self.setterMapCoordinates(newCoordinates: centre)
+     }
 }
 
 
