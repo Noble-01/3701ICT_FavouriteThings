@@ -49,7 +49,7 @@ struct LocationView: View{
                 }
                 ///display a button which updates the thing's coordinates based on its location name
                 Button(Thing.coordinatesOfLocationButton){
-                    ///call function in ThingMapViewDelegate class  to update the name from the coordinates places in the textfields
+                    ///call function in ThingMapViewDelegate class  to update the coordinates from the name in the textfields
                     self.model.updateCoordinateFromName()
                 }
             }

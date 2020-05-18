@@ -43,10 +43,13 @@ extension Things {
         ///save the context to CoreData
         self.save()
     }
+    ///function is used to save the context of the app delegate
     func save(){
+        ///unwrap app delegate and see if it exists
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             fatalError("No App delegate")
         }
+        ///save content of the app delegate
         appDelegate.saveContent()
     }
 }

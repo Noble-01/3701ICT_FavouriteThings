@@ -29,6 +29,7 @@ struct ContentView : View {
                     ///A button is a  control that performs an action when triggered.
                     ///creates new object then saves the context to the CoreData
                     Button(action:{withAnimation{
+                        ///calls function addObject() which creates the object for the model and saves it as well in the function
                         self.things.first?.addObject(context:self.context)
                         print("Successfully saved context")
                         }
@@ -37,6 +38,7 @@ struct ContentView : View {
                     }
                 }
             )
+        ///navigation style that allows for the screen to split in two shoing the navigation view and detail view
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
         .padding()
     }

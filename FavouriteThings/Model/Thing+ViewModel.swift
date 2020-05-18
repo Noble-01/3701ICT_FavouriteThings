@@ -60,6 +60,7 @@ extension Thing{
     ///setter and getter for title  of object thing
     var title : String {
         set {thingTitle = newValue
+            ///save the context of the textfield to core data
             things?.save()
         }
         get {thingTitle ?? ""}
@@ -127,23 +128,24 @@ extension Thing{
         }
         get {note ?? ""}
         }
+    ///setter and getter for location name
     var thingLocationName: String{
         set {locationName = newValue
             things?.save()
         }
         get {locationName ?? ""}
     }
-    
+    ///setter and getter for latitude variable of model
     var thingLatitude: String {
-        ///default coordinates for which the below vars use
+        ///default coordinates for which the below vars use if unable to set a new value
         set {latitude = Double(newValue) ?? -27.962
             things?.save()
         }
         get {"\(latitude)"}
     }
-    
+    ///setter and getter for longitude variable of model
     var thingLongitude: String {
-        ///default coordinates for which the below vars use
+        ///default coordinates for which the below vars use if unable to set a new value
         set {longitude = Double(newValue) ??  153.382
             things?.save()
         }

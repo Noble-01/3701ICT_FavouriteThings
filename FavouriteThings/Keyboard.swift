@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 ///struct is modifies the view of the context
 struct Keyboard : ViewModifier {
-    ///var for offset
+    ///var for offset with type floating-point scalar values in Core Graphics and related frameworks
     @State var offset : CGFloat = 0
     func body (content: Content) -> some View {
         content.padding(.bottom, offset).onAppear{
@@ -20,7 +20,7 @@ struct Keyboard : ViewModifier {
                 ///safely unwraps value retrieved from the keyboard frame
                 guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {return}
                 let height = value.height
-                
+                ///offset value for view
                 self.offset = height
             }
             ///when keyboard disappears reset offset back to zero which lowers the view

@@ -56,6 +56,7 @@ class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
                     ///location is an attribute of CLLocation class
                     ///let location set the coordinate attributes of CLLocation
                 let location = placemark.location else{
+                    ///return errors to usre if unable to get location
                     let description: String
                     if let error = maybeError{
                         description = "\(error)"
@@ -82,6 +83,7 @@ class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject{
             geocoder.reverseGeocodeLocation(location) { (maybePlaceMarks, maybeError) in
                 ///location is optional in case we don't get anything returned
                 guard let placemark = maybePlaceMarks?.first else{
+                    ///return errors back to user if unbale to get placemark
                     let description: String
                     if let error = maybeError{
                         description = "\(error)"
