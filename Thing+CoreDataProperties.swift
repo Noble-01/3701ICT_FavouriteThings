@@ -10,13 +10,14 @@
 import Foundation
 import CoreData
 
-
+///declares an extension to hold the @NSManaged properties representing attributes and relationships,
 extension Thing {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Thing> {
+        ///entity name
         return NSFetchRequest<Thing>(entityName: "Thing")
     }
-
+    ///attributes for the entity called Thing
     @NSManaged public var image: String?
     @NSManaged public var imageURL: String?
     @NSManaged public var note: String?
