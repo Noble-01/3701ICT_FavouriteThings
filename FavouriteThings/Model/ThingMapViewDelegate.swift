@@ -7,7 +7,6 @@
 //
 import CoreData
 import SwiftUI
-import Foundation
 import MapKit
 import CoreLocation
 
@@ -93,9 +92,8 @@ class ThingMapViewDelegate: NSObject, Identifiable, ObservableObject, MKMapViewD
                     print("got error: \(description)")
                     return
                 }
-                ///update name from placemark which is placed based on the coordinates or return the administrative area of the placemark etc
-                ///just returns something for user to see
-                self.thing.thingLocationName = placemark.name ?? placemark.administrativeArea ?? placemark.locality ?? placemark.subLocality ?? placemark.thoroughfare ?? placemark.subThoroughfare ?? placemark.country ?? "<Yeah your not on earth>"
+                ///update name from placemark which is placed based on the coordinates or return the name and locality of location
+                self.thing.thingLocationName = (placemark.name ?? "") + " " + (placemark.locality ?? "")
             }
         }
      ///updates coordinates once map has stopped moving

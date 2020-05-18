@@ -6,7 +6,6 @@
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
 import CoreData
-import Foundation
 import SwiftUI
 extension Things {
     ///placeholder variable for things title  text

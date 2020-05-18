@@ -7,9 +7,6 @@
 //
 import CoreData
 import SwiftUI
-import Foundation
-import MapKit
-import CoreLocation
 
 extension Thing{
     ///placeholder variable for notes  label text
