@@ -18,10 +18,11 @@ struct LocationView: View{
             ///display map based on model
             MapView(viewModel: model)
             ScrollView{
-                ///display the following elements in a vertical column
-                VStack{
+                ///display the following elements in a vertical column and the left of the screen
+                VStack(alignment: .leading){
                     ///display location name heading called Location
                     Text(Thing.LocationTextPlaceHolder)
+                    .font(.title)
                     ///display textfield for the location name for the thing or placeholder text
                     TextField(Thing.locationNameTextFieldPlaceHolder, text: model.$thing.thingLocationName)
                 }

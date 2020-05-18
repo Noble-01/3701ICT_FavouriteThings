@@ -25,14 +25,14 @@ struct DetailView: View {
                    VStack(alignment: .center) {
                        ///display the title for the object stored in CoreData
                        TextField(Thing.titleValuePlaceHolder, text: self.$model.title)
-                           .font(.title)
+                        .font(.title)
                         .multilineTextAlignment(.center)
                            
                            ///display the sub title of thing stored in CoreData
                        TextField(Thing.subtTitleValuePlaceHolder, text: self.$model.subTitle)
-                               .font(.subheadline)
+                        .font(.subheadline)
                         .multilineTextAlignment(.center)
-                               .lineLimit(nil)
+                        .lineLimit(nil)
                        
                        ///retrieve image from updateImage func
                        self.model.updateImage()
@@ -46,7 +46,7 @@ struct DetailView: View {
                     ///navigation link to change view to locationView
                     NavigationLink( destination: LocationView(model: ThingMapViewDelegate(thing: self.model))) {
                         ///display the name of the location for Thing
-                        Text("Location: \(self.model.thingLocationName)")
+                        Text("Location: \(self.model.thingLocationName) >")
                        }
                     HStack(alignment: .center) {
                         ///display the following elements horizontally
